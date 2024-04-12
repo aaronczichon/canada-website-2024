@@ -1,0 +1,18 @@
+name: PR Builds
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-build:
+    name: Build Assets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: cd site && npm ci
+      - run: cd site && npm run build

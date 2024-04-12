@@ -1,0 +1,13 @@
+pre.astro-code {
+  line-height: 1.3em;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+code > span {
+  padding-left: 8px;
+}
+
+p > code {
+  background-color: var(--bg-color-simple-code);
+}

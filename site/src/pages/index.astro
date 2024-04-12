@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+const allPosts = await getCollection("blog");
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+import image from "../resources/hero.jpeg";
+---
+
+<Layout title="Canada - Working Holiday für 12 Monate">
+  <Hero
+    image={image}
+    alt="Blick auf Downtown Halifax von der Dartmouth Uferseite bei leichtem Sonnenuntergang von rechts."
+  />
+  <main class="container">
+    <article>
+      <h1>Lasst das Abenteuer beginnen!</h1>
+      12 Monate leben in Kanada. Ein Traum wahr werden lassen und du kannst mit dabei
+      sein. Virtuell natürlich. Beginnend mit 2 Monaten in Halifax, Nova Scotia reisen
+      wir durch das Land und erkunden das wunderbare und schöne Kanada.
+      <br /><br />
+      Unser aktueller Plan sieht die ersten 2 Monate in Halifax vor, danach wollen
+      wir nach Neufundland reisen, wo wir den Sommer verbringen werden.
+      <br /><br />
+      Danach is bisher noch alles offen. Vielleicht fahren wir von der Ostküste nach
+      Montreal und Toronto. Definitiv steht auch der Norden auf dem Plan, weshalb
+      wir nach Toronto wollen. Von dort ausgehend sind Inlandsflüge nach z.B. Yellowknife
+      besser zu bekommen.
+      <br /><br />
+      Aber lasst uns sehen, was die kommenden Wochen und Monate bringen werden!
+    </article>
+    <h2>Neusten Beiträge</h2>
+    <div class="entry-grid">
+      {
+        allPosts
+          .sort((a, b) => {
+            return a.data.pubDate > b.data.pubDate ? -1 : 1;
+          })
+          .map((post) => (
+            <a href={"/blog/" + post.slug} class="entry">
+              {post.data.image ? (
+                <Image
+                  widths={[700]}
+                  sizes={`700px`}
+                  src={post.data.image.url}
+                  alt={post.data.image.alt}
+                  style="max-height: 350px; width: 100%; object-fit: cover;"
+                />
+              ) : null}
+              <h3>
+                {post.data.title}
+                <span class="entry--date">
+                  {new Date(post.data.pubDate).toLocaleDateString(
+                    "de-DE",
+                    dateOptions,
+                  )}
+                </span>
+              </h3>
+              <p>{post.data.description}</p>
+            </a>
+          ))
+      }
+    </div>
+  </main>
+</Layout>

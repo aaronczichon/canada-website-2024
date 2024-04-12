@@ -1,0 +1,57 @@
+---
+import MenuIcon from "./MenuIcon.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+import mainImage from "./main.jpg";
+import { Image } from "astro:assets";
+---
+
+<div class="container">
+  <nav class="container topnav" id="myTopnav">
+    <a href="/" class={currentPath === "" ? "active" : ""}>
+      <Image
+        src={mainImage}
+        alt="Aaron Czichon & Lea Gräß"
+        class="img-profile"
+        widths={[30]}
+        sizes={`30px`}
+      />
+    </a>
+    <!-- <a href="#contact">Canada</a> -->
+    <a href="/blog/" class={currentPath.indexOf("blog") > -1 ? "active" : ""}
+      >Blog</a
+    >
+    <a href="/map" class={currentPath.indexOf("map") > -1 ? "active" : ""}
+      >Map</a
+    >
+    <a
+      href="/pengiun"
+      class={currentPath.indexOf("pengiun") > -1 ? "active" : ""}
+      >Find Pengiuns</a
+    >
+    <!-- <a href="images.html">Images</a> -->
+    <a href="/about/" class={currentPath.indexOf("about") > -1 ? "active" : ""}
+      >Über uns</a
+    >
+    <a href="https://aaronczichon.de/imprint/" target="_blank">Impressum</a>
+    <a
+      href="javascript:void(0);"
+      rel="nofollow"
+      class="icon"
+      onclick="toggleNav()"
+    >
+      <MenuIcon />
+    </a>
+  </nav>
+</div>
+<script is:inline>
+  function toggleNav() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "container topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "container topnav";
+    }
+  }
+</script>

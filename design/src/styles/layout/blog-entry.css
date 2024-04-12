@@ -1,0 +1,47 @@
+.blog-entry {
+	line-height: 1.7em;
+}
+
+.blog-entry img {
+	width: 100%;
+	max-height: 250px;
+	object-fit: contain;
+}
+
+@media only screen and (min-width: 30em) {
+	.blog-entry img {
+		max-height: 350px;
+	}
+}
+
+@media only screen and (min-width: 48em) {
+	.blog-entry img {
+		max-height: 450px;
+	}
+}
+
+.blog-entry blockquote {
+	text-align: center;
+	font-style: italic;
+	margin-top: 0;
+}
+
+.blog-entry blockquote p {
+	margin-top: 0;
+}
+
+th,
+td {
+	text-align: left;
+}
+
+th,
+td {
+	padding: 0 8px;
+}
+
+details {
+	font-style: italic;
+	background-color: var(--blog-entry-details);
+	padding: 0 4px 0 4px;
+}

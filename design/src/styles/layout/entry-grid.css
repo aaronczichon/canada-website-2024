@@ -1,0 +1,37 @@
+.entry-grid {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: repeat(auto-fit, minmax(328px, 1fr));
+	margin-bottom: 32px;
+}
+
+.entry {
+	width: 100%;
+}
+
+.entry,
+.entry:hover,
+.entry:visited {
+	color: var(--primary-font-color);
+	text-decoration: none;
+}
+
+.entry img {
+	width: 100%;
+	border-radius: var(--border-radius);
+}
+
+.entry h3 {
+	color: var(--heading-color);
+}
+
+.entry p {
+	font-weight: 400;
+	line-height: 1.7em;
+}
+
+.entry--date {
+	color: var(--primary-font-color);
+	margin: var(--entry-date-margin);
+	font-size: 0.8em;
+}

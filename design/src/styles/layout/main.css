@@ -1,0 +1,54 @@
+:root {
+	--border-radius: 5px;
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--primary-font-color);
+	font-family: 'Mona Sans';
+	font-size: 1.1rem;
+	font-display: swap;
+}
+
+a {
+	color: var(--link-color);
+	font-weight: 700;
+}
+
+.container {
+	width: calc(100%-16px);
+	margin-left: auto;
+	margin-right: auto;
+	/* padding: 8px; */
+}
+.main {
+	float: left;
+	width: calc(100% - 40px);
+	padding: 20px;
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+	.container {
+		width: 80%;
+	}
+
+	.main {
+		width: 80%;
+		padding: 0;
+	}
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+	.container {
+		width: 70%;
+	}
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+	.container {
+		width: 50%;
+	}
+}
