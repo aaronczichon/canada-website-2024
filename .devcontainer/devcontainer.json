@@ -14,7 +14,5 @@
 		"vscode": {
 			"extensions": ["esbenp.prettier-vscode", "mutantdino.resourcemonitor", "astro-build.astro-vscode"]
 		}
-	},
-  "appPort": [1234],
-  "forwardPorts": [8080]
+	}
 }
