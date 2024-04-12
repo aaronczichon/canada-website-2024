@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "Canada Website 2024",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:dev-20-bullseye",
+	"features": {
+		"ghcr.io/devcontainers-community/npm-features/prettier:1": {}
+	},
+	"mounts": [
+    "source=${localEnv:HOME}/sourcecode/devcontainer-sharing,target=/workspaces/shared,type=bind,consistency=cached"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": ["esbenp.prettier-vscode", "mutantdino.resourcemonitor", "astro-build.astro-vscode"]
+		}
+	},
+  "appPort": [1234],
+  "forwardPorts": [8080]
+}
