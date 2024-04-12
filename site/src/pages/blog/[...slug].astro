@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import PubDate from "../../components/PubDate.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const wordCount = entry.body.split(/\s+/).filter((word) => word !== "").length;
+const averageWPM = 200; // Adjust according to your audience's reading speed
+const readingTime = Math.ceil(wordCount / averageWPM);
+---
+
+<Layout title={"Canada - " + entry.data.title}>
+  {
+    entry.data.image ? (
+      <Hero image={entry.data.image.url} alt={entry.data.image.alt} />
+    ) : (
+      ""
+    )
+  }
+  <main class="container">
+    <article class="blog-entry">
+      <h1>{entry.data.title}</h1>
+      <PubDate date={entry.data.pubDate}>
+        | Lesezeit: {readingTime}min | Geschrieben von: {
+          entry.data.author
+        }</PubDate
+      >
+      <Content />
+    </article>
+  </main>
+</Layout>

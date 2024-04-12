@@ -12,7 +12,7 @@
 	],
 	"customizations": {
 		"vscode": {
-			"extensions": ["esbenp.prettier-vscode", "mutantdino.resourcemonitor", "astro-build.astro-vscode"]
+			"extensions": ["esbenp.prettier-vscode", "mutantdino.resourcemonitor", "astro-build.astro-vscode", "unifiedjs.vscode-mdx"]
 		}
 	}
 }

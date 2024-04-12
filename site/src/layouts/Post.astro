@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={"Canada - " + frontmatter.title}>
+  {
+    frontmatter.image ? (
+      <Hero url={frontmatter.image.url} alt={frontmatter.image.alt} />
+    ) : (
+      ""
+    )
+  }
+  <main class="container">
+    <article class="blog-entry">
+      <slot />
+    </article>
+  </main>
+</Layout>
+./Layout.astro
+./Layout.astro

@@ -22,5 +22,9 @@ Yeah of course! Use it for your own website, blog or whatever. It's open source 
 In the unlikely event that you want to contribute, feel free to create a Pull Request.   
 I only ask you to sign your commits please. If you need help with that, let me know.
 
+## Language
+
+As this website is intend for our friends which are all German speaking the content is in German. So if you use it for your own content you may want to remove all the German texts and so own.   
+
 ## Credits
 (Image generated with DALL-E 3 using the prompt: `canada website and blog with a bear`)

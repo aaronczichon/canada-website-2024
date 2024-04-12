@@ -1,0 +1,36 @@
+{
+	"name": "canada.aaronczichon.de",
+	"type": "module",
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "npm run rm:styles && npm run copy:styles && npm run dev",
+		"build": "npm run copy:styles && npm run copy:tokens && astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"prettier": "prettier --config ./.prettierrc.mjs --write \"**{.mdx,.css,.md,.html,.astro,.tsx,.ts}\"",
+		"copy:tokens": "cp ./dev-templates/public-tokens.ts.tmpl ./src/tokens/public-tokens.ts",
+		"copy:canada-variables": "cp ../design/src/styles/variants/variables-canada.css ./src/styles/common/variables.css",
+		"copy:styles": "cp -R ../design/src/styles ./src/styles && npm run copy:canada-variables",
+		"copy:assets": "cp -R ../design/src/assets ./public/assets",
+		"rm:styles": "rm -rf ./src/styles"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.5.6",
+		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/preact": "^3.1.1",
+		"@astrojs/rss": "^4.0.5",
+		"astro": "^4.4.5",
+		"gpxparser": "^3.0.8",
+		"mapbox-gl": "^3.2.0",
+		"markdown-it": "^14.0.0",
+		"preact": "^10.19.7",
+		"sanitize-html": "^2.12.1",
+		"typescript": "^5.3.3"
+	},
+	"devDependencies": {
+		"@types/mapbox-gl": "^3.1.0",
+		"prettier": "^3.2.5",
+		"prettier-plugin-astro": "^0.13.0"
+	}
+}
