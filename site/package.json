@@ -2,6 +2,8 @@
 	"name": "canada.aaronczichon.de",
 	"type": "module",
 	"version": "1.0.0",
+	"license": "GPL-3.0-only",
+	"author": "Aaron Czichon <mail@aaronczichon.de>",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "npm run rm:styles && npm run copy:styles && npm run dev",
@@ -9,9 +11,8 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"prettier": "prettier --config ./.prettierrc.mjs --write \"**{.mdx,.css,.md,.html,.astro,.tsx,.ts}\"",
-		"copy:tokens": "cp ./dev-templates/public-tokens.ts.tmpl ./src/tokens/public-tokens.ts",
-		"copy:canada-variables": "cp ../design/src/styles/variants/variables-canada.css ./src/styles/common/variables.css",
-		"copy:styles": "cp -R ../design/src/styles ./src/styles && npm run copy:canada-variables",
+		"copy:tokens": "cp ./dev-templates/public-tokens.ts.tmpl ./src/public-tokens.ts",
+		"copy:styles": "cp -R ../design/src/styles ./src/styles",
 		"copy:assets": "cp -R ../design/src/assets ./public/assets",
 		"rm:styles": "rm -rf ./src/styles"
 	},

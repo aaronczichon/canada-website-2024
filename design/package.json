@@ -1,0 +1,23 @@
+{
+	"name": "canada_design",
+	"version": "1.0.0",
+	"description": "HTML and CSS Elements for canada website. Design only.",
+	"source": "src/index.html",
+	"scripts": {
+		"start": "parcel",
+		"build": "parcel build",
+		"prettier": "prettier --write ."
+	},
+	"keywords": [
+		"design",
+		"canada",
+		"blog",
+		"website"
+	],
+	"author": "Aaron Czichon <mail@aaronczichon.de>",
+	"license": "GPL-3.0-only",
+	"devDependencies": {
+		"parcel": "^2.11.0",
+		"prettier": "^3.2.5"
+	}
+}

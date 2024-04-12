@@ -1,0 +1,19 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--heading-color);
+	font-family: 'Mona Sans';
+}
+
+.margin--top {
+	margin-top: initial;
+}
+
+@media only screen and (min-width: 48em) {
+	.margin--top {
+		margin-top: 0;
+	}
+}

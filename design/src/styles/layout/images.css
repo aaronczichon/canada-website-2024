@@ -1,0 +1,58 @@
+.image-grid {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: repeat(auto-fit, minmax(328px, 1fr));
+	margin-bottom: 32px;
+}
+
+.image {
+	width: 100%;
+	position: relative;
+}
+
+.image,
+.image:hover,
+.image:visited {
+	color: var(--heading-color);
+	text-decoration: none;
+}
+
+.image img {
+	width: 100%;
+	border-radius: var(--border-radius);
+}
+
+.image .image--center,
+.image .image-overlay {
+	display: none;
+}
+
+.image:hover .image--center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.image:hover .image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100% - 4px);
+	background-color: black;
+	opacity: 0.5;
+}
+
+.image h3 {
+	color: var(--secondary-color-ultra-light);
+}
+
+.image p {
+	line-height: 1.7em;
+}
+
+.image--date {
+	color: var(--secondary-color-ultra-light);
+	margin-left: 8px;
+	font-size: 0.8em;
+}

@@ -1,0 +1,18 @@
+:root {
+	--primary-color: #b33335;
+	--primary-color-dark: #000000;
+	--primary-color-light: #d87475;
+	--secondary-color: #e8c872;
+	--secondary-color-light: #fff3cf;
+	--secondary-color-ultra-light: #ffffff;
+
+	--background-color: var(--secondary-color-ultra-light);
+	--heading-color: var(--primary-color);
+	--primary-font-color: var(--primary-color-dark);
+
+	--nav-margin: 0;
+	--nav-border: none;
+	--nav-border-radius: 0;
+	
+	--entry-date-margin: 0 0 0 8px;
+}
