@@ -38,9 +38,16 @@ import rssIcon from "../resources/rss.svg";
           })
           .map((post) => (
             <a href={"/blog/" + post.slug} class="entry">
-              {post.data.image ? (
+              {post.data.image && post.data.image.url ? (
                 <Image
                   src={post.data.image.url}
+                  alt={post.data.image.alt}
+                  style="max-height: 350px; width: 100%; object-fit: cover;"
+                />
+              ) : null}
+              {post.data.image && post.data.image.href ? (
+                <img
+                  src={post.data.image.href}
                   alt={post.data.image.alt}
                   style="max-height: 350px; width: 100%; object-fit: cover;"
                 />
