@@ -11,13 +11,14 @@ const dateOptions: object = {
   day: "numeric",
 };
 
-import image from "../resources/hero.jpeg";
+const heroImg =
+  "https://directus.aaronczichon.de/assets/ad8ec531-a3b7-45f1-b0c8-81fffd1ca84d.jpg?quality=80&width=2000";
 ---
 
 <Layout title="Canada - Working Holiday für 12 Monate">
   <Hero
-    image={image}
-    alt="Blick auf Downtown Halifax von der Dartmouth Uferseite bei leichtem Sonnenuntergang von rechts."
+    url={heroImg}
+    alt="Strahlendblauer Himmel welcher eine große Kanada-Flagge zeigt."
   />
   <main class="container">
     <article>
@@ -45,11 +46,18 @@ import image from "../resources/hero.jpeg";
           })
           .map((post) => (
             <a href={"/blog/" + post.slug} class="entry">
-              {post.data.image ? (
+              {post.data.image && post.data.image.url ? (
                 <Image
                   widths={[700]}
                   sizes={`700px`}
                   src={post.data.image.url}
+                  alt={post.data.image.alt}
+                  style="max-height: 350px; width: 100%; object-fit: cover;"
+                />
+              ) : null}
+              {post.data.image && post.data.image.href ? (
+                <img
+                  src={post.data.image.href}
                   alt={post.data.image.alt}
                   style="max-height: 350px; width: 100%; object-fit: cover;"
                 />

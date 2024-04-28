@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'preact/hooks';
-import * as mapboxgl from 'mapbox-gl';
 
 import BasicMap from './BasicMap';
 import {addTooltipToMap, addRoutesToMap, fetchGpxFile, findCenter } from '../functions/map.functions';

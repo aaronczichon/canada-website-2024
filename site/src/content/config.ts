@@ -10,7 +10,8 @@ const blogCollection = defineCollection({
       author: z.string(),
       image: z
         .object({
-          url: image(),
+          url: image().optional(),
+          href: z.string().optional(),
           alt: z.string(),
         })
         .optional(),

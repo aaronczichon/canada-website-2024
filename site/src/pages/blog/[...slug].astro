@@ -22,8 +22,15 @@ const readingTime = Math.ceil(wordCount / averageWPM);
 
 <Layout title={"Canada - " + entry.data.title}>
   {
-    entry.data.image ? (
+    entry.data.image && entry.data.image.url ? (
       <Hero image={entry.data.image.url} alt={entry.data.image.alt} />
+    ) : (
+      ""
+    )
+  }
+  {
+    entry.data.image && entry.data.image.href ? (
+      <Hero url={entry.data.image.href} alt={entry.data.image.alt} />
     ) : (
       ""
     )
