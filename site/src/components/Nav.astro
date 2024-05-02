@@ -30,11 +30,18 @@ import { Image } from "astro:assets";
       class={currentPath.indexOf("pengiun") > -1 ? "active" : ""}
       >Find Pengiuns</a
     >
+    <a
+      href="/visitors"
+      class={currentPath.indexOf("visitors") > -1 ? "active" : ""}>Besuch</a
+    >
     <!-- <a href="images.html">Images</a> -->
     <a href="/about/" class={currentPath.indexOf("about") > -1 ? "active" : ""}
       >Über uns</a
     >
-    <a href="https://aaronczichon.de/imprint/" target="_blank">Impressum</a>
+    <a
+      href="/imprint/"
+      class={currentPath.indexOf("imprint") > -1 ? "active" : ""}>Impressum</a
+    >
     <a
       href="javascript:void(0);"
       rel="nofollow"
