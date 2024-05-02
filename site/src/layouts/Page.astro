@@ -1,0 +1,19 @@
+---
+import Hero from "../components/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <!-- <Hero
+    image={image}
+    alt="Links im Bild Aaron mit einem schwarzen Kanada-T-Shirt rechts daneben Lea mit dem gleichen Shirt in rot."
+  /> -->
+  <main class="container">
+    <article>
+      <h1>{frontmatter.title}</h1>
+      <slot />
+    </article>
+  </main>
+</Layout>
