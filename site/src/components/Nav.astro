@@ -7,8 +7,8 @@ import mainImage from "./main.jpg";
 import { Image } from "astro:assets";
 ---
 
-<div class="container">
-  <nav class="container topnav" id="myTopnav">
+<div class="container-nav">
+  <nav class="container-nav topnav" id="myTopnav">
     <a href="/" class={currentPath === "" ? "active" : ""}>
       <Image
         src={mainImage}
@@ -55,10 +55,10 @@ import { Image } from "astro:assets";
 <script is:inline>
   function toggleNav() {
     var x = document.getElementById("myTopnav");
-    if (x.className === "container topnav") {
+    if (x.className === "container-nav topnav") {
       x.className += " responsive";
     } else {
-      x.className = "container topnav";
+      x.className = "container-nav topnav";
     }
   }
 </script>

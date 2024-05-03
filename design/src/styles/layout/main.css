@@ -15,12 +15,13 @@ a {
 	font-weight: 700;
 }
 
-.container {
+.container,
+.container-nav {
 	width: calc(100% - 16px);
 	margin-left: auto;
 	margin-right: auto;
-	/* padding: 8px; */
 }
+
 .main {
 	float: left;
 	width: calc(100% - 40px);
@@ -44,11 +45,17 @@ a {
 	.container {
 		width: 70%;
 	}
+	.container-nav {
+		width: calc(100% - 16px);
+	}
 }
 
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 80em) {
 	.container {
 		width: 50%;
+	}
+	.container-nav {
+		width: calc(100% - 16px);
 	}
 }

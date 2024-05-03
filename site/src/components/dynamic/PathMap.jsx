@@ -12,7 +12,7 @@ export default function PathDynamicMap({gpxInfo, zoom, tooltip}) {
     if (!map || !gpxInfo || gpxInfo.length === 0) return;
 
     Promise.all(gpxInfo.map((info) => fetchGpxFile(info.url)
-    .then(route => ({ tooltip: info.tooltip, url: info.url, routeCoordinates: route, color: '#' + Math.floor(Math.random()*16777215).toString(16) }))))
+    .then(route => ({ tooltip: info.tooltip, url: info.url, routeCoordinates: route, color: '#CA2B2B' }))))
     .then((routes) => setRouteData(routes));
   }, [gpxInfo, map]);
 
