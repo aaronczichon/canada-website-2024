@@ -1,14 +1,14 @@
 import type { MultiMapProps } from "../components/dynamic/MultiMap";
 
 export const VisitingLocations: MultiMapProps = {
-  mapCenter: [-64.85750773761266, 44.5570764745086],
-  zoom: 7.5,
+  mapCenter: [-59.03460634364587, 47.28165248503039],
+  zoom: 5.5,
   points: [
     {
       id: "01-halifax",
       color: "#CA2B2B",
       coordinates: [-63.582687, 44.65107],
-      tooltip: "Unser aktueller Standort in Halifax",
+      tooltip: "Unser erster Aufenthalt in Halifax",
       useRadius: true,
     },
     {
@@ -24,6 +24,13 @@ export const VisitingLocations: MultiMapProps = {
         </ul>
         `,
       useRadius: false,
+    },
+    {
+      id: "03-brighton",
+      color: "#CA2B2B",
+      coordinates: [-55.63716810349037, 49.547550234959],
+      tooltip: "Unser aktueller Standort in Brighton",
+      useRadius: true,
     },
   ],
 };
