@@ -28,15 +28,17 @@ export default function MultiMap({ zoom, mapCenter, points }: MultiMapProps) {
 
   useEffect(() => {
     if (!map || !mapCenter || !points) return;
-    renderMapParts(
-      map,
-      () =>
-        points.forEach((point) => {
-          console.log(point);
-          renderPoint(map, point);
-        }),
-      () => setMapCenter(map, mapCenter),
-    );
+    map.on("load", () => {
+      renderMapParts(
+        map,
+        () =>
+          points.forEach((point) => {
+            console.log(point);
+            renderPoint(map, point);
+          }),
+        () => setMapCenter(map, mapCenter),
+      );
+    });
   }, [mapCenter, points, map]);
 
   return <BasicMap zoom={zoom} setMap={setMap} />;

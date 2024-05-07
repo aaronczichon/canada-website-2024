@@ -19,6 +19,7 @@ export default function PathDynamicMap({gpxInfo, zoom, tooltip}) {
   useEffect(() => {
     // Add route to map
     if (!map || !routeData || routeData.length === 0) return;
+    map.on("load", () => {
       addRoutesToMap(map, routeData);
       routeData.forEach((element, index) => {
         if (element.tooltip) addTooltipToMap(map, element.tooltip, `route-${index}`);
@@ -26,6 +27,7 @@ export default function PathDynamicMap({gpxInfo, zoom, tooltip}) {
       const allCoordinates = routeData.map((route) => route.routeCoordinates).flat();
       const center = findCenter(allCoordinates);
       map.setCenter(center);
+    });
   }, [map, routeData, popup, tooltip]);
 
   return (
