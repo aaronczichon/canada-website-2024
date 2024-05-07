@@ -26,7 +26,14 @@ export const VisitingLocations: MultiMapProps = {
       useRadius: false,
     },
     {
-      id: "03-brighton",
+      id: "03-cape-breton",
+      color: "#CA2B2B",
+      coordinates: [-61.0604, 46.53136],
+      tooltip: "Übernachtung in Cape Breton auf dem Weg nach Newfoundland",
+      useRadius: false,
+    },
+    {
+      id: "04-brighton",
       color: "#CA2B2B",
       coordinates: [-55.63716810349037, 49.547550234959],
       tooltip: "Unser aktueller Standort in Brighton",

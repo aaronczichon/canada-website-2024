@@ -52,9 +52,7 @@ export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
  * @param args all functions related to map which should be called
  */
 export const renderMapParts = (map: mapboxgl.Map, ...args: Function[]) => {
-  map.on("load", () => {
-    args.forEach((arg) => arg());
-  });
+  args.forEach((arg) => arg());
 };
 
 /**
@@ -76,31 +74,29 @@ export const setMapCenter = (map: mapboxgl.Map, center: number[]) => {
  * @param routeData array of RouteData objects
  */
 export const addRoutesToMap = (map: any, routeData: RouteData[]) => {
-  map.on("load", () => {
-    routeData.forEach((element, index) => {
-      map.addLayer({
-        id: `route-${index}`,
-        type: "line",
-        source: {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            properties: {},
-            geometry: {
-              type: "LineString",
-              coordinates: element.routeCoordinates,
-            },
+  routeData.forEach((element, index) => {
+    map.addLayer({
+      id: `route-${index}`,
+      type: "line",
+      source: {
+        type: "geojson",
+        data: {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "LineString",
+            coordinates: element.routeCoordinates,
           },
         },
-        layout: {
-          "line-join": "round",
-          "line-cap": "round",
-        },
-        paint: {
-          "line-color": element.color ? element.color : "#b33335",
-          "line-width": 7,
-        },
-      });
+      },
+      layout: {
+        "line-join": "round",
+        "line-cap": "round",
+      },
+      paint: {
+        "line-color": element.color ? element.color : "#b33335",
+        "line-width": 7,
+      },
     });
   });
 };
