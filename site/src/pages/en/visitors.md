@@ -1,0 +1,39 @@
+---
+title: "Besuch"
+layout: "../layouts/Page.astro"
+---
+
+Wir freuen uns über Jede und Jeden der oder die uns besuchen kommt!  
+Natürlich haben sich gleich zum bekannt werden unserer Pläne für Kanada einige Freunde und Familienmitglieder gemeldet, dass sie uns gerne besuchen kommen würden. Das hat uns sehr gefreut und wir freuen uns auf Jede und Jeden!
+
+Da wir jedoch bisher nur bis nach Newfoundland (Ende Juli) geplant haben, wir es schwierig eine Empfehlung für den Flug auszusprechen. Daher empfehlen wir grundsätzlich mal Toronto anzufliegen. Nahezu jeder Flug nach Kanada muss von Deutschland aus einen Zwischenstopp in Toronto (manchmal auch Montréal) einlegen.  
+Dafür kann man dann einen ergänzenden Flug nach buchen normalerweise.
+
+## Unterkunft
+
+Wir planen bei den meisten Unterkünften mit einem zusätzlichen Schlafzimmer. Das ist natürlich aber je nach Verfügbarkeit und Region mit Kosten verbunden. Seid uns daher bitte nicht böse, wenn ihr nicht direkt bei uns übernachten könnt. Wir helfen euch aber gerne etwas in der Umgebung zu finden.  
+Unsere bisher geplanten Unterkünfte:
+
+- Halifax, NS (kein zusätzliches Zimmer)
+- Brighton, Newfoundland (zusätzliches Zimmer vorhanden)
+
+## Vor dem Abflug
+
+Deutsche Staatsbürger brauchen kein großes Visum für Kanada um als Touristen bis zu 90 Tag einzureisen. Allerdings wird das sogenannte eTA benötigt wenn man per Luft oder Seeweg einreist (ähnlich dem ESTA in den USA).  
+Das eTA bekommt ihr hier: [eTA beantragen](https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html).  
+Dafür benötigt ihr einen gültigen Reisepass und eine Kreditkarte. Das eTA kostet 7CAD (etwa 5€).
+
+Bringt bitte keine Lebensmittel wie Fleisch, Käse, Wurst und so weiter mit nach Kanada. Es gibt für die Einfuhr von solchem hier sehr hohe Strafen und es wird auch oft am Flughafen kontrolliert.
+
+## Vor Ort benötigt
+
+Wenn ihr bei uns seid, benötigt ihr ein paar Kleinigkeiten und größere Dinge. Folgende Dinge solltet ihr auf jeden Fall mitbringen:
+
+- Kreditkarte (Visa, Mastercard, American Express) (**keine** Visa/Mastercard Debit Karte, es sollte eine "richtige" Credit Card sein)
+- Führerschein, internationaler Führerschein wird nicht benötigt. Es reicht der deutsche Führerschein im Scheckkartenformat
+- Mietwagen, da die Kosten für zusätzliche Fahrer in Kanada sehr teuer sind und ihr nicht mit unserem Auto fahren könnt, benötigt ihr ein eigenes Mietauto. Hier empfehlen wir zu schauen ob ihr eine Vollkasko-Versicherung bei euerer Kreditkarte dabei habt. Dann könnt ihr euch die Zusatzversicherungen der Autovermieter sparen und es ist relativ günstig ein Auto dann zu mieten.
+- [Airalo](https://www.airalo.com/de) - Für mobiles Internet. Mobiles Internet ist wichtig für Navigation, Bus-Tickets, etc. Wenn euer Telefon eSIM unterstützt könnt ihr mit Airalo eine zusätzliche eSIM für euer Telefon kaufen und könnt dann in Kanada das mobile Internet nutzen.
+
+## Sonstiges
+
+Alle unsere Besucher\*innen dürfen und müssen einen Gastbeitrag in unserem Blog hier schreiben 😊

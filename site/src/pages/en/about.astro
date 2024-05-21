@@ -1,0 +1,30 @@
+---
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import image from "../resources/aaron_lea.jpg";
+---
+
+<Layout title="Über uns">
+  <Hero
+    image={image}
+    alt="Links im Bild Aaron mit einem schwarzen Kanada-T-Shirt rechts daneben Lea mit dem gleichen Shirt in rot."
+  />
+  <main class="container">
+    <article>
+      <h1>Über uns</h1>
+      <p>
+        Im Herbst 2022 beschlossen wir das Thema anzugehen. Aaron wollte und
+        will schon immer für einen längeren Zeitraum in Kanada leben.
+        <br />Da eine Planung für 2023 zu kurzfristig gewesen wäre haben wir das
+        Jahr 2024 dafür ausgewählt.
+        <br />Die Idee: Einen kompletten Jahreszyklus in Kanada zu verbringen.
+        Deshalb starteten wir auch am 01. März und nicht am 01. Januar um eben
+        das Weihnachten und Neujahr nicht mit dem Stress von Anreise und Abreise
+        zu verschwenden. Wir wollen eben alles einmal mitnehmen. Und zwischen
+        Ende Februar und Anfang März ist eben die Zeit welche am wenigsten
+        spannend im Jahr ist.
+      </p>
+    </article>
+  </main>
+</Layout>

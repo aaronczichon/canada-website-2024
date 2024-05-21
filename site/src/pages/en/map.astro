@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MultiMap from "../../components/dynamic/MultiMap";
+import { VisitingLocations } from "../../content/visiting-locations";
+
+const visitingLocations = VisitingLocations;
+---
+
+<Layout title="Canada - Karte">
+  <main class="container">
+    <h1>Karte</h1>
+    <p>
+      Du willst wissen wo wir uns aktuell aufhalten? Hier findest du unsere
+      aktuellen Orte. <br />
+      Zuerst haben wir uns in Halifax, Nova Scotia aufgehalten.<br />
+      Aktuell befinden wir uns in Brighton, Newfoundland. Die Karte wird dann über
+      das Jahr hinweg aktualisiert.
+    </p>
+  </main>
+
+  <MultiMap
+    client:visible
+    zoom={visitingLocations.zoom}
+    mapCenter={visitingLocations.mapCenter}
+    points={visitingLocations.points}
+  />
+</Layout>

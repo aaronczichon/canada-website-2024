@@ -9,5 +9,12 @@ export default defineConfig({
   site: 'https://canada.aaronczichon.de',
   image: {
     domains: ['api.mapbox.com', 'directus.aaronczichon.de']
-  }
+  },
+  i18n: {
+    defaultLocale: "de",
+    locales: ["en", "de"],
+  },
+  routing: {
+    prefixDefaultLocale: false
+}
 });

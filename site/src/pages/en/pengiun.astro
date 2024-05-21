@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+
+import pengiunLogo from "../resources/find-pengiun-logo.png";
+---
+
+<Layout title="Find Pengiuns">
+  <main class="container">
+    <article>
+      <h1>Find Pengiuns</h1>
+      <p>
+        Wir sind auch etwas in den sozialen Netzen aktiv. Speziell für den
+        Urlaub nutzen wir die Urlaubsapp <a
+          href="https://findpenguins.com/"
+          target="_parent"
+          ><Image
+            src={pengiunLogo}
+            widths={[30]}
+            sizes={`30px`}
+            alt="Logo of the Find Pengiun app"
+            style="width: 25px; height: 25px; vertical-align: middle"
+          /> Find Pengiuns</a
+        >.
+      </p>
+      <p>
+        Dort posten wir von Tag zu Tag Kleinigkeiten in Form eines Microblogs
+        (wie man es von Twitter, Mastodon oder Facebook gewohnt ist).
+        <br /> Größere Zusammenfassungen und Berichte gibt es hier auf dem Blog.
+      </p>
+      <p>
+        Wenn du den Links zu unserer Find Pengiun Reise haben möchtest schreibe
+        uns einfach eine Nachricht, wenn du unsere privaten Kontaktdaten hast.
+      </p>
+    </article>
+  </main>
+</Layout>

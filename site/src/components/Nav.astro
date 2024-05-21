@@ -5,6 +5,8 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 import mainImage from "./main.jpg";
 import { Image } from "astro:assets";
+
+const currentLang = Astro.currentLocale === "de" ? "" : Astro.currentLocale;
 ---
 
 <div class="container-nav">
@@ -19,27 +21,29 @@ import { Image } from "astro:assets";
       />
     </a>
     <!-- <a href="#contact">Canada</a> -->
-    <a href="/blog/" class={currentPath.indexOf("blog") > -1 ? "active" : ""}
+    <a href={"/blog/"} class={currentPath.indexOf("blog") > -1 ? "active" : ""}
       >Blog</a
     >
-    <a href="/map" class={currentPath.indexOf("map") > -1 ? "active" : ""}
-      >Map</a
+    <a
+      href={currentLang + "/map"}
+      class={currentPath.indexOf("map") > -1 ? "active" : ""}>Map</a
     >
     <a
-      href="/pengiun"
+      href={currentLang + "/pengiun"}
       class={currentPath.indexOf("pengiun") > -1 ? "active" : ""}
       >Find Pengiuns</a
     >
     <a
-      href="/visitors"
+      href={currentLang + "/visitors"}
       class={currentPath.indexOf("visitors") > -1 ? "active" : ""}>Besuch</a
     >
     <!-- <a href="images.html">Images</a> -->
-    <a href="/about" class={currentPath.indexOf("about") > -1 ? "active" : ""}
-      >Über uns</a
+    <a
+      href={currentLang + "/about"}
+      class={currentPath.indexOf("about") > -1 ? "active" : ""}>Über uns</a
     >
     <a
-      href="/imprint"
+      href={currentLang + "/imprint"}
       class={currentPath.indexOf("imprint") > -1 ? "active" : ""}>Impressum</a
     >
     <a
