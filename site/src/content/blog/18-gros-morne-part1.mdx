@@ -10,6 +10,7 @@ tags: ["Kanada", "Newfoundland", "Gros Morne", "National Park"]
 ---
 
 import DirectusImage from "../../components/DirectusImage.astro";
+import PathMap from "../../components/dynamic/PathMap";
 
 > Unsere Erfahrungen aus dem Gros Morne haben wir wieder in mehrere Blogbeiträge aufgeteilt. Dies ist Teil 1 von Donnerstag, unserer Ankunft und dem Baker's Brook Trail.
 
@@ -34,15 +35,26 @@ Die gesamte Route ist, mit Hin- und Rückweg, etwa 10km lang.
 
 <DirectusImage assetId="af3e47fe-e35a-4f61-8455-aa30dbe1cdd4.jpg" />
 
-Das Wetter war leider nicht so gut und es hat zwischendrin immer wieder geregnet.   
-Da wir so spät am Abend unterwegs waren, haben wir immer wieder geredet, ob wir denn nicht noch einen Elche sehen könnten.   
+Das Wetter war leider nicht so gut und es hat zwischendrin immer wieder geregnet.  
+Da wir so spät am Abend unterwegs waren, haben wir immer wieder geredet, ob wir denn nicht noch einen Elche sehen könnten.  
 Zur Erinnerung: Wir hatten bis zu diesem Zeitpunkt nur einen Elch in der Nähe von Brighton gesehen.
 
-Auf einmal jedoch ist Lea ganz aufgeregt und zückt ihr Handy um ein (bzw. viele) Foto(s) zu machen.   
-Da steht ein Elch direkt am Wegesrand und frisst gemütlich vor sich hin. Etwa 10 Meter von uns entfernt.   
-Als er uns bemerkt starrt er uns eine Weile an und wir starren zurück. Keiner wusste so genau wie wir uns verhalten sollen.   
+Auf einmal jedoch ist Lea ganz aufgeregt und zückt ihr Handy um ein (bzw. viele) Foto(s) zu machen.  
+Da steht ein Elch direkt am Wegesrand und frisst gemütlich vor sich hin. Etwa 10 Meter von uns entfernt.  
+Als er uns bemerkt starrt er uns eine Weile an und wir starren zurück. Keiner wusste so genau wie wir uns verhalten sollen.  
 Als er dann jedoch irgendwann seinen Kopf von uns abwendet und weiter frisst. Da gingen wir davon dann aus, dass er für uns keine Gefahr is und wir auch nicht für ihn.
 
 <DirectusImage assetId="b4c15de6-7f90-48d5-b371-b97c8d4861fd.jpg" />
 
 Nach der Wanderung sind wir noch in Rocky Harbour essen gegangen und dann eigentlich direkt ins Bett. Es war ein anstrengender Tag.
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/e0ec6660-6631-49ec-adb9-9ae626b04a14.gpx",
+      tooltip: "Wanderung zu den Baker's Brook Falls",
+    },
+  ]}
+  zoom="12"
+/>
