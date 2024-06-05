@@ -22,7 +22,9 @@ export default function BasicDynamicMap({ zoom, setMap }) {
     map.addControl(new mapboxgl.ScaleControl(), 'bottom-right');
     map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 
-    setMap(map);
+    map.on('load', () => {
+      setMap(map);
+    });
 
     // Clean up function (optional)
     return () => {
