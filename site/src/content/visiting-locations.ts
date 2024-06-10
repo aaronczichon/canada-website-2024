@@ -39,5 +39,19 @@ export const VisitingLocations: MultiMapProps = {
       tooltip: "Unser aktueller Standort in Brighton",
       useRadius: true,
     },
+    {
+      id: "05-rocky-harbour",
+      color: "#CA2B2B",
+      coordinates: [-57.91144751936399, 49.58702542228375],
+      tooltip: "Übernachtung vom 23.05. bis 24.05. in Rocky Harbour",
+      useRadius: false,
+    },
+    {
+      id: "06-tuckamore-lodge",
+      color: "#CA2B2B",
+      coordinates: [-56.002661271872746, 51.161643316865565],
+      tooltip: "Übernachtung vom 24.05. bis 25.05. in der Tuckamore Lodge",
+      useRadius: false,
+    },
   ],
 };
