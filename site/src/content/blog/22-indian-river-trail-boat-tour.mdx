@@ -10,6 +10,7 @@ tags: ["Kanada", "Newfoundland", "Wandern", "Bootstour"]
 ---
 
 import DirectusImage from "../../components/DirectusImage.astro";
+import PathMap from "../../components/dynamic/PathMap";
 
 Langsam neigt sich unsere Zeit in Brighton dem Ende zu. Ende nächster Woche, genauer gesagt am Samstag, ziehen wir weiter in Richtung St. John's.
 
@@ -45,3 +46,14 @@ Das ein Eisberg sich mehrere Male dreht (auch öfters am Tag) ist ganz normal. D
 Die Bear Cove wird so genannt, weil es eine Silhouette eines Bären darstellt. Das ist vor allem in den frühen Morgenstunden gut zu erkennen, wenn die Sonne im richtigen Winkel auf die Felsen scheint.
 
 Ob wir nochmal mit dem Boot in den nächsten Tagen rausdürfen wird sich je nach Zeit und Wetterlage zeigen.
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/402682d7-45bc-46a4-9866-8e1d98dfcfcd.gpx",
+      tooltip: "Indian River Trail",
+    },
+  ]}
+  zoom="12"
+/>
