@@ -43,14 +43,24 @@ export const VisitingLocations: MultiMapProps = {
       id: "05-rocky-harbour",
       color: "#CA2B2B",
       coordinates: [-57.91144751936399, 49.58702542228375],
-      tooltip: "Übernachtung vom 23.05. bis 24.05. in Rocky Harbour",
+      tooltip:
+        'Übernachtung vom 23.05. bis 24.05. in <a href="https://www.airbnb.com/slink/uA7Wk7tw" target="_blank">Rocky Harbour</a>',
       useRadius: false,
     },
     {
       id: "06-tuckamore-lodge",
       color: "#CA2B2B",
       coordinates: [-56.002661271872746, 51.161643316865565],
-      tooltip: "Übernachtung vom 24.05. bis 25.05. in der Tuckamore Lodge",
+      tooltip:
+        'Übernachtung vom 24.05. bis 25.05. in der <a href="https://www.booking.com/hotel/ca/tuckamore-lodge.en-gb.html" target="_blank">Tuckamore Lodge</a>',
+      useRadius: false,
+    },
+    {
+      id: "07-memorial-university",
+      color: "#CA2B2B",
+      coordinates: [-52.72918397026897, 47.57416405387091],
+      tooltip:
+        'Nachdem wir wieder aus Deutschland im Juni zurückgekommen sind, haben wir in der <a href="https://www.booking.com/hotel/ca/memorial-university.en-gb.html" target="_blank">Memorial University</a> in St. John\'s übernachtet.',
       useRadius: false,
     },
   ],
