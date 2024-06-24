@@ -11,7 +11,7 @@ const dateOptions: object = {
 
 const allPosts = await getCollection("blog");
 
-import rssIcon from "../resources/rss.svg";
+import rssIcon from "../../resources/rss.svg";
 ---
 
 <Layout title="Canada - Blog">
@@ -37,7 +37,7 @@ import rssIcon from "../resources/rss.svg";
             return a.data.pubDate > b.data.pubDate ? -1 : 1;
           })
           .map((post) => (
-            <a href={"/blog/" + post.slug} class="entry">
+            <a href={"/en/blog/" + post.slug} class="entry">
               {post.data.image && post.data.image.url ? (
                 <Image
                   src={post.data.image.url}

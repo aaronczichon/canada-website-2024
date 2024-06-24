@@ -38,7 +38,7 @@ const readingTime = Math.ceil(wordCount / averageWPM);
   <main class="container">
     <article class="blog-entry">
       <h1>{entry.data.title}</h1>
-      <PubDate date={entry.data.pubDate}>
+      <PubDate lang={Astro.currentLocale} date={entry.data.pubDate}>
         | Lesezeit: {readingTime}min | Geschrieben von: {
           entry.data.author
         }</PubDate

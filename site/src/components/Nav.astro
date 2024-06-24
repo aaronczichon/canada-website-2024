@@ -26,7 +26,9 @@ const navTranslations = (NAVIGATION_TRANSLATIONS as any)[
       />
     </a>
     <!-- <a href="#contact">Canada</a> -->
-    <a href={"/blog/"} class={currentPath.indexOf("blog") > -1 ? "active" : ""}
+    <a
+      href={"/" + currentLang + "/blog"}
+      class={currentPath.indexOf("blog") > -1 ? "active" : ""}
       >{navTranslations.blog}</a
     >
     <a
