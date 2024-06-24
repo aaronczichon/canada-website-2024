@@ -5,7 +5,10 @@ import Hero from "../../components/Hero.astro";
 import PubDate from "../../components/PubDate.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
+  let blogEntries = await getCollection("blog");
+  blogEntries = blogEntries.filter(
+    (entry) => entry.slug.split("/")[0] !== "en",
+  );
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

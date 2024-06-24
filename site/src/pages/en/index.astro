@@ -3,7 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-const allPosts = await getCollection("blog");
+let allPosts = await getCollection("blog");
+allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
 
 const dateOptions: object = {
   year: "numeric",

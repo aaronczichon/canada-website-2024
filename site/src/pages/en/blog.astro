@@ -9,7 +9,8 @@ const dateOptions: object = {
   day: "numeric",
 };
 
-const allPosts = await getCollection("blog");
+let allPosts = await getCollection("blog");
+allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
 
 import rssIcon from "../../resources/rss.svg";
 ---
@@ -17,7 +18,7 @@ import rssIcon from "../../resources/rss.svg";
 <Layout title="Canada - Blog">
   <main class="container">
     <h1>
-      Blog <a href="/rss.xml"
+      Blog <a href="/en/rss.xml"
         ><Image
           style="width: 25px; height: 25px"
           src={rssIcon}
