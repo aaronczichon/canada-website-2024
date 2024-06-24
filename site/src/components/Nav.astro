@@ -16,7 +16,7 @@ const navTranslations = (NAVIGATION_TRANSLATIONS as any)[
 
 <div class="container-nav">
   <nav class="container-nav topnav" id="myTopnav">
-    <a href="/" class={currentPath === "" ? "active" : ""}>
+    <a href={"/" + currentLang} class={currentPath === "" ? "active" : ""}>
       <Image
         src={mainImage}
         alt="Aaron Czichon & Lea Gräß"
@@ -30,28 +30,28 @@ const navTranslations = (NAVIGATION_TRANSLATIONS as any)[
       >{navTranslations.blog}</a
     >
     <a
-      href={currentLang + "/map"}
+      href={"/" + currentLang + "/map"}
       class={currentPath.indexOf("map") > -1 ? "active" : ""}
       >{navTranslations.map}</a
     >
     <a
-      href={currentLang + "/pengiun"}
+      href={"/" + currentLang + "/pengiun"}
       class={currentPath.indexOf("pengiun") > -1 ? "active" : ""}
       >{navTranslations.pengiun}</a
     >
     <a
-      href={currentLang + "/visitors"}
+      href={"/" + currentLang + "/visitors"}
       class={currentPath.indexOf("visitors") > -1 ? "active" : ""}
       >{navTranslations.visitors}</a
     >
     <!-- <a href="images.html">Images</a> -->
     <a
-      href={currentLang + "/about"}
+      href={"/" + currentLang + "/about"}
       class={currentPath.indexOf("about") > -1 ? "active" : ""}
       >{navTranslations.about}</a
     >
     <a
-      href={currentLang + "/imprint"}
+      href={"/" + currentLang + "/imprint"}
       class={currentPath.indexOf("imprint") > -1 ? "active" : ""}
       >{navTranslations.imprint}</a
     >

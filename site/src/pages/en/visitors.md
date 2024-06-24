@@ -1,39 +1,41 @@
 ---
-title: "Besuch"
-layout: "../layouts/Page.astro"
+title: "Visitors"
+layout: "../../layouts/Page.astro"
 ---
 
-Wir freuen uns über Jede und Jeden der oder die uns besuchen kommt!  
-Natürlich haben sich gleich zum bekannt werden unserer Pläne für Kanada einige Freunde und Familienmitglieder gemeldet, dass sie uns gerne besuchen kommen würden. Das hat uns sehr gefreut und wir freuen uns auf Jede und Jeden!
+We look forward to everyone coming to visit us!  
+Of course, as soon as we found out about our plans for Canada, some friends and family members got in touch to say they would like to come and visit us. That made us very happy and we look forward to seeing everyone!
 
-Da wir jedoch bisher nur bis nach Newfoundland (Ende Juli) geplant haben, wir es schwierig eine Empfehlung für den Flug auszusprechen. Daher empfehlen wir grundsätzlich mal Toronto anzufliegen. Nahezu jeder Flug nach Kanada muss von Deutschland aus einen Zwischenstopp in Toronto (manchmal auch Montréal) einlegen.  
-Dafür kann man dann einen ergänzenden Flug nach buchen normalerweise.
+However, as we have only planned to fly to Newfoundland so far (end of July), it is difficult for us to make a recommendation for the flight. Therefore, we generally recommend flying to Toronto. Almost every flight to Canada from Germany has a stopover in Toronto (sometimes also Montréal).  
+You can then normally book a supplementary flight to.
 
-## Unterkunft
+## Accommodation
 
-Wir planen bei den meisten Unterkünften mit einem zusätzlichen Schlafzimmer. Das ist natürlich aber je nach Verfügbarkeit und Region mit Kosten verbunden. Seid uns daher bitte nicht böse, wenn ihr nicht direkt bei uns übernachten könnt. Wir helfen euch aber gerne etwas in der Umgebung zu finden.  
-Unsere bisher geplanten Unterkünfte:
+We plan to add an extra bedroom to most of our accommodation. However, depending on availability and region, this is of course associated with costs. So please don't be angry with us if you can't stay with us directly. However, we will be happy to help you find somewhere in the area.  
+Our planned accommodations so far:
 
-- Halifax, NS (kein zusätzliches Zimmer)
-- Brighton, Newfoundland (zusätzliches Zimmer vorhanden)
+- Halifax, NS (no additional room)
+- Brighton, Newfoundland (additional room available)
+- St. John's, Newfoundland (no additional room)
+- Montréal, Québec (no additional room)
 
-## Vor dem Abflug
+## Before departure
 
-Deutsche Staatsbürger brauchen kein großes Visum für Kanada um als Touristen bis zu 90 Tag einzureisen. Allerdings wird das sogenannte eTA benötigt wenn man per Luft oder Seeweg einreist (ähnlich dem ESTA in den USA).  
-Das eTA bekommt ihr hier: [eTA beantragen](https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html).  
-Dafür benötigt ihr einen gültigen Reisepass und eine Kreditkarte. Das eTA kostet 7CAD (etwa 5€).
+German citizens do not need a large visa for Canada to enter the country as tourists for up to 90 days. However, the so-called eTA is required if you are traveling by air or sea (similar to the ESTA in the USA).  
+You can get the eTA here: [issue eTA](https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html).
+You will need a valid passport and a credit card. The eTA costs 7CAD (about 5€).
 
-Bringt bitte keine Lebensmittel wie Fleisch, Käse, Wurst und so weiter mit nach Kanada. Es gibt für die Einfuhr von solchem hier sehr hohe Strafen und es wird auch oft am Flughafen kontrolliert.
+Please do not bring any foodstuffs such as meat, cheese, sausage and so on into Canada. There are very high penalties for importing such things here and they are often checked at the airport.
 
-## Vor Ort benötigt
+## Required on site
 
-Wenn ihr bei uns seid, benötigt ihr ein paar Kleinigkeiten und größere Dinge. Folgende Dinge solltet ihr auf jeden Fall mitbringen:
+When you are with us, you will need a few small and larger items. You should definitely bring the following things with you:
 
-- Kreditkarte (Visa, Mastercard, American Express) (**keine** Visa/Mastercard Debit Karte, es sollte eine "richtige" Credit Card sein)
-- Führerschein, internationaler Führerschein wird nicht benötigt. Es reicht der deutsche Führerschein im Scheckkartenformat
-- Mietwagen, da die Kosten für zusätzliche Fahrer in Kanada sehr teuer sind und ihr nicht mit unserem Auto fahren könnt, benötigt ihr ein eigenes Mietauto. Hier empfehlen wir zu schauen ob ihr eine Vollkasko-Versicherung bei euerer Kreditkarte dabei habt. Dann könnt ihr euch die Zusatzversicherungen der Autovermieter sparen und es ist relativ günstig ein Auto dann zu mieten.
-- [Airalo](https://www.airalo.com/de) - Für mobiles Internet. Mobiles Internet ist wichtig für Navigation, Bus-Tickets, etc. Wenn euer Telefon eSIM unterstützt könnt ihr mit Airalo eine zusätzliche eSIM für euer Telefon kaufen und könnt dann in Kanada das mobile Internet nutzen.
+- Credit card (Visa, Mastercard, American Express) (**no** Visa/Mastercard debit card, it should be a "real" credit card)
+- Driver's license, international driver's license is not required. A German driving license in credit card format is sufficient
+- Rental car, as the costs for additional drivers in Canada are very expensive and you cannot drive with our car, you will need your own rental car. We recommend checking whether you have fully comprehensive insurance with your credit card. Then you can save yourself the additional insurance of the car rental companies and it is relatively cheap to rent a car.
+- [Airalo](https://www.airalo.com) - For mobile Internet. Mobile Internet is important for navigation, bus tickets, etc. If your phone supports eSIM, you can buy an additional eSIM for your phone with Airalo and then use the mobile Internet in Canada.
 
-## Sonstiges
+## Miscellaneous
 
-Alle unsere Besucher\*innen dürfen und müssen einen Gastbeitrag in unserem Blog hier schreiben 😊
+All our visitors can and must write a guest post on our blog here 😊
