@@ -13,10 +13,12 @@ import { GLOBAL_CONFIG } from "../config";
 
 const baseUrl =
   GLOBAL_CONFIG.mode === "DEV" ? "http://localhost:4321/" : Astro.site;
+
+const lang = Astro.currentLocale;
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Canada - Working Holiday für 12 Monate" />
