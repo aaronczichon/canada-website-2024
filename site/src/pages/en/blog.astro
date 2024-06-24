@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import rssIcon from "../../resources/rss.svg";
 
 const dateOptions: object = {
   year: "numeric",
@@ -9,10 +10,12 @@ const dateOptions: object = {
   day: "numeric",
 };
 
+const extractEntrySlug = (slug: string): string => {
+  return slug.split("/")[1];
+};
+
 let allPosts = await getCollection("blog");
 allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
-
-import rssIcon from "../../resources/rss.svg";
 ---
 
 <Layout title="Canada - Blog">
@@ -38,7 +41,7 @@ import rssIcon from "../../resources/rss.svg";
             return a.data.pubDate > b.data.pubDate ? -1 : 1;
           })
           .map((post) => (
-            <a href={"/en/blog/" + post.slug} class="entry">
+            <a href={"/en/blog/" + extractEntrySlug(post.slug)} class="entry">
               {post.data.image && post.data.image.url ? (
                 <Image
                   src={post.data.image.url}
