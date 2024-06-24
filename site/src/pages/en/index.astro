@@ -49,7 +49,7 @@ const heroImg =
             return a.data.pubDate > b.data.pubDate ? -1 : 1;
           })
           .map((post) => (
-            <a href={"/blog/" + post.slug} class="entry">
+            <a href={"/en/blog/" + post.slug} class="entry">
               {post.data.image && post.data.image.url ? (
                 <Image
                   widths={[700]}

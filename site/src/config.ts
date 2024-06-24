@@ -4,6 +4,7 @@ export const GLOBAL_CONFIG = {
   defaultWidth: 720,
   defaultHeight: 450,
   defaultQuality: 80,
+  mode: "DEV",
 };
 
 export const NAVIGATION_TRANSLATIONS = {
