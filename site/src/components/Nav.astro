@@ -1,4 +1,5 @@
 ---
+import { NAVIGATION_TRANSLATIONS } from "../config";
 import MenuIcon from "./MenuIcon.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -7,6 +8,10 @@ import mainImage from "./main.jpg";
 import { Image } from "astro:assets";
 
 const currentLang = Astro.currentLocale === "de" ? "" : Astro.currentLocale;
+
+const navTranslations = (NAVIGATION_TRANSLATIONS as any)[
+  Astro.currentLocale ?? "de"
+];
 ---
 
 <div class="container-nav">
@@ -22,29 +27,33 @@ const currentLang = Astro.currentLocale === "de" ? "" : Astro.currentLocale;
     </a>
     <!-- <a href="#contact">Canada</a> -->
     <a href={"/blog/"} class={currentPath.indexOf("blog") > -1 ? "active" : ""}
-      >Blog</a
+      >{navTranslations.blog}</a
     >
     <a
       href={currentLang + "/map"}
-      class={currentPath.indexOf("map") > -1 ? "active" : ""}>Map</a
+      class={currentPath.indexOf("map") > -1 ? "active" : ""}
+      >{navTranslations.map}</a
     >
     <a
       href={currentLang + "/pengiun"}
       class={currentPath.indexOf("pengiun") > -1 ? "active" : ""}
-      >Find Pengiuns</a
+      >{navTranslations.pengiun}</a
     >
     <a
       href={currentLang + "/visitors"}
-      class={currentPath.indexOf("visitors") > -1 ? "active" : ""}>Besuch</a
+      class={currentPath.indexOf("visitors") > -1 ? "active" : ""}
+      >{navTranslations.visitors}</a
     >
     <!-- <a href="images.html">Images</a> -->
     <a
       href={currentLang + "/about"}
-      class={currentPath.indexOf("about") > -1 ? "active" : ""}>Über uns</a
+      class={currentPath.indexOf("about") > -1 ? "active" : ""}
+      >{navTranslations.about}</a
     >
     <a
       href={currentLang + "/imprint"}
-      class={currentPath.indexOf("imprint") > -1 ? "active" : ""}>Impressum</a
+      class={currentPath.indexOf("imprint") > -1 ? "active" : ""}
+      >{navTranslations.imprint}</a
     >
     <a
       href="javascript:void(0);"
