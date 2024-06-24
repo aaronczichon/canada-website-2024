@@ -7,7 +7,6 @@ export default function CircleDynamicMap({ zoom, center, circleCenter}) {
   useEffect(() => {
     // Fetch and parse GPX file
     if (map && circleCenter && center) {
-      map.on('load', () => {
         map.addLayer({
           id: 'circleLayer',
           type: 'circle',
@@ -34,7 +33,6 @@ export default function CircleDynamicMap({ zoom, center, circleCenter}) {
           },
         });
         map.setCenter(center);
-      });
     }
   }, [center, circleCenter, map]);
 
