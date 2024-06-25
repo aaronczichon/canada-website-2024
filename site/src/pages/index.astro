@@ -45,6 +45,7 @@ const heroImg =
           .sort((a, b) => {
             return a.data.pubDate > b.data.pubDate ? -1 : 1;
           })
+          .slice(0, 4)
           .map((post) => (
             <a href={"/blog/" + post.slug} class="entry">
               {post.data.image && post.data.image.url ? (
@@ -77,6 +78,7 @@ const heroImg =
           ))
       }
     </div>
+    <a href="/en/blog" style="padding-bottom: 32px">alle weiteren Artikel...</a>
   </main>
   <script is:inline>
     // automatically redirect to /en if current index is / and browser language is not de
