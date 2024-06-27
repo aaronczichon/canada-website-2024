@@ -2,7 +2,8 @@ import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 
 export async function GET(_context) {
-	const blog = await getCollection('blog');
+	let allPosts = await getCollection('blog');
+	allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] !== "en");
 	return rss({
 		title: 'Canada - Working Holiday für 12 Monate - Blog',
 		// `<description>` field in output xml
