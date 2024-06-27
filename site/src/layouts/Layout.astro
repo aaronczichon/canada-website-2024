@@ -9,10 +9,16 @@ import "../styles/index.css";
 import "../styles/fonts/mona-sans.css";
 
 import Nav from "../components/Nav.astro";
+import { GLOBAL_CONFIG } from "../config";
+
+const baseUrl =
+  GLOBAL_CONFIG.mode === "DEV" ? "http://localhost:4321/" : Astro.site;
+
+const lang = Astro.currentLocale;
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Canada - Working Holiday für 12 Monate" />
@@ -20,11 +26,11 @@ import Nav from "../components/Nav.astro";
     <link
       rel="icon"
       type="image/svg+xml"
-      href="/assets/icons/canada_flag.svg"
+      href={baseUrl + "assets/icons/canada_flag.svg"}
     />
     <link
       rel="preload"
-      href="/assets/fonts/Mona-Sans.woff2"
+      href={baseUrl + "assets/fonts/Mona-Sans.woff2"}
       as="font"
       type="font/woff2"
       crossorigin
@@ -33,7 +39,7 @@ import Nav from "../components/Nav.astro";
       rel="alternate"
       type="application/rss+xml"
       title="Canada - Working Holiday für 12 Monate"
-      href={`${Astro.site}rss.xml`}
+      href={`${baseUrl}rss.xml`}
     />
     <title>{title}</title>
   </head>

@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+
+import pengiunLogo from "../../resources/find-pengiun-logo.png";
+---
+
+<Layout title="Find Pengiuns">
+  <main class="container">
+    <article>
+      <h1>Find Pengiuns</h1>
+      <p>
+        We are also a bit active in social networks. Especially for the holidays <a
+          href="https://findpenguins.com/"
+          target="_parent"
+          ><Image
+            src={pengiunLogo}
+            widths={[30]}
+            sizes={`30px`}
+            alt="Logo of the Find Pengiun app"
+            style="width: 25px; height: 25px; vertical-align: middle"
+          /> Find Pengiuns</a
+        >.
+      </p>
+      <p>
+        There we post little things day by day in the form of a microblog (as
+        you know it from Twitter, Mastodon or Facebook).
+        <br /> Larger summaries and reports can be found here on the blog.
+      </p>
+      <p>
+        If you want the links to our Find Pengiun journey, just write us a
+        message if you have our private contact details.
+      </p>
+    </article>
+  </main>
+</Layout>

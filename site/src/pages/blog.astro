@@ -9,7 +9,8 @@ const dateOptions: object = {
   day: "numeric",
 };
 
-const allPosts = await getCollection("blog");
+let allPosts = await getCollection("blog");
+allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] !== "en");
 
 import rssIcon from "../resources/rss.svg";
 ---

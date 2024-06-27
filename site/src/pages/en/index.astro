@@ -1,0 +1,83 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+let allPosts = await getCollection("blog");
+allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+const heroImg =
+  "https://directus.aaronczichon.de/assets/ad8ec531-a3b7-45f1-b0c8-81fffd1ca84d.jpg?quality=80&width=2000";
+---
+
+<Layout title="Canada - Working Holiday for 12 months">
+  <Hero url={heroImg} alt="Bright blue sky showing a large Canadian flag." />
+  <main class="container">
+    <article>
+      <h1>Let the adventure begin!</h1>
+      <p>
+        12 months living in Canada. Making a dream come true and you can be part
+        of it. Virtually of course. Starting with 2 months in Halifax, Nova
+        Scotia we will travel through the country and explore the wonderful and
+        beautiful Canada.
+      </p>
+      <p>
+        After the first 2 months we travelled to Newfoundland in May. We spent
+        most of our time in a small town called Brighton. Since the end of June
+        we're in St. John's where we will stay until Mid-July.
+      </p>
+      <p>
+        Next next travel destination in the summer will be Montéal where we will
+        heading at the end July.
+      </p>
+      <p>But let's see what the coming weeks and months will bring!</p>
+    </article>
+    <h2>Latest entries</h2>
+    <div class="entry-grid">
+      {
+        allPosts
+          .sort((a, b) => {
+            return a.data.pubDate > b.data.pubDate ? -1 : 1;
+          })
+          .slice(0, 4)
+          .map((post) => (
+            <a href={"/en/blog/" + post.slug} class="entry">
+              {post.data.image && post.data.image.url ? (
+                <Image
+                  widths={[700]}
+                  sizes={`700px`}
+                  src={post.data.image.url}
+                  alt={post.data.image.alt}
+                  style="max-height: 350px; width: 100%; object-fit: cover;"
+                />
+              ) : null}
+              {post.data.image && post.data.image.href ? (
+                <img
+                  src={post.data.image.href}
+                  alt={post.data.image.alt}
+                  style="max-height: 350px; width: 100%; object-fit: cover;"
+                />
+              ) : null}
+              <h3>
+                {post.data.title}
+                <span class="entry--date">
+                  {new Date(post.data.pubDate).toLocaleDateString(
+                    "de-DE",
+                    dateOptions,
+                  )}
+                </span>
+              </h3>
+              <p>{post.data.description}</p>
+            </a>
+          ))
+      }
+    </div>
+    <a href="/en/blog" style="padding-bottom: 32px">read more...</a>
+  </main>
+</Layout>

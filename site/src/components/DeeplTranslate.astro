@@ -1,0 +1,21 @@
+---
+import * as deepl from "deepl-node";
+const authKey = import.meta.env.DEEPL_API_KEY;
+
+const { render, has } = Astro.slots;
+const { sourceLang, targetLang } = Astro.props;
+
+const translateText = async (text: string) => {
+  const translator = new deepl.Translator(authKey);
+  const result = await translator.translateText(text, sourceLang, targetLang);
+  return result.text;
+};
+
+let html: string = "";
+if (has("default")) {
+  html = await render("default");
+  html = await translateText(html);
+}
+---
+
+<Fragment set:html={html} />

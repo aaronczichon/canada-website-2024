@@ -1,10 +1,14 @@
 ---
-const { date } = Astro.props;
+const { date, lang } = Astro.props;
+
+const publishedTranslation =
+  lang === "de" ? "Veröffentlicht am" : "Published on";
 ---
 
 <p>
-  Veröffentlich am {
-    new Date(date).toLocaleDateString("de-DE", {
+  {publishedTranslation}
+  {
+    new Date(date).toLocaleDateString(lang, {
       year: "numeric",
       month: "long",
       day: "numeric",

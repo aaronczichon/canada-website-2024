@@ -5,7 +5,10 @@ import Hero from "../../components/Hero.astro";
 import PubDate from "../../components/PubDate.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
+  let blogEntries = await getCollection("blog");
+  blogEntries = blogEntries.filter(
+    (entry) => entry.slug.split("/")[0] !== "en",
+  );
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -38,7 +41,7 @@ const readingTime = Math.ceil(wordCount / averageWPM);
   <main class="container">
     <article class="blog-entry">
       <h1>{entry.data.title}</h1>
-      <PubDate date={entry.data.pubDate}>
+      <PubDate lang={Astro.currentLocale} date={entry.data.pubDate}>
         | Lesezeit: {readingTime}min | Geschrieben von: {
           entry.data.author
         }</PubDate

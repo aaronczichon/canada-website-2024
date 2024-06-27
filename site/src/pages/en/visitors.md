@@ -1,0 +1,41 @@
+---
+title: "Visitors"
+layout: "../../layouts/Page.astro"
+---
+
+We look forward to everyone coming to visit us!  
+Of course, as soon as we found out about our plans for Canada, some friends and family members got in touch to say they would like to come and visit us. That made us very happy and we look forward to seeing everyone!
+
+However, as we have only planned to fly to Newfoundland so far (end of July), it is difficult for us to make a recommendation for the flight. Therefore, we generally recommend flying to Toronto. Almost every flight to Canada from Germany has a stopover in Toronto (sometimes also Montréal).  
+You can then normally book a supplementary flight to.
+
+## Accommodation
+
+We plan to add an extra bedroom to most of our accommodation. However, depending on availability and region, this is of course associated with costs. So please don't be angry with us if you can't stay with us directly. However, we will be happy to help you find somewhere in the area.  
+Our planned accommodations so far:
+
+- Halifax, NS (no additional room)
+- Brighton, Newfoundland (additional room available)
+- St. John's, Newfoundland (no additional room)
+- Montréal, Québec (no additional room)
+
+## Before departure
+
+German citizens do not need a large visa for Canada to enter the country as tourists for up to 90 days. However, the so-called eTA is required if you are traveling by air or sea (similar to the ESTA in the USA).  
+You can get the eTA here: [issue eTA](https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html).
+You will need a valid passport and a credit card. The eTA costs 7CAD (about 5€).
+
+Please do not bring any foodstuffs such as meat, cheese, sausage and so on into Canada. There are very high penalties for importing such things here and they are often checked at the airport.
+
+## Required on site
+
+When you are with us, you will need a few small and larger items. You should definitely bring the following things with you:
+
+- Credit card (Visa, Mastercard, American Express) (**no** Visa/Mastercard debit card, it should be a "real" credit card)
+- Driver's license, international driver's license is not required. A German driving license in credit card format is sufficient
+- Rental car, as the costs for additional drivers in Canada are very expensive and you cannot drive with our car, you will need your own rental car. We recommend checking whether you have fully comprehensive insurance with your credit card. Then you can save yourself the additional insurance of the car rental companies and it is relatively cheap to rent a car.
+- [Airalo](https://www.airalo.com) - For mobile Internet. Mobile Internet is important for navigation, bus tickets, etc. If your phone supports eSIM, you can buy an additional eSIM for your phone with Airalo and then use the mobile Internet in Canada.
+
+## Miscellaneous
+
+All our visitors can and must write a guest post on our blog here 😊

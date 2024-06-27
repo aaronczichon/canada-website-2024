@@ -1,0 +1,30 @@
+---
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import image from "../../resources/aaron_lea.jpg";
+---
+
+<Layout title="About us">
+  <Hero
+    image={image}
+    alt="Aaron on the left with a black Canada T-shirt and Lea on the right with the same shirt in red."
+  />
+  <main class="container">
+    <article>
+      <h1>About us</h1>
+      <p></p>
+      <p>
+        In fall 2022, we decided to tackle the issue. Aaron has always wanted to
+        live in Canada for a longer period of time.
+        <br />As planning for 2023 would have been too short notice, we have
+        chosen 2024 for this.
+        <br />The idea: to spend an entire annual cycle in Canada. That's why we
+        started on March 1st and not January 1st, so as not to waste Christmas
+        and New Year with the stress of arrival and departure. We want to take
+        it all in once. And between the end of February and the beginning of
+        March is the least exciting time of the year. exciting time of the year.
+      </p>
+    </article>
+  </main>
+</Layout>
