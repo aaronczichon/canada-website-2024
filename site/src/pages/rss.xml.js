@@ -9,7 +9,7 @@ export async function GET(_context) {
 		// `<description>` field in output xml
 		description: 'Für 12 Monate reisend und arbeitend durch Kanada.',
 		site: 'https://canada.aaronczichon.de',
-		items: blog.map((post) => ({
+		items: allPosts.map((post) => ({
 			title: post.data.title,
 			pubDate: post.data.pubDate,
 			description: post.data.description,
