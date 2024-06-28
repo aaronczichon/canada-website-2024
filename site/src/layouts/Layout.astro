@@ -10,6 +10,7 @@ import "../styles/fonts/mona-sans.css";
 
 import Nav from "../components/Nav.astro";
 import { GLOBAL_CONFIG } from "../config";
+import LanguageHeader from "../components/LanguageHeader.astro";
 
 const baseUrl =
   GLOBAL_CONFIG.mode === "DEV" ? "http://localhost:4321/" : Astro.site;
@@ -44,6 +45,7 @@ const lang = Astro.currentLocale;
     <title>{title}</title>
   </head>
   <body>
+    <LanguageHeader />
     <Nav />
     <slot />
     <script is:inline>

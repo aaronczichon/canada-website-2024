@@ -1,0 +1,11 @@
+---
+import { getCurrentPathForSpecificLanguage } from "./functions/lang.functions";
+
+// paths for the specific language
+const deUrl = getCurrentPathForSpecificLanguage('de', Astro.request.url);
+const enUrl = getCurrentPathForSpecificLanguage('en', Astro.request.url);
+---
+<div class="lang-header">
+  <a href={deUrl}>Deutsch</a>
+  <a href={enUrl}>English</a>
+</div>
