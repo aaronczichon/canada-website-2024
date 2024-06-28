@@ -6,22 +6,3 @@ export const GLOBAL_CONFIG = {
   defaultQuality: 80,
   mode: "DEV",
 };
-
-export const NAVIGATION_TRANSLATIONS = {
-  en: {
-    blog: "Blog",
-    map: "Map",
-    pengiun: "Find Pengiuns",
-    visitors: "Visitors",
-    about: "About us",
-    imprint: "Imprint",
-  },
-  de: {
-    blog: "Blog",
-    map: "Karte",
-    pengiun: "Find Pengiuns",
-    visitors: "Besucher",
-    about: "Über uns",
-    imprint: "Impressum",
-  },
-};
