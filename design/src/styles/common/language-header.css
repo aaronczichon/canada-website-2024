@@ -12,7 +12,7 @@
 }
 
 .lang-header a.active {
-	text-decoration: underline;
+	color: var(--primary-color);
 }
 
 .lang-header a:last-child {

@@ -2,12 +2,13 @@
 import { getCurrentPathForSpecificLanguage } from "./functions/lang.functions";
 
 // paths for the specific language
+const currentLang = Astro.currentLocale;
 const deUrl = getCurrentPathForSpecificLanguage('de', Astro.request.url);
 const enUrl = getCurrentPathForSpecificLanguage('en', Astro.request.url);
 ---
 <div class="lang-header">
-  <a href={deUrl} id="deSwitch">Deutsch</a>
-  <a href={enUrl} id="enSwitch">English</a>
+  <a href={deUrl} id="deSwitch" class={currentLang === 'de' ? 'active' : ''}>Deutsch</a>
+  <a href={enUrl} id="enSwitch" class={currentLang === 'en' ? 'active' : ''}>English</a>
 </div>
 <script is:inline>
   const deElement = document.getElementById('deSwitch');

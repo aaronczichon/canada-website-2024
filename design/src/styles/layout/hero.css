@@ -20,9 +20,9 @@
 
 @media screen and (min-width: 64em) {
 	.hero {
-		height: 600px;
+		height: 500px;
 	}
 	.hero img {
-		height: 600px;
+		height: 500px;
 	}
 }
