@@ -80,20 +80,4 @@ const heroImg =
     </div>
     <a href="/en/blog" style="padding-bottom: 32px">alle weiteren Artikel...</a>
   </main>
-  <script is:inline>
-    // automatically redirect to /en if current index is / and browser language is not de
-    if (
-      window.location.pathname === "/" &&
-      !navigator.language.startsWith("de")
-    ) {
-      window.location.href = "/en";
-    }
-    // if browser language is de and we are currently on /en redirect to /
-    if (
-      window.location.pathname === "/en" &&
-      navigator.language.startsWith("de")
-    ) {
-      window.location.href = "/";
-    }
-  </script>
 </Layout>

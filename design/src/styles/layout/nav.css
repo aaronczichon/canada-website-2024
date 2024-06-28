@@ -29,7 +29,7 @@
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-	color: var(--primary-color-dark);
+	color: var(--primary-color);
 }
 
 /* Hide the link that should open and close the topnav on small screens */

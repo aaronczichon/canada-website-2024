@@ -10,6 +10,7 @@ import "../styles/fonts/mona-sans.css";
 
 import Nav from "../components/Nav.astro";
 import { GLOBAL_CONFIG } from "../config";
+import LanguageHeader from "../components/LanguageHeader.astro";
 
 const baseUrl =
   GLOBAL_CONFIG.mode === "DEV" ? "http://localhost:4321/" : Astro.site;
@@ -44,6 +45,7 @@ const lang = Astro.currentLocale;
     <title>{title}</title>
   </head>
   <body>
+    <LanguageHeader />
     <Nav />
     <slot />
     <script is:inline>
@@ -61,6 +63,19 @@ const lang = Astro.currentLocale;
         g.src = u + "matomo.js";
         s.parentNode.insertBefore(g, s);
       })();
+    </script>
+    <script is:inline>
+      // check if localstorage has set 'de' or 'en'. If so,
+      // check if we are currently on de or en page. If not,
+      // redirect it by keeping the path but add /en add the path beginning for en version.
+      // if redirecting to de remove the /en from the path if present.
+      const lang = localStorage.getItem("lang");
+      const path = window.location.pathname;
+      if (lang === "de" && !path.startsWith("/de") && path.startsWith("/en")) {
+        window.location.href = "" + path.replace("/en", "");
+      } else if (lang === "en" && !path.startsWith("/en")) {
+        window.location.href = "/en" + path.replace("/de", "");
+      }
     </script>
   </body>
 </html>
