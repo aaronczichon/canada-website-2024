@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslatedPath } from "../../i18n/utils";
 let allPosts = await getCollection("blog");
 allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
 
@@ -12,12 +13,17 @@ const dateOptions: object = {
   day: "numeric",
 };
 
+// gets the language from the URL
+const lang = getLangFromUrl(Astro.url);
+
 const heroImg =
   "https://directus.aaronczichon.de/assets/ad8ec531-a3b7-45f1-b0c8-81fffd1ca84d.jpg?quality=80&width=2000";
 
 const removeEnFromSlug = (slug: string) => {
-  return slug.replace("en/", "");
+  return slug.replace(lang, "");
 };
+// function which is used to translate the path to the correct one of the language
+const translatePath = useTranslatedPath(lang);
 ---
 
 <Layout title="Canada - Working Holiday for 12 months">
@@ -51,7 +57,10 @@ const removeEnFromSlug = (slug: string) => {
           })
           .slice(0, 4)
           .map((post) => (
-            <a href={"/en/blog/" + removeEnFromSlug(post.slug)} class="entry">
+            <a
+              href={translatePath("/blog") + removeEnFromSlug(post.slug)}
+              class="entry"
+            >
               {post.data.image && post.data.image.url ? (
                 <Image
                   widths={[700]}
@@ -72,7 +81,7 @@ const removeEnFromSlug = (slug: string) => {
                 {post.data.title}
                 <span class="entry--date">
                   {new Date(post.data.pubDate).toLocaleDateString(
-                    "de-DE",
+                    "en-CA",
                     dateOptions,
                   )}
                 </span>
