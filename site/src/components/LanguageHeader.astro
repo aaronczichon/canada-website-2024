@@ -6,6 +6,21 @@ const deUrl = getCurrentPathForSpecificLanguage('de', Astro.request.url);
 const enUrl = getCurrentPathForSpecificLanguage('en', Astro.request.url);
 ---
 <div class="lang-header">
-  <a href={deUrl}>Deutsch</a>
-  <a href={enUrl}>English</a>
+  <a href={deUrl} id="deSwitch">Deutsch</a>
+  <a href={enUrl} id="enSwitch">English</a>
 </div>
+<script is:inline>
+  const deElement = document.getElementById('deSwitch');
+  const enElement = document.getElementById('enSwitch');
+
+  const setLanguage = (lang) => {
+    localStorage.setItem('lang', lang);
+  };
+
+  deElement.addEventListener('click', () => {
+    setLanguage('de');
+  });
+  enElement.addEventListener('click', () => {
+    setLanguage('en');
+  });
+</script>
