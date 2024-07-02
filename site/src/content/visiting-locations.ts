@@ -63,5 +63,23 @@ export const VisitingLocations: MultiMapProps = {
         'Nachdem wir wieder aus Deutschland im Juni zurückgekommen sind, haben wir in der <a href="https://www.booking.com/hotel/ca/memorial-university.en-gb.html" target="_blank">Memorial University</a> in St. John\'s übernachtet.',
       useRadius: false,
     },
+    {
+      id: "08-trinity",
+      color: "#CA2B2B",
+      coordinates: [-53.29830279178249, 48.38321063514056],
+      tooltip: `Bevor wir nach St. John\'s angekommen sind haben wir noch eine Nacht in dieser <a href="https://www.airbnb.com/rooms/1145817192206759434" target="_blank">tollen Cabin am Pier</a> übernachtet. <br/>
+        Übernachtung vom: 29.06.24 - 30.06.24
+        `,
+      useRadius: false,
+    },
+    {
+      id: "08-st-johns-1",
+      color: "#2BCA2B",
+      coordinates: [-52.80415872631422, 47.55815938901318],
+      tooltip: `Unsere Zeit in St. John\'s ist auf zwei unterschiedliche Locations im gleichen Wohngebiet gesplittet. <a href="https://www.airbnb.com/rooms/1136278925339190001" target="_blank">Diese Unterkunft</a> ist die erste mit einem richtigen Arbeitsplatz und einem guten Bürostuhl. Dafür gibts Sonderpunkte! <br/>
+        Übernachtung vom: 30.06.24 - 04.07.24
+        `,
+      useRadius: true,
+    },
   ],
 };

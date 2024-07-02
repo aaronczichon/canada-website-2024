@@ -6,9 +6,14 @@ import { useTranslatedPath } from "../../i18n/utils";
  * @param reqUrl URL of the current path
  * @returns a string of the path for the langauge
  */
-export const getCurrentPathForSpecificLanguage = (lang: 'en' | 'de', reqUrl: string) => {
-  const pathname = new URL(reqUrl).pathname.replace('/en', '').replace('/de', '');
+export const getCurrentPathForSpecificLanguage = (
+  lang: "en" | "de",
+  reqUrl: string,
+) => {
+  const pathname = new URL(reqUrl).pathname
+    .replace("/en", "")
+    .replace("/de", "");
 
-// paths for the specific language
-return useTranslatedPath(lang)(pathname);
-}
+  // paths for the specific language
+  return useTranslatedPath(lang)(pathname);
+};
