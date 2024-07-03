@@ -5,4 +5,7 @@ export const GLOBAL_CONFIG = {
   defaultHeight: 450,
   defaultQuality: 80,
   mode: "DEV",
+  social: {
+    mastodon: "@czichon@mastodon.social",
+  },
 };

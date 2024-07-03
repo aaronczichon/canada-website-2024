@@ -24,6 +24,8 @@ const lang = Astro.currentLocale;
     <meta charset="UTF-8" />
     <meta name="description" content="Canada - Working Holiday für 12 Monate" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- This is used to identify posts of this website are related to my mastodon account -->
+    <meta name="fediverse:creator" content={GLOBAL_CONFIG.social.mastodon} />
     <link
       rel="icon"
       type="image/svg+xml"
