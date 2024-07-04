@@ -74,9 +74,18 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "08-st-johns-1",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-52.80415872631422, 47.55815938901318],
       tooltip: `Unsere Zeit in St. John\'s ist auf zwei unterschiedliche Locations im gleichen Wohngebiet gesplittet. <a href="https://www.airbnb.com/rooms/1136278925339190001" target="_blank">Diese Unterkunft</a> ist die erste mit einem richtigen Arbeitsplatz und einem guten Bürostuhl. Dafür gibts Sonderpunkte! <br/>
+        Übernachtung vom: 30.06.24 - 04.07.24
+        `,
+      useRadius: false,
+    },
+    {
+      id: "09-st-johns-2",
+      color: "#2BCA2B",
+      coordinates: [-52.80236599857151, 47.54517983063546],
+      tooltip: `Das hier ist der zweite Ort in St. John\'s wo wir vom 04. - 12.07.24 wohnen. <a href="https://www.vrbo.com/9946612ha" target="_blank">Die Unterkunft gibt es auf Vrbo.</a><br/>
         Übernachtung vom: 30.06.24 - 04.07.24
         `,
       useRadius: true,
