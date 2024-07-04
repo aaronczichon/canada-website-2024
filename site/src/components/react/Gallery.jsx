@@ -2,17 +2,13 @@ import React from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-export default function GridGallery({ images, lang }) {
+export default function GridGallery({ images, text }) {
   const [open, setOpen] = React.useState(false);
   const [btnText, setBtnText] = React.useState("missing.translation");
 
   React.useEffect(() => {
-    if (lang === "en") {
-      setBtnText("Open Gallery");
-    } else {
-      setBtnText("Photos anzeigen");
-    }
-  }, [lang]);
+    setBtnText(text);
+  }, [text]);
 
   return (
     <div className="gallery-container">
