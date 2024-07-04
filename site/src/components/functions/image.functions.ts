@@ -11,7 +11,8 @@ export const convertAssetsToImageData = async (assets: string[]) => {
       const data = await response.json();
       console.log(data);
       return {
-        src: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${asset}`,
+        base: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${asset}`,
+        src: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${asset}?q=70&width=1600`,
         alt: data.data.description,
       };
     }),
