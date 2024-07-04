@@ -4,8 +4,8 @@ pubDate: 2024-07-04
 description: "We leave Brighton and make our way to St. John's. On the way there we made some stops."
 author: "Lea Gräß"
 image:
-  href: "https://directus.aaronczichon.de/assets/057522ff-0d70-43b7-9125-0ab3772adc6e.jpeg?quality=70&width=1600"
-  alt: "View from the patio across the cove. In the background some mountains where the fog is in between."
+  href: "https://directus.aaronczichon.de/assets/e130b2bf-8ce7-433d-ad4d-2f578fc1f07b.jpeg?quality=70&width=1600"
+  alt: "A rock with a lots of Puffins."
 tags:
   [
     "Kanada",
@@ -19,19 +19,37 @@ tags:
   ]
 ---
 
-import DirectusImage from "../../components/DirectusImage.astro";
+import DirectusImage from "../../../components/DirectusImage.astro";
+import Gallery from "../../../components/react/Gallery";
 
 After our time in Brighton ended, last weekend we started our travel in the direction to St. Johns.
 
 We started early in the Saturday morning and set off to Grand Falls-Windsor, Gender and then to Elliston.  
 There we visited the famous Puffin island.  
-In Elliston there is the only place where you can watch puffins from landside. The weather was also very good.   
+In Elliston there is the only place where you can watch puffins from landside. The weather was also very good.  
 After that we went to Bonavista to have there supper before we drove to Champney to stay the night in a little cabin on the pier.  
 The pier with the cabins is a motive of many post cards here in Newfoundland.
 
 At Sunday morning we set off to Trinity very early. We booked there a three-hour ocean safari.  
 We could watch some whales (especially humpback whales), some bald eagles and a puffin colony.  
 All in all, the wonderful tour was worth it.
+
+<Gallery
+  client:load
+  images={[
+    "a83eef05-3812-49e1-817d-0ad86a6bb7a7.jpeg",
+    "5a4b4cb9-048d-4b79-8cbf-d2c15d788200.jpeg",
+    "9cbb8384-63dc-4b4a-86ad-32a554fb19af.jpeg",
+    "e76627a3-3ed0-4120-a1a1-be92d16e5525.jpeg",
+    "422dec20-651f-4de9-b5b4-6b6e0e6821ad.jpeg",
+    "54924710-ab69-4cee-963b-ae3964e57753.jpeg",
+    "51345758-fb0b-4742-ac82-983492b9128b.jpeg",
+    "38d2ab3d-418e-45da-842e-a304d1025229.jpeg",
+    "ffed29d9-0e0e-43c7-8a1b-56124b128963.jpeg",
+    "e130b2bf-8ce7-433d-ad4d-2f578fc1f07b.jpeg",
+    "f04bb0e0-e6ab-4520-a720-28472ec3f06a.jpeg",
+  ]}
+/>
 
 At the evening we finally arrive in our accommodation in St. Johns.  
 After a short break we visited the George Street. There was a small Street-Festival to introduce the Canada Day!
