@@ -18,7 +18,14 @@ export default function GridGallery({ images, lang }) {
     <div className="gallery-container">
       {images.length > 0 ? (
         <>
-          <button type="button" onClick={() => setOpen(true)}>
+          <button
+            className="btn"
+            style={{
+              marginBottom: "32px",
+            }}
+            type="button"
+            onClick={() => setOpen(true)}
+          >
             {btnText}
           </button>
 
