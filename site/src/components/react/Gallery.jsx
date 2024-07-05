@@ -2,16 +2,10 @@ import React from "react";
 import PhotoAlbum from "react-photo-album";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import { convertAssetsToImageData } from "../functions/image.functions";
 
-export default function GridGallery({ images }) {
-  const [imageData, setImageData] = React.useState([]);
+export default function GridGallery({ imageData }) {
   const [galleryData, setGalleryData] = React.useState([]);
   const [index, setIndex] = React.useState(-1);
-
-  React.useEffect(() => {
-    convertAssetsToImageData(images).then((data) => setImageData(data));
-  }, [images]);
 
   React.useEffect(() => {
     const gallery = imageData.map((image) => ({
