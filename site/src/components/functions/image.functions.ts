@@ -15,11 +15,6 @@ export const fetchFolderIdByName = async (
 ): Promise<string | undefined> => {
   const response = await fetch(
     `${GLOBAL_CONFIG.imageEndpoint}/folders?filter[name][_eq]=${folderName}`,
-    {
-      headers: {
-        Authorization: `Bearer ${authKey}`,
-      },
-    },
   );
   const data = await response.json();
   if (!data || !data.data || data.data.length === 0) return;
@@ -36,11 +31,6 @@ export const fetchFilesFromFolder = async (
 ): Promise<InternalFile[]> => {
   const response = await fetch(
     `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&fields[]=filename_disk&fields[]=description&fields[]=type`,
-    {
-      headers: {
-        Authorization: `Bearer ${authKey}`,
-      },
-    },
   );
   const data = await response.json();
   if (!data || !data.data || data.data.length === 0) return [];
