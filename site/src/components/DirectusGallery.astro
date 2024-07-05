@@ -1,0 +1,16 @@
+---
+import {
+  fetchFilesFromFolder,
+  fetchFolderIdByName,
+} from "./functions/image.functions";
+import Gallery from "./react/Gallery";
+
+const { folderName } = Astro.props;
+const folderId = await fetchFolderIdByName(folderName);
+if (!folderId) {
+  throw new Error(`Folder with name "${folderName}" not found`);
+}
+const imageData = await fetchFilesFromFolder(folderId);
+---
+
+<Gallery client:load imageData={imageData} />
