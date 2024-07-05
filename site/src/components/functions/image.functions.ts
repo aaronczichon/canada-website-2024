@@ -29,9 +29,8 @@ export const fetchFolderIdByName = async (
 export const fetchFilesFromFolder = async (
   folderId: string,
 ): Promise<InternalFile[]> => {
-  const response = await fetch(
-    `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&fields[]=filename_disk&fields[]=description&fields[]=type`,
-  );
+  const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&fields[]=filename_disk&fields[]=description&fields[]=type`;
+  const response = await fetch(url);
   const data = await response.json();
   if (!data || !data.data || data.data.length === 0) return [];
   const filteredFiles = (data.data as DirectusFile[]).filter(
