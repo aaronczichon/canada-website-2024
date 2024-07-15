@@ -3,6 +3,8 @@ title: "Visitors"
 layout: "../../layouts/Page.astro"
 ---
 
+import LocationCalendar from "../../components/react/Calendar.jsx";
+
 We look forward to everyone coming to visit us!  
 Of course, as soon as we found out about our plans for Canada, some friends and family members got in touch to say they would like to come and visit us. That made us very happy and we look forward to seeing everyone!
 
@@ -39,3 +41,7 @@ When you are with us, you will need a few small and larger items. You should def
 ## Miscellaneous
 
 All our visitors can and must write a guest post on our blog here 😊
+
+## When we are where
+
+<LocationCalendar client:only="react" />
