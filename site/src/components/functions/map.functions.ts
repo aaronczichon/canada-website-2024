@@ -101,6 +101,38 @@ export const addRoutesToMap = (map: any, routeData: RouteData[]) => {
   });
 };
 
+export const addRouteToMap = (
+  map: any,
+  routeData: number[][],
+  identifier: string,
+  lineWidth?: number,
+  lineColor?: string,
+) => {
+  map.addLayer({
+    id: `route-${identifier}`,
+    type: "line",
+    source: {
+      type: "geojson",
+      data: {
+        type: "Feature",
+        properties: {},
+        geometry: {
+          type: "LineString",
+          coordinates: routeData,
+        },
+      },
+    },
+    layout: {
+      "line-join": "round",
+      "line-cap": "round",
+    },
+    paint: {
+      "line-color": lineColor ?? "#b33335",
+      "line-width": lineWidth ?? 7,
+    },
+  });
+};
+
 /**
  * Adds a tooltip for an route layer
  * @param map map element reference

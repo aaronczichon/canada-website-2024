@@ -2,6 +2,9 @@ import BasicMap from "./BasicMap";
 import { useState, useEffect } from "preact/hooks";
 import * as mapboxgl from "mapbox-gl";
 import {
+  addRouteToMap,
+  addTooltipToMap,
+  fetchGpxFile,
   renderMapParts,
   renderPoint,
   setMapCenter,
@@ -21,9 +24,17 @@ export type MultiMapProps = {
   zoom?: number;
   mapCenter: number[];
   points?: MultiPoints[];
+  currentPath: string;
+  tooltip: string;
 };
 
-export default function MultiMap({ zoom, mapCenter, points }: MultiMapProps) {
+export default function MultiMap({
+  zoom,
+  mapCenter,
+  points,
+  currentPath,
+  tooltip,
+}: MultiMapProps) {
   const [map, setMap] = useState<mapboxgl.Map>();
 
   useEffect(() => {
@@ -38,6 +49,15 @@ export default function MultiMap({ zoom, mapCenter, points }: MultiMapProps) {
       () => setMapCenter(map, mapCenter),
     );
   }, [mapCenter, points, map]);
+
+  useEffect(() => {
+    if (!map || !currentPath || !tooltip) return;
+
+    fetchGpxFile(currentPath).then((route) => {
+      addRouteToMap(map, route, "full-route", 4, "#2BCA2B");
+      addTooltipToMap(map, tooltip, "route-full-route");
+    });
+  }, [map, currentPath, tooltip]);
 
   return <BasicMap zoom={zoom} setMap={setMap} />;
 }

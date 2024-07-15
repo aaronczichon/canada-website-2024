@@ -83,7 +83,7 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "09-st-johns-2",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-52.80236599857151, 47.54517983063546],
       tooltip: `Das hier ist der zweite Ort in St. John\'s wo wir vom 04. - 12.07.24 wohnen. <a href="https://www.vrbo.com/9946612ha" target="_blank">Die Unterkunft gibt es auf Vrbo.</a><br/>
         Übernachtung vom: 30.06.24 - 04.07.24
@@ -92,10 +92,13 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "10-arnolds-cove",
-      color: "#CA2B2B",
+      color: "#2BCA2B",
       coordinates: [-53.99375773111821, 47.766704436433145],
       tooltip: `Nach St. John's wollten wir noch etwas von der Avalon sehen. Daher sind wir nach <a href="https://www.airbnb.ca/rooms/1126786250486159230" target="_blank">Arnold's Cove</a> gefahren und haben dort in der übernachtet.`,
       useRadius: false,
     },
   ],
+  currentPath:
+    "https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx",
+  tooltip: "Das ist unsere bisherige Route zum Stand von 15.07.2024",
 };
