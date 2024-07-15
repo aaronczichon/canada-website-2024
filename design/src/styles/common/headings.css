@@ -3,9 +3,15 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.fc-toolbar-title {
 	color: var(--heading-color);
 	font-family: 'Mona Sans';
+}
+
+.fc-toolbar-title {
+	font-size: 1.2em !important;
+	color: var(--primary-color-dark) !important;
 }
 
 .margin--top {
