@@ -186,7 +186,7 @@ export const AccomonationLocations: EventInput[] = [
   {
     id: "13a-whitehorse",
     title: "Whitehorse, Yukon",
-    start: "2024-11-10",
-    end: "2024-11-24",
+    start: "2024-10-07",
+    end: "2024-10-20",
   },
 ];
