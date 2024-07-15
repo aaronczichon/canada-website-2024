@@ -1,3 +1,4 @@
+import type { EventInput } from "@fullcalendar/core";
 import type { MultiMapProps } from "../components/dynamic/MultiMap";
 
 export const VisitingLocations: MultiMapProps = {
@@ -102,3 +103,90 @@ export const VisitingLocations: MultiMapProps = {
     "https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx",
   tooltip: "Das ist unsere bisherige Route zum Stand von 15.07.2024",
 };
+
+export const AccomonationLocations: EventInput[] = [
+  {
+    id: "01-halifax",
+    title: "Halifax, Nova Scotia",
+    start: "2024-03-01",
+    end: "2024-04-29",
+  },
+  {
+    id: "02-to-nl",
+    title: "Nova Scotia -> Newfoundland",
+    start: "2024-04-29",
+    end: "2024-05-01",
+  },
+  {
+    id: "03-brighton",
+    title: "Brighton, Newfoundland",
+    start: "2024-05-01",
+    end: "2024-06-29",
+  },
+  {
+    id: "04-trinity",
+    title: "Trinity, Newfoundland",
+    start: "2024-06-29",
+    end: "2024-06-30",
+  },
+  {
+    id: "05-stjohns",
+    title: "St. John's, Newfoundland",
+    start: "2024-06-30",
+    end: "2024-07-12",
+  },
+  {
+    id: "06-arnolds-cove",
+    title: "Arnold`s Cove, Newfoundland",
+    start: "2024-07-12",
+    end: "2024-07-15",
+  },
+  {
+    id: "07-marystown",
+    title: "Marystown, Newfoundland",
+    start: "2024-07-15",
+    end: "2024-07-18",
+  },
+  {
+    id: "08-nl-to-ns",
+    title: "Newfoundland -> Nova Scotia",
+    start: "2024-07-18",
+    end: "2024-07-21",
+  },
+  {
+    id: "09-halifax",
+    title: "Halifax, Nova Scotia",
+    start: "2024-07-21",
+    end: "2024-07-24",
+  },
+  {
+    id: "10-train",
+    title: "Nova Scotia -> Quebec",
+    start: "2024-07-24",
+    end: "2024-07-25",
+  },
+  {
+    id: "11-montreal",
+    title: "Montreal, Quebec",
+    start: "2024-07-25",
+    end: "2024-08-18",
+  },
+  {
+    id: "12-camping",
+    title: "<Travel / Holidays>",
+    start: "2024-08-18",
+    end: "2024-09-01",
+  },
+  {
+    id: "13-calgary",
+    title: "Calgary, Alberta",
+    start: "2024-09-01",
+    end: "2024-11-30",
+  },
+  {
+    id: "13a-whitehorse",
+    title: "Whitehorse, Yukon",
+    start: "2024-10-07",
+    end: "2024-10-20",
+  },
+];
