@@ -93,10 +93,17 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "10-arnolds-cove",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-53.99375773111821, 47.766704436433145],
       tooltip: `Nach St. John's wollten wir noch etwas von der Avalon sehen. Daher sind wir nach <a href="https://www.airbnb.ca/rooms/1126786250486159230" target="_blank">Arnold's Cove</a> gefahren und haben dort in der übernachtet.`,
       useRadius: false,
+    },
+    {
+      id: "11-marystown",
+      color: "#2BCA2B",
+      coordinates: [-55.15953719709933, 47.156183140788464],
+      tooltip: `Da wir einen Tag nach Saint Pierre fahren wollen, übernachten wir in <a href="https://www.airbnb.ca/rooms/52796302" target="_blank">Marystown</a> damit es nicht so weit bis zur Fähre ist.`,
+      useRadius: true,
     },
   ],
   currentPath:
