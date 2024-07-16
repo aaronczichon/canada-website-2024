@@ -3,6 +3,8 @@ title: "Besuch"
 layout: "../layouts/Page.astro"
 ---
 
+import LocationCalendar from "../components/react/Calendar.jsx";
+
 Wir freuen uns über Jede und Jeden der oder die uns besuchen kommt!  
 Natürlich haben sich gleich zum bekannt werden unserer Pläne für Kanada einige Freunde und Familienmitglieder gemeldet, dass sie uns gerne besuchen kommen würden. Das hat uns sehr gefreut und wir freuen uns auf Jede und Jeden!
 
@@ -16,6 +18,8 @@ Unsere bisher geplanten Unterkünfte:
 
 - Halifax, NS (kein zusätzliches Zimmer)
 - Brighton, Newfoundland (zusätzliches Zimmer vorhanden)
+- St. John's, Newfoundland (kein zusätzliches Zimmer)
+- Montréal, Québec (kein zusätzliches Zimmer)
 
 ## Vor dem Abflug
 
@@ -32,8 +36,12 @@ Wenn ihr bei uns seid, benötigt ihr ein paar Kleinigkeiten und größere Dinge.
 - Kreditkarte (Visa, Mastercard, American Express) (**keine** Visa/Mastercard Debit Karte, es sollte eine "richtige" Credit Card sein)
 - Führerschein, internationaler Führerschein wird nicht benötigt. Es reicht der deutsche Führerschein im Scheckkartenformat
 - Mietwagen, da die Kosten für zusätzliche Fahrer in Kanada sehr teuer sind und ihr nicht mit unserem Auto fahren könnt, benötigt ihr ein eigenes Mietauto. Hier empfehlen wir zu schauen ob ihr eine Vollkasko-Versicherung bei euerer Kreditkarte dabei habt. Dann könnt ihr euch die Zusatzversicherungen der Autovermieter sparen und es ist relativ günstig ein Auto dann zu mieten.
-- [Airalo](https://www.airalo.com/de) - Für mobiles Internet. Mobiles Internet ist wichtig für Navigation, Bus-Tickets, etc. Wenn euer Telefon eSIM unterstützt könnt ihr mit Airalo eine zusätzliche eSIM für euer Telefon kaufen und könnt dann in Kanada das mobile Internet nutzen.
+- [Airalo](https://ref.airalo.com/3xBM) - Für mobiles Internet. Mobiles Internet ist wichtig für Navigation, Bus-Tickets, etc. Wenn euer Telefon eSIM unterstützt könnt ihr mit Airalo eine zusätzliche eSIM für euer Telefon kaufen und könnt dann in Kanada das mobile Internet nutzen.
 
 ## Sonstiges
 
 Alle unsere Besucher\*innen dürfen und müssen einen Gastbeitrag in unserem Blog hier schreiben 😊
+
+## Wo wir uns wann befinden
+
+<LocationCalendar client:only="react" />
