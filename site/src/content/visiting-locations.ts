@@ -100,10 +100,17 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "11-marystown",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-55.15953719709933, 47.156183140788464],
       tooltip: `Da wir einen Tag nach Saint Pierre fahren wollen, übernachten wir in <a href="https://www.airbnb.ca/rooms/52796302" target="_blank">Marystown</a> damit es nicht so weit bis zur Fähre ist.`,
-      useRadius: true,
+      useRadius: false,
+    },
+    {
+      id: "12-halifax-2",
+      color: "#2BCA2B",
+      coordinates: [-63.57781184808878, 44.63413236723511],
+      tooltip: `Bevor es weiter nach Montréal geht, übernachten wir nochmal in Halifax.`,
+      useRadius: false,
     },
   ],
   currentPath:
