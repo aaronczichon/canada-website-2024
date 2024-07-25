@@ -10,7 +10,7 @@ export const VisitingLocations: MultiMapProps = {
       color: "#CA2B2B",
       coordinates: [-63.582687, 44.65107],
       tooltip: "Unser erster Aufenthalt in Halifax",
-      useRadius: true,
+      useRadius: false,
     },
     {
       id: "02-eastern",
@@ -38,7 +38,7 @@ export const VisitingLocations: MultiMapProps = {
       color: "#CA2B2B",
       coordinates: [-55.63716810349037, 49.547550234959],
       tooltip: "Unser aktueller Standort in Brighton",
-      useRadius: true,
+      useRadius: false,
     },
     {
       id: "05-rocky-harbour",
@@ -107,10 +107,17 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "12-halifax-2",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-63.57781184808878, 44.63413236723511],
       tooltip: `Bevor es weiter nach Montréal geht, übernachten wir nochmal in Halifax.`,
       useRadius: false,
+    },
+    {
+      id: "13-montreal",
+      color: "#2BCA2B",
+      coordinates: [-73.55810992624419, 45.50230708990301],
+      tooltip: `Wir sind in Montréal! Dort verbringen wir in <a href="https://www.airbnb.ca/rooms/25973705" target="_blank">Old Montréal</a> die nächsten Wochen. Genauer gesagt bis zum 18. August.`,
+      useRadius: true,
     },
   ],
   currentPath:
