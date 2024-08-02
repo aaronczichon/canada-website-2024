@@ -26,7 +26,7 @@ jobs:
           name: ${{ needs.run-build.outputs.artifact-name }}
       - name: Copy Artifacts
         env:
-          ARTIFACT_NAME: ${{ needs.call-reusable-workflow.outputs.artifact-name }}
+          ARTIFACT_NAME: ${{ needs.run-build.outputs.artifact-name }}
         run: |
           cp -r $ARTIFACT_NAME/* .
           rm -rf $ARTIFACT_NAME
