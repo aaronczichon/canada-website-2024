@@ -25,9 +25,11 @@ jobs:
         with:
           name: ${{ needs.run-build.outputs.artifact-name }}
       - name: Copy Artifacts
+        env:
+          ARTIFACT_NAME: ${{ needs.call-reusable-workflow.outputs.artifact-name }}
         run: |
-          cp -r ${{ needs.run-build.outputs.artifact-name }}/* .
-          rm -rf ${{ needs.run-build.outputs.artifact-name }}
+          cp -r $ARTIFACT_NAME/* .
+          rm -rf $ARTIFACT_NAME
       - name: Deploy
         uses: airvzxf/ftp-deployment-action@latest
         with:
