@@ -1,0 +1,31 @@
+name: Build and Deploy
+
+on: ["push"]
+
+env:
+  DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
+
+jobs:
+  run-build:
+    name: Build Assets
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout Repository
+      - uses: actions/setup-node@v4
+        name: Setup Node.js (v20)
+        with:
+          node-version: 20
+      # - name: Install Dependencies and build
+      #   run: |
+      #     npm i
+      #     npm run build
+      - name: Deploy to Netlify
+        uses: jsmrcaga/action-netlify-deploy@v2.2.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_DEPLOY_TO_PROD: true
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
