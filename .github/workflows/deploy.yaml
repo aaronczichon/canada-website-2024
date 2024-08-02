@@ -23,7 +23,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: ${{ needs.run-build.outputs.artifact-name }}
+          name: ${{ needs.run-build.outputs.ARTIFACT_NAME }}
           path: ./
       - name: Deploy
         uses: airvzxf/ftp-deployment-action@latest

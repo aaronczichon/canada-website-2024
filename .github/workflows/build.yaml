@@ -17,6 +17,8 @@ jobs:
   run-build:
     name: Build Assets
     runs-on: ubuntu-latest
+    outputs:
+      ARTIFACT_NAME: ${{ steps.set-output.outputs.artifact-name }}
     defaults:
       run:
         working-directory: site
@@ -36,4 +38,5 @@ jobs:
           name: ${{ inputs.artifact-name }}
           path: "site/dist"
       - name: Set Output
+        id: set-output
         run: echo "artifact-name=${{ inputs.artifact-name }}" >> $GITHUB_ENV
