@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
-      artifact-name: build-output
+      artifact-name: ${{ needs.run-build.outputs.artifact-name }}
   run-deploy:
     name: Deploy to FTP
     runs-on: ubuntu-latest
@@ -21,6 +21,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ needs.run-build.outputs.artifact-name }}
+          path: ./
       - name: Listing
-        working-directory: ${{ needs.run-build.outputs.artifact-name }}
         run: ls -la

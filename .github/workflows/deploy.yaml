@@ -24,10 +24,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ needs.run-build.outputs.artifact-name }}
+          path: ./
       - name: Deploy
         uses: airvzxf/ftp-deployment-action@latest
         with:
           server: ${{ secrets.FTP_SERVER_CANADA }}
           user: ${{ secrets.FTP_USER_CANADA }}
           password: ${{ secrets.FTP_PW_CANADA }}
-          local_dir: ${{ needs.run-build.outputs.artifact-name }}
