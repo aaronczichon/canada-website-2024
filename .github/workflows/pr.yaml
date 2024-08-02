@@ -1,4 +1,4 @@
-name: PR Builds
+name: Pull Requests
 
 on:
   pull_request:
@@ -10,6 +10,7 @@ env:
 
 jobs:
   run-build:
+    name: Build
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
