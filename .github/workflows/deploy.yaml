@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
+
 jobs:
   run-build:
     name: Build Assets
@@ -23,3 +26,12 @@ jobs:
           user: ${{ secrets.FTP_USER_CANADA }}
           password: ${{ secrets.FTP_PW_CANADA }}
           local_dir: "./site/dist"
+      - uses: jsmrcaga/action-netlify-deploy@v2
+        name: Deploy to Netlify
+        working-directory: site/dist
+        install_command: "echo Skipping installing the dependencies"
+        build_command: "echo Skipping building the web files"
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_DEPLOY_TO_PROD: true
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
