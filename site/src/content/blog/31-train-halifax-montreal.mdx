@@ -10,6 +10,7 @@ tags: ["Kanada", "Via Rail", "Halifax", "Montreal", "Zug"]
 ---
 
 import DirectusGallery from "../../components/DirectusGallery.astro";
+import PathMap from "../../components/dynamic/PathMap";
 
 Wir haben unseren Ort für die nächsten Wochen wieder gewechselt.  
 Nach einer ruhigen und entspannten Zeit geht es nun wieder in eine Stadt, nach Montréal in Québec.  
@@ -45,3 +46,14 @@ Dazu musste ich immer in das "Service-Car" da dies der einzigste Wagen mit WiFi 
 In Montreal mussten wir dann nicht unser Gepäck aus dem Zug tragen, sondern konnten entspannt zur Gepäckausgabe laufen und konnten dort nach 10-15 Minuten Wartezeit unser Gepäck abholen.
 
 Alles in allem ist das Reisen auf einer so langen Strecke in Kanada richtig entspannt!
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/309fc75b-7db6-4a05-af81-eda3b1f0ec63.gpx",
+      tooltip: "Die Zugstrecke von Halifax nach Montreal",
+    },
+  ]}
+  zoom="5.5"
+/>

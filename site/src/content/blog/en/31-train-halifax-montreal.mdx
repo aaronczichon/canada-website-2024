@@ -10,6 +10,7 @@ tags: ["Canada", "Via Rail", "Halifax", "Montreal", "Train"]
 ---
 
 import DirectusGallery from "../../../components/DirectusGallery.astro";
+import PathMap from "../../../components/dynamic/PathMap";
 
 We changed our location in the country once more for the coming weeks.  
 After a quiet and relaxed time, we are now heading back to a city, to Montréal in Québec.  
@@ -45,3 +46,14 @@ For this, I always had to go to the "service car" as this is the only car with W
 In Montreal, we didn't have to carry our luggage off the train, but could walk to the baggage claim area and pick up our luggage after a 10-15 minute wait.
 
 It was a really nice and relaxed way to travel such a long distance in Canada!
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/309fc75b-7db6-4a05-af81-eda3b1f0ec63.gpx",
+      tooltip: "The train route from Halifax to Montreal",
+    },
+  ]}
+  zoom="5.5"
+/>
