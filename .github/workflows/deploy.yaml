@@ -11,6 +11,7 @@ env:
 jobs:
   run-build:
     uses: ./.github/workflows/build.yaml
+    name: Build
     secrets: inherit
     with:
       artifact-name: build-output
@@ -23,6 +24,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ needs.run-build.outputs.artifact-name }}
+      - name: Copy Artifacts
+        run: |
+          cp -r ${{ needs.run-build.outputs.artifact-name }} ./
+          rm -rf ${{ needs.run-build.outputs.artifact-name }}
       - name: Deploy
         uses: airvzxf/ftp-deployment-action@latest
         with:

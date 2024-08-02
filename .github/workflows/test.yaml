@@ -7,6 +7,7 @@ env:
 
 jobs:
   run-build:
+    name: Build
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
@@ -20,5 +21,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ needs.run-build.outputs.artifact-name }}
+      - name: Copy Artifacts
+        run: |
+          cp -r ${{ needs.run-build.outputs.artifact-name }} ./
+          rm -rf ${{ needs.run-build.outputs.artifact-name }}
       - name: Listing
         run: ls -la
