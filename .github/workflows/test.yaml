@@ -17,14 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-build
     steps:
-      - name: Set ARTIFACT_NAME environment variable
-        run: echo "ARTIFACT_NAME=${{ needs.run-build.outputs.ARTIFACT_NAME }}" >> $GITHUB_ENV
       - name: Check output
-        run: echo $ARTIFACT_NAME
+        run: echo ${{ needs.run-build.outputs.ARTIFACT_NAME }}
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: ${{ env.ARTIFACT_NAME }}
+          name: ${{ needs.run-build.outputs.ARTIFACT_NAME }}
           path: ./
       - name: Listing
         run: ls -la

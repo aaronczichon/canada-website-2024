@@ -6,6 +6,9 @@ on:
       artifact-name:
         required: true
         type: string
+    outputs:
+      ARTIFACT_NAME: 
+        value: ${{ inputs.artifact-name }}
     secrets:
       DIRECTUS_API_KEY:
         required: true
@@ -17,8 +20,6 @@ jobs:
   run-build:
     name: Build Assets
     runs-on: ubuntu-latest
-    outputs:
-      ARTIFACT_NAME: ${{ steps.set-output.outputs.ARTIFACT_NAME }}
     defaults:
       run:
         working-directory: site
@@ -38,6 +39,3 @@ jobs:
           name: ${{ inputs.artifact-name }}
           path: "site/package.json"
           # path: "site"
-      - name: Set Output
-        id: set-output
-        run: echo "ARTIFACT_NAME=${{ inputs.artifact-name }}" >> $GITHUB_OUTPUT
