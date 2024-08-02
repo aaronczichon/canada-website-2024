@@ -2,6 +2,10 @@ name: Build
 
 on: 
   workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
     secrets:
       DIRECTUS_API_KEY:
         required: true
@@ -29,5 +33,7 @@ jobs:
           npm run build
       - uses: actions/upload-artifact@v4
         with:
-          name: "build-output"
+          name: ${{ inputs.artifact-name }}
           path: "site/dist"
+      - name: Set Output
+        run: echo "artifact-name=${{ inputs.artifact-name }}" >> $GITHUB_OUTPUT
