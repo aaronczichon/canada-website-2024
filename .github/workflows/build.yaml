@@ -1,6 +1,6 @@
-name: Deploy to Netlify
+name: Build
 
-on: []
+on: ["workflow_dispatch", "push"]
 
 env:
   DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
@@ -19,13 +19,11 @@ jobs:
         name: Setup Node.js (v20)
         with:
           node-version: 20
-      # - name: Install Dependencies and build
-      #   run: |
-      #     npm i
-      #     npm run build
-      - name: Deploy to Netlify
-        uses: jsmrcaga/action-netlify-deploy@v2.2.0
+      - name: Install Dependencies and build
+        run: |
+          npm i
+          npm run build
+      - uses: actions/upload-artifact@v4
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_DEPLOY_TO_PROD: true
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          name: "build-output"
+          path: "dist"
