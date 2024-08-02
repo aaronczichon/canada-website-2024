@@ -26,8 +26,8 @@ jobs:
           user: ${{ secrets.FTP_USER_CANADA }}
           password: ${{ secrets.FTP_PW_CANADA }}
           local_dir: "./site/dist"
-      - uses: jsmrcaga/action-netlify-deploy@v2
-        name: Deploy to Netlify
+      - name: Deploy to Netlify
+        uses: jsmrcaga/action-netlify-deploy@v2
         working-directory: site/dist
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
