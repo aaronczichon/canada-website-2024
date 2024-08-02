@@ -1,18 +1,17 @@
-name: PR Builds
+name: Pull Requests
 
 on:
   pull_request:
     branches:
       - main
 
+env:
+  DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
+
 jobs:
   run-build:
-    name: Build Assets
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: cd site && npm ci
-      - run: cd site && npm run build
+    name: Build
+    uses: ./.github/workflows/build.yaml
+    secrets: inherit
+    with:
+      artifact-name: build-output

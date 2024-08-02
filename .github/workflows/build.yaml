@@ -1,0 +1,40 @@
+name: Build
+
+on: 
+  workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
+    outputs:
+      ARTIFACT_NAME: 
+        value: ${{ inputs.artifact-name }}
+    secrets:
+      DIRECTUS_API_KEY:
+        required: true
+
+env:
+  DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
+
+jobs:
+  run-build:
+    name: Build Assets
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout Repository
+      - uses: actions/setup-node@v4
+        name: Setup Node.js (v20)
+        with:
+          node-version: 20
+      - name: Install Dependencies and build
+        run: |
+          npm i
+          npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: "site"
