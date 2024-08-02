@@ -1,6 +1,10 @@
 name: Build
 
-on: ["workflow_dispatch", "push"]
+on: 
+  workflow_call:
+    secrets:
+      DIRECTUS_API_KEY:
+        required: true
 
 env:
   DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}

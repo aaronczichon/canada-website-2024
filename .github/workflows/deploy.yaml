@@ -10,19 +10,19 @@ env:
 
 jobs:
   run-build:
-    name: Build Assets
+    uses: ./.github/workflows/build.yaml
+    secrets: inherit
+  run-deploy:
+    name: Deploy to FTP
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
-          node-version: 20
-      - run: cd site && npm i
-      - run: cd site && npm run build
-      - name: Sync to FTP
+          name: build-output
+      - name: Deploy
         uses: airvzxf/ftp-deployment-action@latest
         with:
           server: ${{ secrets.FTP_SERVER_CANADA }}
           user: ${{ secrets.FTP_USER_CANADA }}
           password: ${{ secrets.FTP_PW_CANADA }}
-          local_dir: "./site/dist"

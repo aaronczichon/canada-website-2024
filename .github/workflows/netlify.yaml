@@ -1,31 +1,29 @@
 name: Deploy to Netlify
 
-on: []
+on: ["push"]
 
 env:
   DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
 
 jobs:
   run-build:
-    name: Build Assets
+    uses: ./.github/workflows/build.yaml
+    secrets: inherit
+
+  run-deploy:
+    needs: run-build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: site
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout Repository
-      - uses: actions/setup-node@v4
-        name: Setup Node.js (v20)
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
-          node-version: 20
-      - name: Install Dependencies
-        run: npm i
-      - name: Build web assets
-        run: npm run build
+          name: build-output
       - name: Deploy to Netlify
         uses: jsmrcaga/action-netlify-deploy@v2.2.0
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_DEPLOY_TO_PROD: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_MESSAGE: "Deployed from GitHub action"
+          NETLIFY_DEPLOY_TO_PROD: true
+          install_command: "echo Skipping installing the dependencies"
+          build_command: "echo Skipping building the web files"
