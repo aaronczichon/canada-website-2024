@@ -25,12 +25,9 @@ jobs:
         with:
           name: ${{ needs.run-build.outputs.ARTIFACT_NAME }}
           path: ./
-      - name: Test
-        run: |
-          ls -la
-      # - name: Deploy
-      #   uses: airvzxf/ftp-deployment-action@latest
-      #   with:
-      #     server: ${{ secrets.FTP_SERVER_CANADA }}
-      #     user: ${{ secrets.FTP_USER_CANADA }}
-      #     password: ${{ secrets.FTP_PW_CANADA }}
+      - name: Deploy
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.FTP_SERVER_CANADA }}
+          user: ${{ secrets.FTP_USER_CANADA }}
+          password: ${{ secrets.FTP_PW_CANADA }}
