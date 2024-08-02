@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/build.yaml
     secrets: inherit
     with:
-      artifact-name: ${{ needs.run-build.outputs.artifact-name }}
+      artifact-name: build-output
   run-deploy:
     name: Deploy to FTP
     runs-on: ubuntu-latest
