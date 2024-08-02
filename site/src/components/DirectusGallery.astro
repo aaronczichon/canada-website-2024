@@ -10,7 +10,13 @@ const folderId = await fetchFolderIdByName(folderName);
 if (!folderId) {
   throw new Error(`Folder with name "${folderName}" not found`);
 }
-const imageData = await fetchFilesFromFolder(folderId);
+let imageData = await fetchFilesFromFolder(folderId);
+imageData = imageData.sort((a, b) => {
+  const aDate = new Date(a.creationDate);
+  const bDate = new Date(b.creationDate);
+  // sort by date
+  return aDate.getTime() - bDate.getTime();
+});
 ---
 
 <Gallery client:load imageData={imageData} />
