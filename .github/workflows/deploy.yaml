@@ -28,7 +28,7 @@ jobs:
           local_dir: "./site/dist"
       - name: Deploy to Netlify
         uses: jsmrcaga/action-netlify-deploy@v2
-        working-directory: site/dist
+        working-directory: "site/dist"
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_DEPLOY_TO_PROD: true
