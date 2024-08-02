@@ -29,14 +29,15 @@ jobs:
         name: Setup Node.js (v20)
         with:
           node-version: 20
-      - name: Install Dependencies and build
-        run: |
-          npm i
-          npm run build
+      # - name: Install Dependencies and build
+      #   run: |
+      #     npm i
+      #     npm run build
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
-          path: "site/dist"
+          path: "site/package.json"
+          # path: "site"
       - name: Set Output
         id: set-output
         run: echo "artifact-name=${{ inputs.artifact-name }}" >> $GITHUB_ENV

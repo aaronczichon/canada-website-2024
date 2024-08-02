@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-build
     steps:
+      - name: Check output
+        run: echo ${{ needs.run-build.outputs.ARTIFACT_NAME }}
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
