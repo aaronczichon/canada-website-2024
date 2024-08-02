@@ -29,8 +29,12 @@ export const fetchFolderIdByName = async (
 export const fetchFilesFromFolder = async (
   folderId: string,
 ): Promise<InternalFile[]> => {
-  const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&filter[is_public][_eq]=1&fields[]=filename_disk&fields[]=description&fields[]=type`;
-  const response = await fetch(url);
+  const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&filter[is_public][_eq]=1&fields[]=filename_disk&fields[]=description&fields[]=type&fields[]=metadata`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${authKey}`,
+    },
+  });
   const data = await response.json();
   if (!data || !data.data || data.data.length === 0) return [];
   const filteredFiles = (data.data as DirectusFile[]).filter(
@@ -52,5 +56,6 @@ const convertDirectusFileToInternalFile = (
     alt: file.description,
     base: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${file.filename_disk}`,
     src: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${file.filename_disk}?q=70&width=1600`,
+    creationDate: file.metadata?.exif?.DateTimeOriginal,
   }));
 };
