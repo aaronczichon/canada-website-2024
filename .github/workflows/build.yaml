@@ -36,4 +36,4 @@ jobs:
           name: ${{ inputs.artifact-name }}
           path: "site/dist"
       - name: Set Output
-        run: echo "artifact-name=${{ inputs.artifact-name }}" >> $GITHUB_OUTPUT
+        run: echo "artifact-name=${{ inputs.artifact-name }}" >> $GITHUB_ENV
