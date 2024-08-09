@@ -48,10 +48,9 @@ export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
 
 /**
  * Call map manipulation functions after eachother
- * @param map map element reference
  * @param args all functions related to map which should be called
  */
-export const renderMapParts = (map: mapboxgl.Map, ...args: Function[]) => {
+export const renderMapParts = (...args: Function[]) => {
   args.forEach((arg) => arg());
 };
 

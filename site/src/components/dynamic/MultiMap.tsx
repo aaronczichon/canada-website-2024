@@ -40,7 +40,6 @@ export default function MultiMap({
   useEffect(() => {
     if (!map || !mapCenter || !points) return;
     renderMapParts(
-      map,
       () =>
         points.forEach((point) => {
           console.log(point);

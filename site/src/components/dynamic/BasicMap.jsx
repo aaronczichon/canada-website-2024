@@ -5,7 +5,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { PUBLIC_TOKENS } from "../../public-tokens";
 
 export default function BasicDynamicMap({ zoom, setMap }) {
-  const [mapId] = useState("map-" + Math.random().toString(36).substr(2, 9))[0];
+  const [mapId] = useState(
+    "map-" + Math.random().toString(36).substring(2, 9),
+  )[0];
 
   useEffect(() => {
     // Real Token:
