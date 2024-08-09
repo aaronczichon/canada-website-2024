@@ -1,4 +1,4 @@
-import gpxParser from "gpxparser";
+import { parseGPX } from "@we-gold/gpxjs";
 import mapboxgl from "mapbox-gl";
 import type { MultiPoints } from "../dynamic/MultiMap";
 import type { RouteData } from "../dynamic/route.type";
@@ -157,12 +157,22 @@ export const addTooltipToMap = (
 };
 
 // Function to parse GPX file and extract route coordinates
-function parseGPX(gpxData: any) {
-  const parser = new gpxParser();
-  parser.parse(gpxData);
-  const route = parser.tracks[0].points.map((point) => [point.lat, point.lon]);
-  return route;
-}
+const parseGpx = (gpxData: any): number[][] => {
+  const [parsedFile, error] = parseGPX(gpxData);
+  if (error) {
+    console.error("Error parsing GPX file:", error);
+    throw error;
+  }
+  const geojson = parsedFile.toGeoJSON();
+  const route = geojson.features[0].geometry.coordinates as [][];
+  // coordinates in gpx files are usually in the format [longitude, latitude]
+  // we need to switch them to [latitude, longitude] for mapbox
+  const orderedRoute = route.map((subArray: any[]) => [
+    subArray[1],
+    subArray[0],
+  ]);
+  return orderedRoute;
+};
 
 /**
  * Loads a GPX file from the provided route URL and returns the route coordinates
@@ -173,7 +183,7 @@ export const fetchGpxFile = async (url: string) => {
   return fetch(url)
     .then((response) => response.text())
     .then((gpxData) => {
-      const route = parseGPX(gpxData);
+      const route = parseGpx(gpxData);
       const switchedRoute = route.map((subArray) => {
         return [subArray[1], subArray[0]];
       });
