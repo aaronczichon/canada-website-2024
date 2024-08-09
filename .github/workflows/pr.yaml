@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 
 env:
   DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
