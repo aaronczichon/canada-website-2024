@@ -7,13 +7,14 @@
 	"scripts": {
 		"dev": "astro dev --host 127.0.0.1",
 		"start": "npm run rm:styles && npm run copy:styles && npm run dev",
-		"build": "npm run copy:styles && npm run copy:tokens && astro check && astro build",
+		"build": "rm -rf dist && npm run copy:styles && npm run copy:tokens && astro check && astro build && npm run copy:deployment-files",
 		"preview": "astro preview",
 		"astro": "astro",
 		"prettier": "prettier --config ./.prettierrc.mjs --write \"**{.ts,.mdx,.css,.md,.html,.astro,.tsx,.ts,.jsx}\"",
 		"copy:tokens": "cp ./dev-templates/public-tokens.ts.tmpl ./src/public-tokens.ts",
 		"copy:styles": "cp -R ../design/src/styles ./src/styles",
 		"copy:assets": "cp -R ../design/src/assets ./public/assets",
+		"copy:deployment-files": "cp ./deployment/_headers ./dist/_headers",
 		"rm:styles": "rm -rf ./src/styles"
 	},
 	"dependencies": {
