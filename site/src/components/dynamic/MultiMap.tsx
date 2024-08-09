@@ -1,6 +1,6 @@
 import BasicMap from "./BasicMap";
 import { useState, useEffect } from "preact/hooks";
-import * as mapboxgl from "mapbox-gl";
+import mapboxgl from "mapbox-gl";
 import {
   addRouteToMap,
   addTooltipToMap,
@@ -40,7 +40,6 @@ export default function MultiMap({
   useEffect(() => {
     if (!map || !mapCenter || !points) return;
     renderMapParts(
-      map,
       () =>
         points.forEach((point) => {
           console.log(point);

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "preact/hooks";
-
 import BasicMap from "./BasicMap";
 import {
   addTooltipToMap,
@@ -10,7 +9,6 @@ import {
 
 export default function PathDynamicMap({ gpxInfo, zoom, tooltip }) {
   const [map, setMap] = useState(null);
-  const [popup, setPopup] = useState(null);
   const [routeData, setRouteData] = useState(null);
 
   useEffect(() => {
@@ -41,7 +39,7 @@ export default function PathDynamicMap({ gpxInfo, zoom, tooltip }) {
       .flat();
     const center = findCenter(allCoordinates);
     map.setCenter(center);
-  }, [map, routeData, popup, tooltip]);
+  }, [map, routeData, tooltip]);
 
   return <BasicMap zoom={zoom} setMap={setMap} />;
 }

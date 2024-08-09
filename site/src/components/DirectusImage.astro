@@ -24,7 +24,7 @@ const imgSrc = `${imgUrl}?${queries.join("&")}`;
 
 let result: any = await fetch(altSrc);
 result = await result.json();
-const altText = result?.data?.description || "";
+const altText = result?.data?.description || alt || "";
 ---
 
 <a
