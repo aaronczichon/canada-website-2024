@@ -6,6 +6,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
   integrations: [mdx(), preact({ include: ['**/components/dynamic/*'] }), react({
     include: ['**/components/react/*']
   })],

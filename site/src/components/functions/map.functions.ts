@@ -1,5 +1,5 @@
 import gpxParser from "gpxparser";
-import * as mapboxgl from "mapbox-gl";
+import mapboxgl from "mapbox-gl";
 import type { MultiPoints } from "../dynamic/MultiMap";
 import type { RouteData } from "../dynamic/route.type";
 
