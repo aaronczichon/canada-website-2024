@@ -13,7 +13,7 @@ on:
         required: true
         type: string
     secrets:
-      GITHUB_TOKEN:
+      GH_TOKEN:
         required: true
       CLOUDFLARE_API_TOKEN:
         required: true
@@ -31,7 +31,7 @@ jobs:
         env:
           REPO: ${{ inputs.REPOSITORY }}
           PR_NO: ${{ inputs.PULL_REQUEST_NUMBER }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Delete via API
         run: |
