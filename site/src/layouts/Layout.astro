@@ -26,6 +26,7 @@ const lang = Astro.currentLocale;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- This is used to identify posts of this website are related to my mastodon account -->
     <meta name="fediverse:creator" content={GLOBAL_CONFIG.social.mastodon} />
+    <link rel="canonical" href={Astro.request.url} />
     <link
       rel="icon"
       type="image/svg+xml"
