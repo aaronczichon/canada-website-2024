@@ -29,7 +29,7 @@ export const fetchFolderIdByName = async (
 export const fetchFilesFromFolder = async (
   folderId: string,
 ): Promise<InternalFile[]> => {
-  const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&filter[is_public][_eq]=1&fields[]=filename_disk&fields[]=description&fields[]=type&fields[]=metadata`;
+  const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&filter[is_public][_eq]=1&filter[ignore_in_gallery][_eq]=0&fields[]=filename_disk&fields[]=description&fields[]=type&fields[]=metadata`;
   const response = await fetch(url, {
     headers: {
       Authorization: `Bearer ${authKey}`,
