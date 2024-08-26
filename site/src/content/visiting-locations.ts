@@ -2,8 +2,8 @@ import type { EventInput } from "@fullcalendar/core";
 import type { MultiMapProps } from "../components/dynamic/MultiMap";
 
 export const VisitingLocations: MultiMapProps = {
-  mapCenter: [-59.03460634364587, 47.28165248503039],
-  zoom: 5.5,
+  mapCenter: [-82.03460634364587, 47.28165248503039],
+  zoom: 4,
   points: [
     {
       id: "01-halifax",
@@ -114,10 +114,24 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "13-montreal",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-73.55810992624419, 45.50230708990301],
       tooltip: `Wir sind in Montréal! Dort verbringen wir in <a href="https://www.airbnb.ca/rooms/25973705" target="_blank">Old Montréal</a> die nächsten Wochen. Genauer gesagt bis zum 18. August.`,
-      useRadius: true,
+      useRadius: false,
+    },
+    {
+      id: "14-missauga",
+      color: "#CA2B2B",
+      coordinates: [-79.65052280832177, 43.725835731374936],
+      tooltip: `Kurzer Zwischenstopp in Toronto / Missauga bevor es weiter nach Winnipeg geht!`,
+      useRadius: false,
+    },
+    {
+      id: "15-winnipeg",
+      color: "#2BCA2B",
+      coordinates: [-97.13568555374694, 49.89888395397797],
+      tooltip: `In Winnipeg verbringen wir <a href="https://www.airbnb.ca/rooms/961167602241646280" target="_blank">3 Tage</a> bevor es uns dann auf einen Roadtrip in Richtung Calgary zieht.`,
+      useRadius: false,
     },
   ],
   currentPath:
