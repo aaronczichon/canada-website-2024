@@ -12,6 +12,7 @@ tags:
 
 import DirectusGallery from "../../components/DirectusGallery.astro";
 import DirectusImage from "../../components/DirectusImage.astro";
+import PathMap from "../../components/dynamic/PathMap";
 
 Wir haben nun auch mal „richtigen“ Urlaub. Und diese Gelegenheit nutzen wir, unsere weitere Reise in Richtung Westen anzutreten.  
 Vor einigen Wochen haben wir ein Relocation Angebot gefunden, bei welchem wir einen Camper von Montréal nach Toronto bringen können und diesen dafür recht günstig bekommen.
@@ -67,5 +68,16 @@ Die letzte Etappe führte uns dann in den Großraum Toronto. Nach einer Nacht au
 Nach so vielen ruhigen und entspannten Tagen hielten wir es allerdings in der großen, vollen und lauten Stadt nicht all zu lange aus und bereiteten uns lieber auf den nächsten Tag vor. Denn nun hieß es: Flug nach Winnipeg!
 
 Unsere Erlebnisse in Winnipeg und Saskatchewan folgen dann aber in einem neuen Beitrag.
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/3d5f6e7a-ed0b-4b44-b8cf-85d2d8ff3f5c.gpx",
+      tooltip: "Our route with the RV from Montréal to Toronto",
+    },
+  ]}
+  zoom="5.5"
+/>
 
 P.S.: Wir haben auch ein Video von dieser Woche gemacht. Das folgt dann noch 😉

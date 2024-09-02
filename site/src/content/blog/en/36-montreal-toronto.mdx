@@ -12,6 +12,7 @@ tags:
 
 import DirectusGallery from "../../../components/DirectusGallery.astro";
 import DirectusImage from "../../../components/DirectusImage.astro";
+import PathMap from "../../../components/dynamic/PathMap";
 
 We now have a “real” vacation. And we are using this opportunity to continue our journey to the west.  
 A few weeks ago, we found a relocation offer where we can bring a camper from Montréal to Toronto and get it for quite a reasonable price.
@@ -67,5 +68,16 @@ The last stage then took us to the Greater Toronto Area. After a night at a camp
 After so many quiet and relaxing days, we didn't last too long in the big, crowded and noisy city and preferred to prepare for the next day. Because now it was time to fly to Winnipeg!
 
 Our experiences in Winnipeg and Saskatchewan will follow in a new post.
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/3d5f6e7a-ed0b-4b44-b8cf-85d2d8ff3f5c.gpx",
+      tooltip: "Our route with the RV from Montréal to Toronto",
+    },
+  ]}
+  zoom="5.5"
+/>
 
 P.S.: We also made a video of this week. That will follow 😉
