@@ -128,15 +128,50 @@ export const VisitingLocations: MultiMapProps = {
     },
     {
       id: "15-winnipeg",
-      color: "#2BCA2B",
+      color: "#CA2B2B",
       coordinates: [-97.13568555374694, 49.89888395397797],
       tooltip: `In Winnipeg verbringen wir <a href="https://www.airbnb.ca/rooms/961167602241646280" target="_blank">3 Tage</a> bevor es uns dann auf einen Roadtrip in Richtung Calgary zieht.`,
       useRadius: false,
     },
+    {
+      id: "16-hargraves",
+      color: "#CA2B2B",
+      coordinates: [-101.06622625234651, 49.91173766014226],
+      tooltip: `Auf unserem Weg durch Manitoba übernachten wir in <a href="https://www.airbnb.ca/rooms/12154453" target="_blank">Hargraves</a>.`,
+      useRadius: false,
+    },
+    {
+      id: "17-strongfield",
+      color: "#CA2B2B",
+      coordinates: [-106.59857680406616, 51.3311102920845],
+      tooltip: `In Saskatchewan machen wir Zwischenstopp in einer <a href="https://www.airbnb.ca/rooms/1080566936021756392" target="_blank">alten Kirche in Strongfield</a>.`,
+      useRadius: false,
+    },
+    {
+      id: "18-saskatoon",
+      color: "#CA2B2B",
+      coordinates: [-106.65994534083336, 52.11116435116523],
+      tooltip: `Eine wunderbare Zeit hatten wir in <a href="https://www.airbnb.ca/rooms/1101422160447847095" target="_blank">Saskatoon</a>. Die Stadt kann man wirklich empfehlen!`,
+      useRadius: false,
+    },
+    {
+      id: "19-netherhill",
+      color: "#CA2B2B",
+      coordinates: [-108.98041546471184, 51.552719321249825],
+      tooltip: `Um den Urlaub ausklingen zu lassen und eine nicht zu lange Strecke bis nach Calgary zu haben, übernachteten wir <a href="https://www.airbnb.ca/rooms/1176280982350288476" target="_blank">in einer kleine Off-the-grid Cabin</a>.`,
+      useRadius: false,
+    },
+    {
+      id: "20-calgary",
+      color: "#2BCA2B",
+      coordinates: [-113.99561613935663, 51.04370427769504],
+      tooltip: `Wir sind nun in Calgary angekommen. Hier bleiben wir von September bis Ende November.`,
+      useRadius: true,
+    },
   ],
   currentPath:
     "https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx",
-  tooltip: "Das ist unsere bisherige Route zum Stand von 15.07.2024",
+  tooltip: "Das ist unsere bisherige Route zum Stand von 02.09.2024",
 };
 
 export const AccomonationLocations: EventInput[] = [
