@@ -7,7 +7,15 @@ image:
   href: "https://directus.aaronczichon.de/assets/033c75f7-42b0-44a5-b46e-45b8e1426526.jpg?quality=70&width=1600"
   alt: "Shows a wheat field in the prairie from the highway"
 tags:
-  ["Canada", "Manitoba", "Saskatchewan", "Vacation", "Regina", "Winnipeg", "Saskatoon"]
+  [
+    "Canada",
+    "Manitoba",
+    "Saskatchewan",
+    "Vacation",
+    "Regina",
+    "Winnipeg",
+    "Saskatoon",
+  ]
 ---
 
 import DirectusGallery from "../../../components/DirectusGallery.astro";
@@ -49,3 +57,15 @@ In the middle of the prairie, without electricity or running water, we were able
 We even had a barbecue, which will probably be the last time this year.
 
 But we are now also glad that we have arrived in Calgary. The frequent packing and unpacking of the last few weeks was a bit exhausting and it's good to have an apartment for the next 3 months.
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/6091816a-a57b-4b28-aa23-9deea0447e9f.gpx",
+      tooltip:
+        "This was our route from Winnipeg to Calgary via Regina and Saskatoon",
+    },
+  ]}
+  zoom="5.5"
+/>
