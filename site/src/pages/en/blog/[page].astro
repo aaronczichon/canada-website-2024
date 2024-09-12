@@ -1,0 +1,74 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import rssIcon from "../../../resources/rss.svg";
+import { generateStaticPaths } from "../../../functions/paths.func";
+
+const extractEntrySlug = (slug: string): string => {
+  return slug.split("/")[1];
+};
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+export async function getStaticPaths({ paginate }: any) {
+  return generateStaticPaths(paginate, "en");
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props as any;
+---
+
+<Layout title="Canada - Blog">
+  <main class="container">
+    <h1>
+      Blog {page.currentPage}
+      <a href="/en/rss.xml"
+        ><Image
+          style="width: 25px; height: 25px"
+          src={rssIcon}
+          alt="RSS Icon for subscribe to RSS feed."
+          widths={[30]}
+          sizes={`30px`}
+        /></a
+      >
+    </h1>
+    <p>
+      Here you can find all blog entries so far. <br />
+    </p>
+    <div class="entry-grid">
+      {
+        page.data.map((post: any) => (
+          <a href={"/en/blog/" + extractEntrySlug(post.slug)} class="entry">
+            {post.data.image && post.data.image.url ? (
+              <Image
+                src={post.data.image.url}
+                alt={post.data.image.alt}
+                style="max-height: 350px; width: 100%; object-fit: cover;"
+              />
+            ) : null}
+            {post.data.image && post.data.image.href ? (
+              <img
+                src={post.data.image.href}
+                alt={post.data.image.alt}
+                style="max-height: 350px; width: 100%; object-fit: cover;"
+              />
+            ) : null}
+            <h3>
+              {post.data.title}
+              <span class="entry--date">
+                {new Date(post.data.pubDate).toLocaleDateString(
+                  "en-CA",
+                  dateOptions,
+                )}
+              </span>
+            </h3>
+            <p>{post.data.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
