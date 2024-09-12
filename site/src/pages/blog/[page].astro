@@ -61,5 +61,21 @@ const { page } = Astro.props as any;
         ))
       }
     </div>
+    <div class="paginator">
+      {
+        page.url.prev ? (
+          <a class="left" href={page.url.prev}>
+            &lt; Vorherige Seite
+          </a>
+        ) : null
+      }
+      {
+        page.url.next ? (
+          <a class="right" href={page.url.next}>
+            Nächste Seite &gt;
+          </a>
+        ) : null
+      }
+    </div>
   </main>
 </Layout>
