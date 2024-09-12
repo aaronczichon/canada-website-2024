@@ -3,15 +3,10 @@ import Layout from "../../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import rssIcon from "../../../resources/rss.svg";
 import { generateStaticPaths } from "../../../functions/paths.func";
+import { GLOBAL_CONFIG } from "../../../config";
 
 const extractEntrySlug = (slug: string): string => {
   return slug.split("/")[1];
-};
-
-const dateOptions: object = {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
 };
 
 export async function getStaticPaths({ paginate }: any) {
@@ -24,7 +19,7 @@ const { page } = Astro.props as any;
 <Layout title="Canada - Blog">
   <main class="container">
     <h1>
-      Blog {page.currentPage}
+      Blog
       <a href="/en/rss.xml"
         ><Image
           style="width: 25px; height: 25px"
@@ -61,7 +56,7 @@ const { page } = Astro.props as any;
               <span class="entry--date">
                 {new Date(post.data.pubDate).toLocaleDateString(
                   "en-CA",
-                  dateOptions,
+                  GLOBAL_CONFIG.dateOptions,
                 )}
               </span>
             </h3>
