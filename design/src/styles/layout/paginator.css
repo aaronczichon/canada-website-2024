@@ -1,0 +1,19 @@
+.paginator {
+	display: grid;
+	grid-row: 1;
+	grid-column: 4;
+	grid-auto-flow: column;
+	margin: 28px 0 28px 0;
+}
+
+.paginator a {
+	text-decoration: none;
+}
+
+.paginator a.left {
+	text-align: left;
+}
+
+.paginator a.right {
+	text-align: right;
+}
