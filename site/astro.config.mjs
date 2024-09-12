@@ -14,6 +14,10 @@ export default defineConfig({
   image: {
     domains: ['api.mapbox.com', 'directus.aaronczichon.de']
   },
+  redirects: {
+    '/blog': '/blog/1',
+    '/en/blog': '/en/blog/1',
+  },
   i18n: {
     defaultLocale: "de",
     locales: ["en", "de"],
