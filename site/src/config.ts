@@ -4,7 +4,6 @@ export interface Config {
   defaultWidth: number;
   defaultHeight: number;
   defaultQuality: number;
-  mode: string;
   social: {
     mastodon: string;
   };
@@ -17,7 +16,6 @@ export const GLOBAL_CONFIG: Config = {
   defaultWidth: 720,
   defaultHeight: 450,
   defaultQuality: 80,
-  mode: "DEV",
   social: {
     mastodon: "@czichon@mastodon.social",
   },
