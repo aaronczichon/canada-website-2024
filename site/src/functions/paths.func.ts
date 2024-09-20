@@ -18,5 +18,5 @@ export const generateStaticPaths = async (paginate: any, lang: "de" | "en") => {
     return a.data.pubDate > b.data.pubDate ? -1 : 1;
   });
   // Generate pages from our array of astronauts, with 2 to a page
-  return paginate(allPosts, { pageSize: 5 });
+  return paginate(allPosts, { pageSize: 6 });
 };
