@@ -16,7 +16,7 @@ const { page } = Astro.props as any;
   <main class="container">
     <h1>
       Blog {page.currentPage === 1 ? "" : `- Seite ${page.currentPage}`}
-      <a href="/en/rss.xml"
+      <a href="/rss.xml"
         ><Image
           style="width: 25px; height: 25px"
           src={rssIcon}
