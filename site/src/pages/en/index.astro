@@ -31,66 +31,58 @@ const translatePath = useTranslatedPath(lang);
   <main class="container">
     <article>
       <h1>Let the adventure begin!</h1>
-      <p>
-        12 months living in Canada. Making a dream come true and you can be part
-        of it. Virtually of course. Starting with 2 months in Halifax, Nova
-        Scotia we will travel through the country and explore the wonderful and
-        beautiful Canada.
-      </p>
-      <p>
-        After the first 2 months we travelled to Newfoundland in May. We spent
-        most of our time in a small town called Brighton. Since the end of June
-        we're in St. John's where we will stay until Mid-July.
-      </p>
-      <p>
-        Next next travel destination in the summer will be Montéal where we will
-        heading at the end July.
-      </p>
-      <p>But let's see what the coming weeks and months will bring!</p>
+      12 months living in Canada. Making a dream come true and you can be part of
+      it. Virtually of course. Starting with 2 months in Halifax, Nova Scotia we
+      will travel through the country and explore the wonderful and beautiful Canada.
+      We started in March in Halifax, then continued to Newfoundland, Montreal and
+      then with the camper to Toronto. <br />
+      From there to Winnipeg, Regina and Saskatoon until we arrived in Calgary. <br
+      />
+      How we continue is currently not yet decided.
     </article>
-    <h2>Latest entries</h2>
-    <div class="entry-grid">
-      {
-        allPosts
-          .sort((a, b) => {
-            return a.data.pubDate > b.data.pubDate ? -1 : 1;
-          })
-          .slice(0, 4)
-          .map((post) => (
-            <a
-              href={translatePath("/blog") + removeEnFromSlug(post.slug)}
-              class="entry"
-            >
-              {post.data.image && post.data.image.url ? (
-                <Image
-                  widths={[700]}
-                  sizes={`700px`}
-                  src={post.data.image.url}
-                  alt={post.data.image.alt}
-                  style="max-height: 350px; width: 100%; object-fit: cover;"
-                />
-              ) : null}
-              {post.data.image && post.data.image.href ? (
-                <img
-                  src={post.data.image.href}
-                  alt={post.data.image.alt}
-                  style="max-height: 350px; width: 100%; object-fit: cover;"
-                />
-              ) : null}
-              <h3>
-                {post.data.title}
-                <span class="entry--date">
-                  {new Date(post.data.pubDate).toLocaleDateString(
-                    "en-CA",
-                    dateOptions,
-                  )}
-                </span>
-              </h3>
-              <p>{post.data.description}</p>
-            </a>
-          ))
-      }
-    </div>
-    <a href="/en/blog/1" style="padding-bottom: 32px">read more...</a>
   </main>
+  <h2>Latest entries</h2>
+  <div class="entry-grid">
+    {
+      allPosts
+        .sort((a, b) => {
+          return a.data.pubDate > b.data.pubDate ? -1 : 1;
+        })
+        .slice(0, 4)
+        .map((post) => (
+          <a
+            href={translatePath("/blog") + removeEnFromSlug(post.slug)}
+            class="entry"
+          >
+            {post.data.image && post.data.image.url ? (
+              <Image
+                widths={[700]}
+                sizes={`700px`}
+                src={post.data.image.url}
+                alt={post.data.image.alt}
+                style="max-height: 350px; width: 100%; object-fit: cover;"
+              />
+            ) : null}
+            {post.data.image && post.data.image.href ? (
+              <img
+                src={post.data.image.href}
+                alt={post.data.image.alt}
+                style="max-height: 350px; width: 100%; object-fit: cover;"
+              />
+            ) : null}
+            <h3>
+              {post.data.title}
+              <span class="entry--date">
+                {new Date(post.data.pubDate).toLocaleDateString(
+                  "en-CA",
+                  dateOptions,
+                )}
+              </span>
+            </h3>
+            <p>{post.data.description}</p>
+          </a>
+        ))
+    }
+  </div>
+  <a href="/en/blog/1" style="padding-bottom: 32px">read more...</a>
 </Layout>
