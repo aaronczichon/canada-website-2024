@@ -9,6 +9,7 @@
 	--background-color: var(--secondary-color-ultra-light);
 	--heading-color: var(--primary-color);
 	--primary-font-color: var(--primary-color-dark);
+	--tag-color: var(--primary-color);
 
 	--nav-margin: 0;
 	--nav-border: none;
