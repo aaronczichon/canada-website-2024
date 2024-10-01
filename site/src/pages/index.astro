@@ -22,7 +22,7 @@ const heroImg =
     alt="Strahlendblauer Himmel welcher eine große Kanada-Flagge zeigt."
   />
   <main class="container">
-    <article>
+    <article style="margin-bottom: 0">
       <h1>Lasst das Abenteuer beginnen!</h1>
       12 Monate leben in Kanada. Ein Traum wahr werden lassen und du kannst mit dabei
       sein. Virtuell natürlich. Beginnend mit 2 Monaten in Halifax, Nova Scotia reisen
@@ -43,7 +43,7 @@ const heroImg =
           })
           .slice(0, 4)
           .map((post) => (
-            <a href={"/blog/" + post.slug} class="entry">
+            <div class="entry">
               {post.data.image && post.data.image.url ? (
                 <Image
                   widths={[700]}
@@ -60,17 +60,19 @@ const heroImg =
                   style="max-height: 350px; width: 100%; object-fit: cover;"
                 />
               ) : null}
-              <h3>
-                {post.data.title}
-                <span class="entry--date">
-                  {new Date(post.data.pubDate).toLocaleDateString(
-                    "de-DE",
-                    dateOptions,
-                  )}
-                </span>
-              </h3>
+              <a class="entry-link" href={"/blog/" + post.slug}>
+                <h3>
+                  {post.data.title}
+                  <span class="entry--date">
+                    {new Date(post.data.pubDate).toLocaleDateString(
+                      "de-DE",
+                      dateOptions,
+                    )}
+                  </span>
+                </h3>
+              </a>
               <p>{post.data.description}</p>
-            </a>
+            </div>
           ))
       }
     </div>
