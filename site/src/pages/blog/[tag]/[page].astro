@@ -1,0 +1,94 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import rssIcon from "../../../resources/rss.svg";
+import { generateStaticPaths } from "../../../functions/paths.func";
+import { GLOBAL_CONFIG } from "../../../config";
+
+export async function getStaticPaths({ paginate }: any) {
+  return generateStaticPaths(paginate, "de", true);
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props as any;
+const params = Astro.params as any;
+---
+
+<Layout title={"Kanada - Blog - " + params.tag}>
+  <main class="container">
+    <h1>
+      Blog ({params.tag}) {
+        page.currentPage === 1 ? "" : `- Seite ${page.currentPage}`
+      }
+      <a href="/rss.xml"
+        ><Image
+          style="width: 25px; height: 25px"
+          src={rssIcon}
+          alt="Klicke hier um den RSS Feed zu abonnieren."
+          widths={[30]}
+          sizes={`30px`}
+        /></a
+      >
+    </h1>
+    <p>
+      Alle Einträge zum Thema <i>{params.tag}</i> findest du hier. <br />
+    </p>
+    <div class="entry-grid">
+      {
+        page.data.map((post: any) => (
+          <div class="entry">
+            {post.data.image && post.data.image.url ? (
+              <Image
+                src={post.data.image.url}
+                alt={post.data.image.alt}
+                style="max-height: 350px; width: 100%; object-fit: cover;"
+              />
+            ) : null}
+            {post.data.image && post.data.image.href ? (
+              <img
+                src={post.data.image.href}
+                alt={post.data.image.alt}
+                style="max-height: 350px; width: 100%; object-fit: cover;"
+              />
+            ) : null}
+            <a class="entry-link" href={"/blog/" + post.slug}>
+              <h3>
+                {post.data.title}
+                <span class="entry--date">
+                  {new Date(post.data.pubDate).toLocaleDateString(
+                    "de-DE",
+                    GLOBAL_CONFIG.dateOptions,
+                  )}
+                </span>
+              </h3>
+            </a>
+            <p>{post.data.description}</p>
+            {post.data.tags.map((tag: string) => (
+              <a
+                class="entry-tag"
+                href={"/blog/" + encodeURIComponent(tag) + "/1"}
+              >
+                #{tag}
+              </a>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+    <div class="paginator">
+      {
+        page.url.prev ? (
+          <a class="left" href={page.url.prev}>
+            &lt; Vorherige Seite
+          </a>
+        ) : null
+      }
+      {
+        page.url.next ? (
+          <a class="right" href={page.url.next}>
+            Nächste Seite &gt;
+          </a>
+        ) : null
+      }
+    </div>
+  </main>
+</Layout>
