@@ -32,7 +32,7 @@ const { page } = Astro.props as any;
     <div class="entry-grid">
       {
         page.data.map((post: any) => (
-          <a href={"/blog/" + post.slug} class="entry">
+          <div class="entry">
             {post.data.image && post.data.image.url ? (
               <Image
                 src={post.data.image.url}
@@ -47,17 +47,24 @@ const { page } = Astro.props as any;
                 style="max-height: 350px; width: 100%; object-fit: cover;"
               />
             ) : null}
-            <h3>
-              {post.data.title}
-              <span class="entry--date">
-                {new Date(post.data.pubDate).toLocaleDateString(
-                  "de-DE",
-                  GLOBAL_CONFIG.dateOptions,
-                )}
-              </span>
-            </h3>
+            <a class="entry-link" href={"/blog/" + post.slug}>
+              <h3>
+                {post.data.title}
+                <span class="entry--date">
+                  {new Date(post.data.pubDate).toLocaleDateString(
+                    "de-DE",
+                    GLOBAL_CONFIG.dateOptions,
+                  )}
+                </span>
+              </h3>
+            </a>
             <p>{post.data.description}</p>
-          </a>
+            {post.data.tags.map((tag: string) => (
+              <a class="entry-tag" href="#">
+                #{tag}
+              </a>
+            ))}
+          </div>
         ))
       }
     </div>
