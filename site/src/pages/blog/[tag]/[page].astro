@@ -1,21 +1,24 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import rssIcon from "../../resources/rss.svg";
-import { generateStaticPaths } from "../../functions/paths.func";
-import { GLOBAL_CONFIG } from "../../config";
+import rssIcon from "../../../resources/rss.svg";
+import { generateStaticPaths } from "../../../functions/paths.func";
+import { GLOBAL_CONFIG } from "../../../config";
 
 export async function getStaticPaths({ paginate }: any) {
-  return generateStaticPaths(paginate, "de");
+  return generateStaticPaths(paginate, "de", true);
 }
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props as any;
+const params = Astro.params as any;
 ---
 
-<Layout title="Kanada - Blog">
+<Layout title={"Kanada - Blog - " + params.tag}>
   <main class="container">
     <h1>
-      Blog {page.currentPage === 1 ? "" : `- Seite ${page.currentPage}`}
+      Blog ({params.tag}) {
+        page.currentPage === 1 ? "" : `- Seite ${page.currentPage}`
+      }
       <a href="/rss.xml"
         ><Image
           style="width: 25px; height: 25px"
@@ -27,7 +30,7 @@ const { page } = Astro.props as any;
       >
     </h1>
     <p>
-      Alle bisherigen Einträge findest du hier. <br />
+      Alle Einträge zum Thema <i>{params.tag}</i> findest du hier. <br />
     </p>
     <div class="entry-grid">
       {

@@ -29,7 +29,7 @@ const translatePath = useTranslatedPath(lang);
 <Layout title="Canada - Working Holiday for 12 months">
   <Hero url={heroImg} alt="Bright blue sky showing a large Canadian flag." />
   <main class="container">
-    <article>
+    <article style="margin-bottom: 0">
       <h1>Let the adventure begin!</h1>
       12 months living in Canada. Making a dream come true and you can be part of
       it. Virtually of course. Starting with 2 months in Halifax, Nova Scotia we
@@ -49,10 +49,7 @@ const translatePath = useTranslatedPath(lang);
           })
           .slice(0, 4)
           .map((post) => (
-            <a
-              href={translatePath("/blog") + removeEnFromSlug(post.slug)}
-              class="entry"
-            >
+            <div class="entry">
               {post.data.image && post.data.image.url ? (
                 <Image
                   widths={[700]}
@@ -69,17 +66,22 @@ const translatePath = useTranslatedPath(lang);
                   style="max-height: 350px; width: 100%; object-fit: cover;"
                 />
               ) : null}
-              <h3>
-                {post.data.title}
-                <span class="entry--date">
-                  {new Date(post.data.pubDate).toLocaleDateString(
-                    "en-CA",
-                    dateOptions,
-                  )}
-                </span>
-              </h3>
+              <a
+                class="entry-link"
+                href={translatePath("/blog") + removeEnFromSlug(post.slug)}
+              >
+                <h3>
+                  {post.data.title}
+                  <span class="entry--date">
+                    {new Date(post.data.pubDate).toLocaleDateString(
+                      "en-CA",
+                      dateOptions,
+                    )}
+                  </span>
+                </h3>
+              </a>
               <p>{post.data.description}</p>
-            </a>
+            </div>
           ))
       }
     </div>

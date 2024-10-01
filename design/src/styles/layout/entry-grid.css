@@ -7,13 +7,18 @@
 
 .entry {
 	width: 100%;
+	margin-bottom: 20px;
 }
 
-.entry,
-.entry:hover,
-.entry:visited {
+.entry-link,
+.entry-link:hover,
+.entry-link:visited {
 	color: var(--primary-font-color);
 	text-decoration: none;
+}
+.entry-link h3 {
+	margin-top: 16px;
+	margin-bottom: 12px;
 }
 
 .entry img {
@@ -27,11 +32,22 @@
 
 .entry p {
 	font-weight: 400;
-	line-height: 1.7em;
+	line-height: 1.5em;
+	margin-top: 0px;
+	margin-bottom: 12px;
 }
 
 .entry--date {
 	color: var(--primary-font-color);
 	margin: var(--entry-date-margin);
 	font-size: 0.8em;
+}
+
+.entry-tag {
+	font-size: 0.8em;
+	color: var(--tag-color);
+}
+
+.entry .entry-tag {
+	padding-right: 8px;
 }
