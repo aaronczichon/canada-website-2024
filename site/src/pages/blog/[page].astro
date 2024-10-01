@@ -60,7 +60,10 @@ const { page } = Astro.props as any;
             </a>
             <p>{post.data.description}</p>
             {post.data.tags.map((tag: string) => (
-              <a class="entry-tag" href="#">
+              <a
+                class="entry-tag"
+                href={"/blog/" + encodeURIComponent(tag) + "/1"}
+              >
                 #{tag}
               </a>
             ))}
