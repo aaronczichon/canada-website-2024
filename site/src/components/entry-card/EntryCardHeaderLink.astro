@@ -1,0 +1,19 @@
+---
+import { GLOBAL_CONFIG } from "../../config";
+
+const { post, lang } = Astro.props;
+---
+
+<a class="entry-link" href={"/blog/" + post.slug}>
+  <h3>
+    {post.data.title}
+    <span class="entry--date">
+      {
+        new Date(post.data.pubDate).toLocaleDateString(
+          lang,
+          GLOBAL_CONFIG.dateOptions,
+        )
+      }
+    </span>
+  </h3>
+</a>

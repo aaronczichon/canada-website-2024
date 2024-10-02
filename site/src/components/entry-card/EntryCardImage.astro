@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+
+const { image } = Astro.props;
+---
+
+{
+  image && image.url ? (
+    <Image
+      src={image.url}
+      alt={image.alt}
+      style="max-height: 350px; width: 100%; object-fit: cover;"
+    />
+  ) : null
+}
+{
+  image && image.href ? (
+    <img
+      src={image.href}
+      alt={image.alt}
+      style="max-height: 350px; width: 100%; object-fit: cover;"
+    />
+  ) : null
+}
