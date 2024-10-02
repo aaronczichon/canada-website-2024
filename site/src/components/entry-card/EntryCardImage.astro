@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import type { FrontmatterImage } from "../../content/config";
 
-const { image }: { image: FrontmatterImage } = Astro.props as any;
+const { image } = Astro.props;
 ---
 
 {
