@@ -30,7 +30,7 @@ const { page } = Astro.props as any;
       Here you can find all blog entries so far. <br />
     </p>
     <div class="entry-grid">
-      {page.data.map((post: any) => <EntryCard post={post} />)}
+      {page.data.map((post: any) => <EntryCard post={post} lang="en-CA" />)}
     </div>
     <div class="paginator">
       {

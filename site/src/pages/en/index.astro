@@ -2,16 +2,10 @@
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslatedPath } from "../../i18n/utils";
+import EntryCard from "../../components/entry-card/EntryCard.astro";
 let allPosts = await getCollection("blog");
 allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
-
-const dateOptions: object = {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
 
 // gets the language from the URL
 const lang = getLangFromUrl(Astro.url);
@@ -48,49 +42,7 @@ const translatePath = useTranslatedPath(lang);
             return a.data.pubDate > b.data.pubDate ? -1 : 1;
           })
           .slice(0, 4)
-          .map((post) => (
-            <div class="entry">
-              {post.data.image && post.data.image.url ? (
-                <Image
-                  widths={[700]}
-                  sizes={`700px`}
-                  src={post.data.image.url}
-                  alt={post.data.image.alt}
-                  style="max-height: 350px; width: 100%; object-fit: cover;"
-                />
-              ) : null}
-              {post.data.image && post.data.image.href ? (
-                <img
-                  src={post.data.image.href}
-                  alt={post.data.image.alt}
-                  style="max-height: 350px; width: 100%; object-fit: cover;"
-                />
-              ) : null}
-              <a
-                class="entry-link"
-                href={translatePath("/blog") + removeEnFromSlug(post.slug)}
-              >
-                <h3>
-                  {post.data.title}
-                  <span class="entry--date">
-                    {new Date(post.data.pubDate).toLocaleDateString(
-                      "en-CA",
-                      dateOptions,
-                    )}
-                  </span>
-                </h3>
-              </a>
-              <p>{post.data.description}</p>
-              {post.data.tags.map((tag: string) => (
-                <a
-                  class="entry-tag"
-                  href={"/en/blog/" + encodeURIComponent(tag) + "/1"}
-                >
-                  #{tag}
-                </a>
-              ))}
-            </div>
-          ))
+          .map((post) => <EntryCard post={post} lang="en-CA" />)
       }
     </div>
     <a href="/en/blog/1" style="padding-bottom: 32px">read more...</a>

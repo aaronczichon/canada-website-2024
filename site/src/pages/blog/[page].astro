@@ -30,7 +30,7 @@ const { page } = Astro.props as any;
       Alle bisherigen Einträge findest du hier. <br />
     </p>
     <div class="entry-grid">
-      {page.data.map((post: any) => <EntryCard post={post} />)}
+      {page.data.map((post: any) => <EntryCard post={post} lang="de-DE" />)}
     </div>
     <div class="paginator">
       {
