@@ -1,0 +1,14 @@
+---
+import EntryCardHeaderLink from "./EntryCardHeaderLink.astro";
+import EntryCardImage from "./EntryCardImage.astro";
+import EntryCardTags from "./EntryCardTags.astro";
+
+const { post } = Astro.props;
+---
+
+<div class="entry">
+  <EntryCardImage image={post.data.image} />
+  <EntryCardHeaderLink post={post} lang="de-DE" />
+  <p>{post.data.description}</p>
+  <EntryCardTags tags={post.data.tags} lang="de-DE" />
+</div>

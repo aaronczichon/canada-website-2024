@@ -3,8 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import rssIcon from "../../resources/rss.svg";
 import { generateStaticPaths } from "../../functions/paths.func";
-import EntryCardImage from "../../components/entry-card/EntryCardImage.astro";
-import EntryCardHeaderLink from "../../components/entry-card/EntryCardHeaderLink.astro";
+import EntryCard from "../../components/entry-card/EntryCard.astro";
 
 export async function getStaticPaths({ paginate }: any) {
   return generateStaticPaths(paginate, "de");
@@ -31,23 +30,7 @@ const { page } = Astro.props as any;
       Alle bisherigen Einträge findest du hier. <br />
     </p>
     <div class="entry-grid">
-      {
-        page.data.map((post: any) => (
-          <div class="entry">
-            <EntryCardImage image={post.data.image} />
-            <EntryCardHeaderLink post={post} lang="de-DE" />
-            <p>{post.data.description}</p>
-            {post.data.tags.map((tag: string) => (
-              <a
-                class="entry-tag"
-                href={"/blog/" + encodeURIComponent(tag) + "/1"}
-              >
-                #{tag}
-              </a>
-            ))}
-          </div>
-        ))
-      }
+      {page.data.map((post: any) => <EntryCard post={post} />)}
     </div>
     <div class="paginator">
       {
