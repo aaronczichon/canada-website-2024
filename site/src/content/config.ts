@@ -24,3 +24,12 @@ const blogCollection = defineCollection({
 export const collections = {
   blog: blogCollection,
 };
+
+/**
+ * Used by components. Represents the data in a blog post's frontmatter.
+ */
+export interface FrontmatterImage {
+  url?: string;
+  href?: string;
+  alt: string;
+}

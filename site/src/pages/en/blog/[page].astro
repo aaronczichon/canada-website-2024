@@ -3,11 +3,8 @@ import Layout from "../../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import rssIcon from "../../../resources/rss.svg";
 import { generateStaticPaths } from "../../../functions/paths.func";
-import { GLOBAL_CONFIG } from "../../../config";
-
-const extractEntrySlug = (slug: string): string => {
-  return slug.split("/")[1];
-};
+import EntryCardImage from "../../../components/entry-card/EntryCardImage.astro";
+import EntryCardHeaderLink from "../../../components/entry-card/EntryCardHeaderLink.astro";
 
 export async function getStaticPaths({ paginate }: any) {
   return generateStaticPaths(paginate, "en");
@@ -37,34 +34,8 @@ const { page } = Astro.props as any;
       {
         page.data.map((post: any) => (
           <div class="entry">
-            {post.data.image && post.data.image.url ? (
-              <Image
-                src={post.data.image.url}
-                alt={post.data.image.alt}
-                style="max-height: 350px; width: 100%; object-fit: cover;"
-              />
-            ) : null}
-            {post.data.image && post.data.image.href ? (
-              <img
-                src={post.data.image.href}
-                alt={post.data.image.alt}
-                style="max-height: 350px; width: 100%; object-fit: cover;"
-              />
-            ) : null}
-            <a
-              class="entry-link"
-              href={"/en/blog/" + extractEntrySlug(post.slug)}
-            >
-              <h3>
-                {post.data.title}
-                <span class="entry--date">
-                  {new Date(post.data.pubDate).toLocaleDateString(
-                    "en-CA",
-                    GLOBAL_CONFIG.dateOptions,
-                  )}
-                </span>
-              </h3>
-            </a>
+            <EntryCardImage image={post.data.image} />
+            <EntryCardHeaderLink post={post} lang="en-CA" />
             <p>{post.data.description}</p>
             {post.data.tags.map((tag: string) => (
               <a

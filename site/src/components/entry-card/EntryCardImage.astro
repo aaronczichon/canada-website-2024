@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import type { FrontmatterImage } from "../../content/config";
+
+const { image }: { image: FrontmatterImage } = Astro.props as any;
+---
+
+{
+  image && image.url ? (
+    <Image
+      src={image.url}
+      alt={image.alt}
+      style="max-height: 350px; width: 100%; object-fit: cover;"
+    />
+  ) : null
+}
+{
+  image && image.href ? (
+    <img
+      src={image.href}
+      alt={image.alt}
+      style="max-height: 350px; width: 100%; object-fit: cover;"
+    />
+  ) : null
+}
