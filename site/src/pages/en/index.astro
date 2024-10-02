@@ -81,6 +81,14 @@ const translatePath = useTranslatedPath(lang);
                 </h3>
               </a>
               <p>{post.data.description}</p>
+              {post.data.tags.map((tag: string) => (
+                <a
+                  class="entry-tag"
+                  href={"/en/blog/" + encodeURIComponent(tag) + "/1"}
+                >
+                  #{tag}
+                </a>
+              ))}
             </div>
           ))
       }
