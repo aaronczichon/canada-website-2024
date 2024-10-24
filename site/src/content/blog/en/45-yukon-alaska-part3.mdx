@@ -8,6 +8,11 @@ image:
   alt: "Shows 3 totem poles in front of a building in Carcross. In the background the mountains and a blue sky with a few clouds."
 tags: ["Vacation", "Yukon"]
 ---
+
+import DirectusGallery from "../../../components/DirectusGallery.astro";
+import DirectusImage from "../../../components/DirectusImage.astro";
+import PathMap from "../../../components/dynamic/PathMap";
+
 > This is part 3 of our Yukon-Alaska vacation. You can find part 1, with the journey from Whitehorse to Haines, [here](https://canada.aaronczichon.de/blog/43-yukon-alaska-part1/) and [part 2 here](https://canada.aaronczichon.de/blog/44-yukon-alaska-part2/).
 
 When we arrived back in Canada, our first accommodation was not far from Carcross. The modern A-Frame Cabin is located just outside the town and therefore completely surrounded by nature.
@@ -51,6 +56,19 @@ Facts about Carcross, Yukon:
 -	Carcross ist das traditionelle Territorium der Carcross Tagish First Nation. Der Name Carcross stammt von „Caribou Crossing“ (Überquerung der Enge zwischen dem Bennett und Nares Lake). Es leben dort etwa 470 Einwohner*innen. Der Matthew Watson General Store hier in Carcross ist der älteste Gemischtwarenladen in Yukon. Wir wissen nicht so richtig, ob dieser bereits geschlossen hat oder aktuell nur „closed for season“ (geschlossen aufgrund der Wintersaison) war. In Carcross gibt es die kleinste Wüste der Welt (Carcross desert).   
 -	In Carcross kann man viel über die Kunst, Kultur und Geschichte der Carcross Tagish First Nation lernen. Sechs Clans leben hier: Wolf, Rabe, Killerwal, Frosch, Biber und Holzwurm. Ihr Territorium liegt zwischen Dyea (bei Skagway) entlang des Chilkoot Trail bis nach Whitehorse. Es gibt mehrere Totem Poles, kleine Souvenir-Shops, ein Kunstmuseum und das Vorfahren- und Lernhaus (Ancestor’s house and Learning Center). Der Vorfahre Skookum Jim Mason (oder in Englisch „Keish“) prägte ebenfalls den Klondike Goldrausch. Er pendelte zwischen Dyea, Carcross und Klondike und half den Goldsuchern beim Packen und Transportieren.    
 -	Viele Häuser in Carcross sind fast 100 Jahre alt. Der White Pass and Yukon Railroad (Zugstrecke) führt durch Carcross durch von Skagway nach Whitehorse. Von Carcross aus sind die Goldsucher weiter mit dem Schiff den Yukon und Klondike River hinauf gefahren, um nach Dawson City zu gelangen. 
+
+<PathMap
+  client:visible
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/21a15ad2-b3db-4fcd-91c8-4e8f4c7ac2d7.gpx",
+        tooltip: 
+        "Our complete route from Whitehorse, Haines Junction, Kluane National Park, Haines, Skagway, Carcross and back to Whitehorse.",
+    },
+  ]}
+  zoom="10"
+/>
+> Our complete route in this vacation
 
 Facts about Yukon in general:   
 - The Yukon Territory got its name from the river of the same name. Yukon, Northwest Territories and Nunavut are territories and not provinces. All other federal states are provinces, which means that they are self-governing. The territories report directly to the Canadian federal government.    
