@@ -2,9 +2,20 @@
 import { GLOBAL_CONFIG } from "../../config";
 
 const { post, lang } = Astro.props;
+
+const shortLang = lang.split("-")[0] === "en" ? "en" : "";
+
+const removeLanguageFromSlug = (slug: string, lang: string) => {
+  return slug.replace(`${lang}/`, "");
+};
+
+const baseLink = (shortLang ? "/" + shortLang : "") + "/blog/";
 ---
 
-<a class="entry-link" href={"/blog/" + post.slug}>
+<a
+  class="entry-link"
+  href={baseLink + removeLanguageFromSlug(post.slug, shortLang)}
+>
   <h3>
     {post.data.title}
     <span class="entry--date">
