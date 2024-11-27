@@ -1,13 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/Hero.astro";
-import { getCollection } from "astro:content";
-import EntryCard from "../../components/entry-card/EntryCard.astro";
-let allPosts = await getCollection("blog");
-allPosts = allPosts.filter((entry) => entry.slug.split("/")[0] === "en");
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import { getCollection } from 'astro:content';
+import EntryCard from '../../components/entry-card/EntryCard.astro';
+let allPosts = await getCollection('blog');
+allPosts = allPosts.filter((entry) => entry.slug.split('/')[0] === 'en');
 
 const heroImg =
-  "https://directus.aaronczichon.de/assets/ad8ec531-a3b7-45f1-b0c8-81fffd1ca84d.jpg?quality=80&width=2000";
+	'https://directus.aaronczichon.de/assets/ad8ec531-a3b7-45f1-b0c8-81fffd1ca84d.jpg?quality=80&width=2000';
 ---
 
 <Layout title="Canada - Working Holiday for 12 months">

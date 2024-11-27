@@ -1,12 +1,12 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import rssIcon from "../../../resources/rss.svg";
-import { generateStaticPaths } from "../../../functions/paths.func";
-import EntryCard from "../../../components/entry-card/EntryCard.astro";
+import Layout from '../../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import rssIcon from '../../../resources/rss.svg';
+import { generateStaticPaths } from '../../../functions/paths.func';
+import EntryCard from '../../../components/entry-card/EntryCard.astro';
 
 export async function getStaticPaths({ paginate }: any) {
-  return generateStaticPaths(paginate, "en");
+	return generateStaticPaths(paginate, 'en');
 }
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props as any;
