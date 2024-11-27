@@ -1,21 +1,18 @@
 ---
-import {
-  fetchFilesFromFolder,
-  fetchFolderIdByName,
-} from "./functions/image.functions";
-import Gallery from "./react/Gallery";
+import { fetchFilesFromFolder, fetchFolderIdByName } from './functions/image.functions';
+import Gallery from './react/Gallery';
 
 const { folderName } = Astro.props;
 const folderId = await fetchFolderIdByName(folderName);
 if (!folderId) {
-  throw new Error(`Folder with name "${folderName}" not found`);
+	throw new Error(`Folder with name "${folderName}" not found`);
 }
 let imageData = await fetchFilesFromFolder(folderId);
 imageData = imageData.sort((a, b) => {
-  const aDate = new Date(a.creationDate);
-  const bDate = new Date(b.creationDate);
-  // sort by date
-  return aDate.getTime() - bDate.getTime();
+	const aDate = new Date(a.creationDate);
+	const bDate = new Date(b.creationDate);
+	// sort by date
+	return aDate.getTime() - bDate.getTime();
 });
 ---
 

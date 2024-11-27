@@ -1,49 +1,47 @@
-import { parseGPX } from "@we-gold/gpxjs";
-import mapboxgl from "mapbox-gl";
-import type { MultiPoints } from "../dynamic/MultiMap";
-import type { RouteData } from "../dynamic/route.type";
+import { parseGPX } from '@we-gold/gpxjs';
+import mapboxgl from 'mapbox-gl';
+import type { MultiPoints } from '../dynamic/MultiMap';
+import type { RouteData } from '../dynamic/route.type';
 
 export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
-  const poi = new mapboxgl.Marker({
-    color: point.color,
-  })
-    .setLngLat(point.coordinates as any) // POI coordinates
-    .addTo(map);
+	const poi = new mapboxgl.Marker({
+		color: point.color,
+	})
+		.setLngLat(point.coordinates as any) // POI coordinates
+		.addTo(map);
 
-  if (point.tooltip) {
-    const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(
-      point.tooltip,
-    );
-    poi.setPopup(popup);
-  }
+	if (point.tooltip) {
+		const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(point.tooltip);
+		poi.setPopup(popup);
+	}
 
-  if (!point.useRadius) return;
+	if (!point.useRadius) return;
 
-  map.addLayer({
-    id: point.id,
-    type: "circle",
-    source: {
-      type: "geojson",
-      data: {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: point.coordinates,
-        },
-      } as any,
-    },
-    paint: {
-      "circle-radius": {
-        base: 1.75,
-        stops: [
-          [48, 20],
-          [88, 360],
-        ],
-      }, // in pixels
-      "circle-color": point.color,
-      "circle-opacity": 0.5,
-    },
-  });
+	map.addLayer({
+		id: point.id,
+		type: 'circle',
+		source: {
+			type: 'geojson',
+			data: {
+				type: 'Feature',
+				geometry: {
+					type: 'Point',
+					coordinates: point.coordinates,
+				},
+			} as any,
+		},
+		paint: {
+			'circle-radius': {
+				base: 1.75,
+				stops: [
+					[48, 20],
+					[88, 360],
+				],
+			}, // in pixels
+			'circle-color': point.color,
+			'circle-opacity': 0.5,
+		},
+	});
 };
 
 /**
@@ -51,7 +49,7 @@ export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
  * @param args all functions related to map which should be called
  */
 export const renderMapParts = (...args: Function[]) => {
-  args.forEach((arg) => arg());
+	args.forEach((arg) => arg());
 };
 
 /**
@@ -60,11 +58,11 @@ export const renderMapParts = (...args: Function[]) => {
  * @param center center coordinates (longitude, latitude)
  */
 export const setMapCenter = (map: mapboxgl.Map, center: number[]) => {
-  const mapCenter: mapboxgl.LngLatLike = {
-    lat: center[1],
-    lng: center[0],
-  };
-  map.setCenter(mapCenter);
+	const mapCenter: mapboxgl.LngLatLike = {
+		lat: center[1],
+		lng: center[0],
+	};
+	map.setCenter(mapCenter);
 };
 
 /**
@@ -73,63 +71,63 @@ export const setMapCenter = (map: mapboxgl.Map, center: number[]) => {
  * @param routeData array of RouteData objects
  */
 export const addRoutesToMap = (map: any, routeData: RouteData[]) => {
-  routeData.forEach((element, index) => {
-    map.addLayer({
-      id: `route-${index}`,
-      type: "line",
-      source: {
-        type: "geojson",
-        data: {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            type: "LineString",
-            coordinates: element.routeCoordinates,
-          },
-        },
-      },
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
-      paint: {
-        "line-color": element.color ? element.color : "#b33335",
-        "line-width": 7,
-      },
-    });
-  });
+	routeData.forEach((element, index) => {
+		map.addLayer({
+			id: `route-${index}`,
+			type: 'line',
+			source: {
+				type: 'geojson',
+				data: {
+					type: 'Feature',
+					properties: {},
+					geometry: {
+						type: 'LineString',
+						coordinates: element.routeCoordinates,
+					},
+				},
+			},
+			layout: {
+				'line-join': 'round',
+				'line-cap': 'round',
+			},
+			paint: {
+				'line-color': element.color ? element.color : '#b33335',
+				'line-width': 7,
+			},
+		});
+	});
 };
 
 export const addRouteToMap = (
-  map: any,
-  routeData: number[][],
-  identifier: string,
-  lineWidth?: number,
-  lineColor?: string,
+	map: any,
+	routeData: number[][],
+	identifier: string,
+	lineWidth?: number,
+	lineColor?: string,
 ) => {
-  map.addLayer({
-    id: `route-${identifier}`,
-    type: "line",
-    source: {
-      type: "geojson",
-      data: {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          type: "LineString",
-          coordinates: routeData,
-        },
-      },
-    },
-    layout: {
-      "line-join": "round",
-      "line-cap": "round",
-    },
-    paint: {
-      "line-color": lineColor ?? "#b33335",
-      "line-width": lineWidth ?? 7,
-    },
-  });
+	map.addLayer({
+		id: `route-${identifier}`,
+		type: 'line',
+		source: {
+			type: 'geojson',
+			data: {
+				type: 'Feature',
+				properties: {},
+				geometry: {
+					type: 'LineString',
+					coordinates: routeData,
+				},
+			},
+		},
+		layout: {
+			'line-join': 'round',
+			'line-cap': 'round',
+		},
+		paint: {
+			'line-color': lineColor ?? '#b33335',
+			'line-width': lineWidth ?? 7,
+		},
+	});
 };
 
 /**
@@ -138,40 +136,33 @@ export const addRouteToMap = (
  * @param tooltip the actual tooltip which should be shown
  * @param layerName name if the route where the tooltip should be shown
  */
-export const addTooltipToMap = (
-  map: any,
-  tooltip: string,
-  layerName: string,
-) => {
-  const popup = new mapboxgl.Popup({ closeOnClick: false }).setHTML(tooltip);
-  // Add popup on hover over the route
-  map.on("mouseenter", layerName, (e: any) => {
-    map.getCanvas().style.cursor = "pointer";
-    popup.setLngLat(e.lngLat).addTo(map);
-  });
+export const addTooltipToMap = (map: any, tooltip: string, layerName: string) => {
+	const popup = new mapboxgl.Popup({ closeOnClick: false }).setHTML(tooltip);
+	// Add popup on hover over the route
+	map.on('mouseenter', layerName, (e: any) => {
+		map.getCanvas().style.cursor = 'pointer';
+		popup.setLngLat(e.lngLat).addTo(map);
+	});
 
-  map.on("mouseleave", layerName, () => {
-    map.getCanvas().style.cursor = ""; // Reset cursor style
-    popup.remove(); // Remove popup on mouse leave
-  });
+	map.on('mouseleave', layerName, () => {
+		map.getCanvas().style.cursor = ''; // Reset cursor style
+		popup.remove(); // Remove popup on mouse leave
+	});
 };
 
 // Function to parse GPX file and extract route coordinates
 const parseGpx = (gpxData: any): number[][] => {
-  const [parsedFile, error] = parseGPX(gpxData);
-  if (error) {
-    console.error("Error parsing GPX file:", error);
-    throw error;
-  }
-  const geojson = parsedFile.toGeoJSON();
-  const route = geojson.features[0].geometry.coordinates as [][];
-  // coordinates in gpx files are usually in the format [longitude, latitude]
-  // we need to switch them to [latitude, longitude] for mapbox
-  const orderedRoute = route.map((subArray: any[]) => [
-    subArray[1],
-    subArray[0],
-  ]);
-  return orderedRoute;
+	const [parsedFile, error] = parseGPX(gpxData);
+	if (error) {
+		console.error('Error parsing GPX file:', error);
+		throw error;
+	}
+	const geojson = parsedFile.toGeoJSON();
+	const route = geojson.features[0].geometry.coordinates as [][];
+	// coordinates in gpx files are usually in the format [longitude, latitude]
+	// we need to switch them to [latitude, longitude] for mapbox
+	const orderedRoute = route.map((subArray: any[]) => [subArray[1], subArray[0]]);
+	return orderedRoute;
 };
 
 /**
@@ -180,38 +171,38 @@ const parseGpx = (gpxData: any): number[][] => {
  * @returns route coordinates
  */
 export const fetchGpxFile = async (url: string) => {
-  return fetch(url)
-    .then((response) => response.text())
-    .then((gpxData) => {
-      const route = parseGpx(gpxData);
-      const switchedRoute = route.map((subArray) => {
-        return [subArray[1], subArray[0]];
-      });
-      return switchedRoute;
-    })
-    .catch((error) => {
-      console.error("Error fetching GPX file:", error);
-      throw error;
-    });
+	return fetch(url)
+		.then((response) => response.text())
+		.then((gpxData) => {
+			const route = parseGpx(gpxData);
+			const switchedRoute = route.map((subArray) => {
+				return [subArray[1], subArray[0]];
+			});
+			return switchedRoute;
+		})
+		.catch((error) => {
+			console.error('Error fetching GPX file:', error);
+			throw error;
+		});
 };
 
-const getMiddle = (prop: "lat" | "lng", coordinates: number[]) => {
-  let min = Math.min(...coordinates);
-  let max = Math.max(...coordinates);
-  if (prop === "lng" && max - min > 180) {
-    coordinates = coordinates.map((val) => (val < max - 180 ? val + 360 : val));
-    min = Math.min(...coordinates);
-    max = Math.max(...coordinates);
-  }
-  let result = (min + max) / 2;
-  if (prop === "lng" && result > 180) {
-    result -= 360;
-  }
-  return result;
+const getMiddle = (prop: 'lat' | 'lng', coordinates: number[]) => {
+	let min = Math.min(...coordinates);
+	let max = Math.max(...coordinates);
+	if (prop === 'lng' && max - min > 180) {
+		coordinates = coordinates.map((val) => (val < max - 180 ? val + 360 : val));
+		min = Math.min(...coordinates);
+		max = Math.max(...coordinates);
+	}
+	let result = (min + max) / 2;
+	if (prop === 'lng' && result > 180) {
+		result -= 360;
+	}
+	return result;
 };
 
 export const findCenter = (coordinates: number[][]) => {
-  const lat = coordinates.map((coord) => coord[0]);
-  const lng = coordinates.map((coord) => coord[1]);
-  return [getMiddle("lat", lat), getMiddle("lng", lng)];
+	const lat = coordinates.map((coord) => coord[0]);
+	const lng = coordinates.map((coord) => coord[1]);
+	return [getMiddle('lat', lat), getMiddle('lng', lng)];
 };

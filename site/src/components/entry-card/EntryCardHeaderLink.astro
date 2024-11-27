@@ -1,15 +1,15 @@
 ---
-import { GLOBAL_CONFIG } from "../../config";
+import { GLOBAL_CONFIG } from '../../config';
 
 const { post, lang } = Astro.props;
 
-const shortLang = lang.split("-")[0] === "en" ? "en" : "";
+const shortLang = lang.split('-')[0] === 'en' ? 'en' : '';
 
 const removeLanguageFromSlug = (slug: string, lang: string) => {
-  return slug.replace(`${lang}/`, "");
+	return slug.replace(`${lang}/`, '');
 };
 
-const baseLink = (shortLang ? "/" + shortLang : "") + "/blog/";
+const baseLink = (shortLang ? '/' + shortLang : '') + '/blog/';
 ---
 
 <a

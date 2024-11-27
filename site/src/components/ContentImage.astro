@@ -1,13 +1,13 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture } from 'astro:assets';
 
 const { src, externalSrc, alt, width, height } = Astro.props;
 
 const widths = [240, 540, 720];
 let sizes = `(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`;
 if (src) {
-  widths.push(src.width);
-  sizes += `, ${src.width}px`;
+	widths.push(src.width);
+	sizes += `, ${src.width}px`;
 }
 ---
 

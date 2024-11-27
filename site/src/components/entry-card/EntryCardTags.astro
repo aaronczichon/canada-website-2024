@@ -1,10 +1,10 @@
 ---
 const { tags, lang } = Astro.props;
 
-const langPrefix = lang === "de-DE" ? "" : "/en";
+const langPrefix = lang === 'de-DE' ? '' : '/en';
 
 const buildUrl = (tag: string, langPrefix: string) => {
-  return `${langPrefix}/blog/${encodeURIComponent(tag)}/1`;
+	return `${langPrefix}/blog/${encodeURIComponent(tag)}/1`;
 };
 ---
 

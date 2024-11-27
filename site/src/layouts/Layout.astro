@@ -1,23 +1,23 @@
 ---
 interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
 
-import "../styles/index.css";
-import "../styles/fonts/mona-sans.css";
+import '../styles/index.css';
+import '../styles/fonts/mona-sans.css';
 
-import Nav from "../components/Nav.astro";
-import { GLOBAL_CONFIG } from "../config";
-import LanguageHeader from "../components/LanguageHeader.astro";
+import Nav from '../components/Nav.astro';
+import { GLOBAL_CONFIG } from '../config';
+import LanguageHeader from '../components/LanguageHeader.astro';
 
 const lang = Astro.currentLocale;
 const baseUrl = Astro.site;
 const rssTitle =
-  lang === "de"
-    ? "Canada - Working Holiday für 12 Monate"
-    : "Canada - Working Holiday for 12 months";
+	lang === 'de'
+		? 'Canada - Working Holiday für 12 Monate'
+		: 'Canada - Working Holiday for 12 months';
 ---
 
 <!doctype html>
