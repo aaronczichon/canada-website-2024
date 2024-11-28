@@ -219,7 +219,7 @@ export const VisitingLocations: MultiMapProps = {
 		},
 	],
 	currentPath: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
-	tooltip: 'Das ist unsere bisherige Route zum Stand von 06.11.2024',
+	tooltip: 'Das ist unsere bisherige Route zum Stand von 28.11.2024',
 };
 
 export const AccomonationLocations: EventInput[] = [
