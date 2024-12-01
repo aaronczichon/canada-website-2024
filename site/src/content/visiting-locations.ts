@@ -163,10 +163,10 @@ export const VisitingLocations: MultiMapProps = {
 		},
 		{
 			id: '20-calgary',
-			color: '#2BCA2B',
+			color: '#CA2B2B',
 			coordinates: [-113.99561613935663, 51.04370427769504],
 			tooltip: `Wir sind nun in Calgary angekommen. Hier bleiben wir von September bis Ende November.`,
-			useRadius: true,
+			useRadius: false,
 		},
 		{
 			id: '21-mendenhall-landing',
@@ -217,9 +217,23 @@ export const VisitingLocations: MultiMapProps = {
 			tooltip: `Unsere letzte Unterkunft auf unserem Trip durch Yukon und Alaska war am <a href="https://skkyhotel.com/" target="_blank">Flughafen im Hotel</a>.`,
 			useRadius: false,
 		},
+		{
+			id: '27-valhalla-hotel',
+			color: '#CA2B2B',
+			coordinates: [-89.30516968771086, 48.379776959486],
+			tooltip: `Bevor wir unsere Unterkunft in Thunder Bay beziehen konnten, übernachtet wir eine Nacht im  <a href="https://valhallahotel.ca/" target="_blank">Valhalla Hotel</a> am Flughafen (auch weil wir so spät hier angekommen sind).`,
+			useRadius: false,
+		},
+		{
+			id: '28-thunder-bay',
+			color: '#2BCA2B',
+			coordinates: [-89.25046893854045, 48.431445742535686],
+			tooltip: `Aktuell sind wir in Thunder Bay. Hier werden wir von Dezember bis Januar sein. Es ist auch gleichzeitig unser letzter, längerer Aufenthalt an einem Ort.`,
+			useRadius: true,
+		},
 	],
 	currentPath: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
-	tooltip: 'Das ist unsere bisherige Route zum Stand von 28.11.2024',
+	tooltip: 'Das ist unsere bisherige Route zum Stand von 01.12.2024',
 };
 
 export const AccomonationLocations: EventInput[] = [
@@ -306,5 +320,11 @@ export const AccomonationLocations: EventInput[] = [
 		title: 'Whitehorse, Yukon',
 		start: '2024-10-07',
 		end: '2024-10-20',
+	},
+	{
+		id: '14-thunder-bay',
+		title: 'Thunder Bay, Ontario',
+		start: '2024-11-30',
+		end: '2025-02-28',
 	},
 ];
