@@ -10,7 +10,7 @@
 		"build": "rm -rf dist && npm run copy:styles && npm run copy:tokens && astro check && astro build && npm run copy:deployment-files",
 		"preview": "astro preview",
 		"astro": "astro",
-		"prettier": "prettier --config ./.prettierrc.mjs --write \"**{.ts,.css,.md,.html,.astro,.tsx,.ts,.jsx}\"",
+		"format": "biome format --write .",
 		"copy:tokens": "cp ./dev-templates/public-tokens.ts.tmpl ./src/public-tokens.ts",
 		"copy:styles": "cp -R ../design/src/styles ./src/styles",
 		"copy:assets": "cp -R ../design/src/assets ./public/assets",
@@ -19,15 +19,15 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
-		"@astrojs/mdx": "^3.1.8",
-		"@astrojs/preact": "^3.5.3",
-		"@astrojs/react": "^3.6.2",
+		"@astrojs/mdx": "^3.1.9",
+		"@astrojs/preact": "^3.5.4",
+		"@astrojs/react": "^3.6.3",
 		"@astrojs/rss": "^4.0.9",
 		"@fullcalendar/core": "^6.1.15",
 		"@fullcalendar/daygrid": "^6.1.15",
 		"@fullcalendar/react": "^6.1.15",
 		"@we-gold/gpxjs": "^1.0.11",
-		"astro": "^4.16.6",
+		"astro": "^4.16.14",
 		"deepl-node": "^1.13.0",
 		"mapbox-gl": "^3.2.0",
 		"markdown-it": "^14.0.0",
@@ -40,8 +40,7 @@
 		"yet-another-react-lightbox": "^3.21.0"
 	},
 	"devDependencies": {
-		"@types/mapbox-gl": "^3.1.0",
-		"prettier": "^3.2.5",
-		"prettier-plugin-astro": "^0.13.0"
+		"@biomejs/biome": "1.9.4",
+		"@types/mapbox-gl": "^3.1.0"
 	}
 }

@@ -6,18 +6,13 @@
 	"scripts": {
 		"start": "parcel",
 		"build": "parcel build",
-		"prettier": "prettier --write ."
+		"format": "biome format --write ."
 	},
-	"keywords": [
-		"design",
-		"canada",
-		"blog",
-		"website"
-	],
+	"keywords": ["design", "canada", "blog", "website"],
 	"author": "Aaron Czichon <mail@aaronczichon.de>",
 	"license": "GPL-3.0-only",
 	"devDependencies": {
-		"parcel": "^2.11.0",
-		"prettier": "^3.2.5"
+		"@biomejs/biome": "1.9.4",
+		"parcel": "^2.11.0"
 	}
 }

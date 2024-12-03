@@ -1,14 +1,10 @@
 ---
-import {
-  getLangFromUrl,
-  useTranslatedPath,
-  useTranslations,
-} from "../i18n/utils";
-import MenuIcon from "./MenuIcon.astro";
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '../i18n/utils';
+import MenuIcon from './MenuIcon.astro';
 
 const pathname = new URL(Astro.request.url).pathname;
-import mainImage from "./main.jpg";
-import { Image } from "astro:assets";
+import mainImage from './main.jpg';
+import { Image } from 'astro:assets';
 
 // gets the language from the URL
 const lang = getLangFromUrl(Astro.url);
@@ -19,13 +15,13 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 // paths
-const main = translatePath("/");
-const blog = translatePath("/blog/1");
-const map = translatePath("/map");
-const pengiun = translatePath("/pengiun");
-const visitors = translatePath("/visitors");
-const about = translatePath("/about");
-const imprint = translatePath("/imprint");
+const main = translatePath('/');
+const blog = translatePath('/blog/1');
+const map = translatePath('/map');
+const pengiun = translatePath('/pengiun');
+const visitors = translatePath('/visitors');
+const about = translatePath('/about');
+const imprint = translatePath('/imprint');
 ---
 
 <div class="container-nav">

@@ -1,16 +1,16 @@
 ---
-import Layout from "../../../../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import rssIcon from "../../../../resources/rss.svg";
-import { generateStaticPaths } from "../../../../functions/paths.func";
-import { GLOBAL_CONFIG } from "../../../../config";
+import Layout from '../../../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import rssIcon from '../../../../resources/rss.svg';
+import { generateStaticPaths } from '../../../../functions/paths.func';
+import { GLOBAL_CONFIG } from '../../../../config';
 
 const extractEntrySlug = (slug: string): string => {
-  return slug.split("/")[1];
+	return slug.split('/')[1];
 };
 
 export async function getStaticPaths({ paginate }: any) {
-  return generateStaticPaths(paginate, "en", true);
+	return generateStaticPaths(paginate, 'en', true);
 }
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props as any;

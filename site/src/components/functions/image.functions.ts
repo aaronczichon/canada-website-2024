@@ -1,8 +1,5 @@
-import { GLOBAL_CONFIG } from "../../config";
-import type {
-  DirectusFile,
-  InternalFile,
-} from "../interfaces/directus.interface";
+import { GLOBAL_CONFIG } from '../../config';
+import type { DirectusFile, InternalFile } from '../interfaces/directus.interface';
 const authKey = import.meta.env.DIRECTUS_API_KEY;
 
 /**
@@ -10,15 +7,13 @@ const authKey = import.meta.env.DIRECTUS_API_KEY;
  * @param folderName name of the folder for which we want the ID
  * @returns ID of the folder or undefined if not found
  */
-export const fetchFolderIdByName = async (
-  folderName: string,
-): Promise<string | undefined> => {
-  const response = await fetch(
-    `${GLOBAL_CONFIG.imageEndpoint}/folders?filter[name][_eq]=${folderName}`,
-  );
-  const data = await response.json();
-  if (!data || !data.data || data.data.length === 0) return;
-  return data.data[0].id;
+export const fetchFolderIdByName = async (folderName: string): Promise<string | undefined> => {
+	const response = await fetch(
+		`${GLOBAL_CONFIG.imageEndpoint}/folders?filter[name][_eq]=${folderName}`,
+	);
+	const data = await response.json();
+	if (!data || !data.data || data.data.length === 0) return;
+	return data.data[0].id;
 };
 
 /**
@@ -26,21 +21,19 @@ export const fetchFolderIdByName = async (
  * @param folderId ID of the folder where the files should be fetched
  * @returns List of Directus Files
  */
-export const fetchFilesFromFolder = async (
-  folderId: string,
-): Promise<InternalFile[]> => {
-  const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&filter[is_public][_eq]=1&filter[ignore_in_gallery][_eq]=0&fields[]=filename_disk&fields[]=description&fields[]=type&fields[]=metadata`;
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${authKey}`,
-    },
-  });
-  const data = await response.json();
-  if (!data || !data.data || data.data.length === 0) return [];
-  const filteredFiles = (data.data as DirectusFile[]).filter(
-    (file) => file.type.indexOf("image") !== -1,
-  );
-  return convertDirectusFileToInternalFile(filteredFiles);
+export const fetchFilesFromFolder = async (folderId: string): Promise<InternalFile[]> => {
+	const url = `${GLOBAL_CONFIG.imageEndpoint}/files?filter[folder][_eq]=${folderId}&filter[is_public][_eq]=1&filter[ignore_in_gallery][_eq]=0&fields[]=filename_disk&fields[]=description&fields[]=type&fields[]=metadata`;
+	const response = await fetch(url, {
+		headers: {
+			Authorization: `Bearer ${authKey}`,
+		},
+	});
+	const data = await response.json();
+	if (!data || !data.data || data.data.length === 0) return [];
+	const filteredFiles = (data.data as DirectusFile[]).filter(
+		(file) => file.type.indexOf('image') !== -1,
+	);
+	return convertDirectusFileToInternalFile(filteredFiles);
 };
 
 /**
@@ -48,14 +41,12 @@ export const fetchFilesFromFolder = async (
  * @param directusFiles list of files from directus
  * @returns list of internal files
  */
-const convertDirectusFileToInternalFile = (
-  directusFiles: DirectusFile[],
-): InternalFile[] => {
-  return directusFiles.map((file) => ({
-    name: file.filename_disk,
-    alt: file.description,
-    base: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${file.filename_disk}`,
-    src: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${file.filename_disk}?q=70&width=1600`,
-    creationDate: file.metadata?.exif?.DateTimeOriginal,
-  }));
+const convertDirectusFileToInternalFile = (directusFiles: DirectusFile[]): InternalFile[] => {
+	return directusFiles.map((file) => ({
+		name: file.filename_disk,
+		alt: file.description,
+		base: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${file.filename_disk}`,
+		src: `${GLOBAL_CONFIG.imageEndpoint}${GLOBAL_CONFIG.directusAssetEndpoint}${file.filename_disk}?q=70&width=1600`,
+		creationDate: file.metadata?.exif?.DateTimeOriginal,
+	}));
 };
