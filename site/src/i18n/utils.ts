@@ -26,6 +26,11 @@ export const ui = {
 	},
 } as const;
 
+export const rssExtended = {
+	de: 'Schön, dass du diesen Blog per RSS liest ❤️ <br /> Die Galerien werden im Feed-Reader nicht dargestellt. <br /> Besuche die Website, um die Bilder zu sehen.',
+	en: 'Nice to see you reading this blog via RSS ❤️ <br /> Galleries are not displayed in the feed reader. <br /> Visit the website to see the pictures.',
+} as const;
+
 export function getLangFromUrl(url: URL) {
 	const [, lang] = url.pathname.split('/');
 	if (lang in ui) return lang as keyof typeof ui;
