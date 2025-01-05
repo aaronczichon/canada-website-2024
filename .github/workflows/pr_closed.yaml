@@ -7,12 +7,12 @@ on:
 jobs:
   delete-cf-page-preview:
     name: Delete Cloudflare Pages Preview Deployment
-    uses: ./.github/workflows/delete-cloudflare-preview.yaml
+    uses: aaronczichon/workflows/.github/workflows/cloudflare-delete-pages-instance.yaml@main
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     with:
       REPOSITORY: ${{ github.repository }}
-      REPOSITORY_NAME: ${{ github.event.repository.name }}
+      PAGES_PROJECT_NAME: ${{ github.event.repository.name }}
       PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
