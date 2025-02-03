@@ -277,9 +277,16 @@ export const VisitingLocations: MultiMapProps = {
 		},
 		{
 			id: '36-thunder-bay',
-			color: '#2BCA2B',
+			color: '#CA2B2B',
 			coordinates: [-89.25046893854045, 48.431445742535686],
-			tooltip: `Aktuell sind wir in Thunder Bay. Hier werden wir von Dezember bis Januar sein. Es ist auch gleichzeitig unser letzter, längerer Aufenthalt an einem Ort.`,
+			tooltip: `Thunder Bay. Hier werden wir von Dezember bis Januar sein. Es ist auch gleichzeitig unser letzter, längerer Aufenthalt an einem Ort.`,
+			useRadius: false,
+		},
+		{
+			id: '37-london',
+			color: '#2BCA2B',
+			coordinates: [-81.23811812540826, 42.964067136124335],
+			tooltip: `Bevor es leider wieder nach Deutschland geht, halten wir uns noch 2 Wochen in London, Ontario auf.`,
 			useRadius: true,
 		},
 	],
