@@ -291,14 +291,14 @@ export const VisitingLocations: MultiMapProps = {
 		},
 		{
 			id: '38-toronto',
-			color: '#2BCA2B',
+			color: '#CA2B2B',
 			coordinates: [-79.38553944433723, 43.638870146452625],
 			tooltip: `Unser letzter Ort ist Toronto bevor es dann wieder zurück nach Deutschland geht.`,
 			useRadius: false,
 		},
 	],
 	currentPath: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
-	tooltip: 'Das ist unsere bisherige Route zum Stand von 18.02.2025',
+	tooltip: 'Das ist unsere bisherige Route zum Stand von 20.02.2025',
 };
 
 export const AccomonationLocations: EventInput[] = [
