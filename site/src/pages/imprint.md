@@ -6,8 +6,8 @@ title: "Imprint"
 Information in accordance with Section 5 TMG
 
 Aaron Czichon  
-Kronenstraße 84  
-89568 Hermaringen  
+Austraße 27/1  
+89567 Sontheim 
 Germany
 
 ## Contact Information
