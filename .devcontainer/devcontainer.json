@@ -4,12 +4,16 @@
 	"name": "Canada Website 2024",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:dev-20-bullseye",
-	"runArgs": ["--name", "canada-website"],
+	"runArgs": [
+		"--name", "canada-website",
+  	"-e", "GPG_TTY=$(tty)",  // Set the GPG_TTY environment variable to ensure GPG works correctly
+    "-v", "${env:HOME}/.gnupg:/root/.gnupg:ro",  // Mount the GPG directory from the host to the container
+    "-e", "GPG_AGENT_INFO=/root/.gnupg/S.gpg-agent:0:1"  // Set the GPG agent info to communicate with the GPG agent
+  ],
 	"features": {
 		"ghcr.io/devcontainers-community/npm-features/prettier:1": {}
 	},
 	"mounts": [
-    "source=${localEnv:HOME}/sourcecode/devcontainer-sharing,target=/workspaces/shared,type=bind,consistency=cached"
 	],
 	"customizations": {
 		"vscode": {
