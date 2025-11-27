@@ -58,27 +58,36 @@ export default function MultiMap({
 		renderMapParts(
 			() =>
 				points.forEach((point) => {
-					console.log(point);
 					renderPoint(map, point);
 				}),
 			() => setMapCenter(map, mapCenter),
 		);
 	}, [mapCenter, points, map]);
 
-	// Load all routes from GPX files
+	// Load all routes from GPX files concurrently
 	useEffect(() => {
 		if (!routes || routes.length === 0) return;
 
 		const loadRoutes = async () => {
-			const newLoadedRoutes = new Map<string, number[][]>();
-			for (const route of routes) {
+			const routePromises = routes.map(async (route) => {
 				try {
 					const coordinates = await fetchGpxFile(route.url);
-					newLoadedRoutes.set(route.id, coordinates);
+					return { id: route.id, coordinates };
 				} catch (error) {
 					console.error(`Error loading route ${route.id}:`, error);
+					return null;
 				}
-			}
+			});
+
+			const results = await Promise.allSettled(routePromises);
+			const newLoadedRoutes = new Map<string, number[][]>();
+
+			results.forEach((result) => {
+				if (result.status === 'fulfilled' && result.value) {
+					newLoadedRoutes.set(result.value.id, result.value.coordinates);
+				}
+			});
+
 			setLoadedRoutes(newLoadedRoutes);
 		};
 
@@ -127,10 +136,14 @@ export default function MultiMap({
 	useEffect(() => {
 		if (!map || !currentPath || !tooltip) return;
 
-		fetchGpxFile(currentPath).then((route) => {
-			addRouteToMap(map, route, 'full-route', 4, '#2BCA2B');
-			addTooltipToMap(map, tooltip, 'route-full-route');
-		});
+		fetchGpxFile(currentPath)
+			.then((route) => {
+				addRouteToMap(map, route, 'full-route', 4, '#2BCA2B');
+				addTooltipToMap(map, tooltip, 'route-full-route');
+			})
+			.catch((error) => {
+				console.error('Error loading legacy route:', error);
+			});
 	}, [map, currentPath, tooltip]);
 
 	const toggleRoute = (routeId: string) => {
