@@ -42,11 +42,14 @@ export default function MultiMap({
 	const [map, setMap] = useState<mapboxgl.Map>();
 	const [selectedRoutes, setSelectedRoutes] = useState<Set<string>>(new Set());
 	const [loadedRoutes, setLoadedRoutes] = useState<Map<string, number[][]>>(new Map());
+	const [previousSelectedRoutes, setPreviousSelectedRoutes] = useState<Set<string>>(new Set());
 
 	// Initialize selected routes (all selected by default)
 	useEffect(() => {
 		if (routes && routes.length > 0) {
-			setSelectedRoutes(new Set(routes.map((r) => r.id)));
+			const initialSelection = new Set(routes.map((r) => r.id));
+			setSelectedRoutes(initialSelection);
+			setPreviousSelectedRoutes(initialSelection);
 		}
 	}, [routes]);
 
@@ -86,9 +89,14 @@ export default function MultiMap({
 	useEffect(() => {
 		if (!map || !routes || loadedRoutes.size === 0) return;
 
-		// Remove all route layers
-		routes.forEach((route) => {
-			const layerId = `route-${route.id}`;
+		// Find routes that were deselected
+		const deselected = [...previousSelectedRoutes].filter((id) => !selectedRoutes.has(id));
+		// Find routes that were newly selected
+		const newlySelected = [...selectedRoutes].filter((id) => !previousSelectedRoutes.has(id));
+
+		// Remove deselected route layers
+		deselected.forEach((routeId) => {
+			const layerId = `route-${routeId}`;
 			if (map.getLayer(layerId)) {
 				map.removeLayer(layerId);
 			}
@@ -97,9 +105,10 @@ export default function MultiMap({
 			}
 		});
 
-		// Add selected routes
-		routes.forEach((route) => {
-			if (selectedRoutes.has(route.id)) {
+		// Add newly selected routes
+		newlySelected.forEach((routeId) => {
+			const route = routes.find((r) => r.id === routeId);
+			if (route) {
 				const coordinates = loadedRoutes.get(route.id);
 				if (coordinates) {
 					addRouteToMap(map, coordinates, route.id, 4, route.color || '#2BCA2B');
@@ -109,7 +118,10 @@ export default function MultiMap({
 				}
 			}
 		});
-	}, [map, routes, selectedRoutes, loadedRoutes]);
+
+		// Update previous selection
+		setPreviousSelectedRoutes(new Set(selectedRoutes));
+	}, [map, routes, selectedRoutes, loadedRoutes, previousSelectedRoutes]);
 
 	// Legacy support for single route
 	useEffect(() => {
