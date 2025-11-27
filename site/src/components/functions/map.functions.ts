@@ -15,33 +15,35 @@ export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
 		poi.setPopup(popup);
 	}
 
-	if (!point.useRadius) return;
+	if (point.useRadius) {
+		map.addLayer({
+			id: point.id,
+			type: 'circle',
+			source: {
+				type: 'geojson',
+				data: {
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: point.coordinates,
+					},
+				} as any,
+			},
+			paint: {
+				'circle-radius': {
+					base: 1.75,
+					stops: [
+						[48, 20],
+						[88, 360],
+					],
+				}, // in pixels
+				'circle-color': point.color,
+				'circle-opacity': 0.5,
+			},
+		});
+	}
 
-	map.addLayer({
-		id: point.id,
-		type: 'circle',
-		source: {
-			type: 'geojson',
-			data: {
-				type: 'Feature',
-				geometry: {
-					type: 'Point',
-					coordinates: point.coordinates,
-				},
-			} as any,
-		},
-		paint: {
-			'circle-radius': {
-				base: 1.75,
-				stops: [
-					[48, 20],
-					[88, 360],
-				],
-			}, // in pixels
-			'circle-color': point.color,
-			'circle-opacity': 0.5,
-		},
-	});
+	return poi;
 };
 
 /**

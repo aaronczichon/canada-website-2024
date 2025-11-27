@@ -1,7 +1,8 @@
 import BasicMap from './BasicMap';
-import { useState, useEffect } from 'preact/hooks';
+import { useState, useEffect, useRef } from 'preact/hooks';
 import mapboxgl from 'mapbox-gl';
 import type { RouteData } from './route.type';
+import { ui, defaultLang } from '../../i18n/utils';
 import {
 	addRouteToMap,
 	addTooltipToMap,
@@ -19,6 +20,8 @@ export type MultiPoints = {
 	useRadius?: boolean;
 	// Set a tooltip which is shown as soon as the user hovers over the point
 	tooltip?: string;
+	// Optional route ID to associate the point with a route
+	routeId?: string;
 };
 
 export type MultiMapProps = {
@@ -29,6 +32,8 @@ export type MultiMapProps = {
 	// Legacy support for single route
 	currentPath?: string;
 	tooltip?: string;
+	// Language for i18n support
+	lang?: 'en' | 'de';
 };
 
 export default function MultiMap({
@@ -38,11 +43,13 @@ export default function MultiMap({
 	routes,
 	currentPath,
 	tooltip,
+	lang = defaultLang,
 }: MultiMapProps) {
 	const [map, setMap] = useState<mapboxgl.Map>();
 	const [selectedRoutes, setSelectedRoutes] = useState<Set<string>>(new Set());
 	const [loadedRoutes, setLoadedRoutes] = useState<Map<string, number[][]>>(new Map());
 	const [previousSelectedRoutes, setPreviousSelectedRoutes] = useState<Set<string>>(new Set());
+	const pointMarkersRef = useRef<Map<string, mapboxgl.Marker>>(new Map());
 
 	// Initialize selected routes (all selected by default)
 	useEffect(() => {
@@ -55,14 +62,25 @@ export default function MultiMap({
 
 	useEffect(() => {
 		if (!map || !mapCenter || !points) return;
+		
+		// Clear existing markers
+		pointMarkersRef.current.forEach((marker) => marker.remove());
+		pointMarkersRef.current.clear();
+
 		renderMapParts(
 			() =>
 				points.forEach((point) => {
-					renderPoint(map, point);
+					const marker = renderPoint(map, point);
+					pointMarkersRef.current.set(point.id, marker);
+					
+					// Hide marker if it's associated with an unselected route
+					if (point.routeId && !selectedRoutes.has(point.routeId)) {
+						marker.remove();
+					}
 				}),
 			() => setMapCenter(map, mapCenter),
 		);
-	}, [mapCenter, points, map]);
+	}, [mapCenter, points, map, selectedRoutes]);
 
 	// Load all routes from GPX files concurrently
 	useEffect(() => {
@@ -112,6 +130,25 @@ export default function MultiMap({
 			if (map.getSource(layerId)) {
 				map.removeSource(layerId);
 			}
+
+			// Hide associated points
+			if (points) {
+				points.forEach((point) => {
+					if (point.routeId === routeId) {
+						const marker = pointMarkersRef.current.get(point.id);
+						if (marker) {
+							marker.remove();
+						}
+						// Remove circle layer if exists
+						if (point.useRadius && map.getLayer(point.id)) {
+							map.removeLayer(point.id);
+						}
+						if (point.useRadius && map.getSource(point.id)) {
+							map.removeSource(point.id);
+						}
+					}
+				});
+			}
 		});
 
 		// Add newly selected routes
@@ -126,11 +163,51 @@ export default function MultiMap({
 					}
 				}
 			}
+
+			// Show associated points
+			if (points) {
+				points.forEach((point) => {
+					if (point.routeId === routeId) {
+						const marker = pointMarkersRef.current.get(point.id);
+						if (marker) {
+							marker.addTo(map);
+						}
+						// Add circle layer if needed
+						if (point.useRadius && !map.getLayer(point.id)) {
+							map.addLayer({
+								id: point.id,
+								type: 'circle',
+								source: {
+									type: 'geojson',
+									data: {
+										type: 'Feature',
+										geometry: {
+											type: 'Point',
+											coordinates: point.coordinates,
+										},
+									} as any,
+								},
+								paint: {
+									'circle-radius': {
+										base: 1.75,
+										stops: [
+											[48, 20],
+											[88, 360],
+										],
+									},
+									'circle-color': point.color,
+									'circle-opacity': 0.5,
+								},
+							});
+						}
+					}
+				});
+			}
 		});
 
 		// Update previous selection
 		setPreviousSelectedRoutes(new Set(selectedRoutes));
-	}, [map, routes, selectedRoutes, loadedRoutes, previousSelectedRoutes]);
+	}, [map, routes, selectedRoutes, loadedRoutes, previousSelectedRoutes, points]);
 
 	// Legacy support for single route
 	useEffect(() => {
@@ -158,11 +235,13 @@ export default function MultiMap({
 		});
 	};
 
+	const t = ui[lang as keyof typeof ui] || ui[defaultLang];
+
 	return (
 		<div>
 			{routes && routes.length > 0 && (
 				<div style={{ padding: '1rem', backgroundColor: '#f5f5f5', marginBottom: '1rem' }}>
-					<h3 style={{ marginTop: 0 }}>Select Routes to Display:</h3>
+					<h3 style={{ marginTop: 0 }}>{t['map.selectRoutes']}</h3>
 					<div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
 						{routes.map((route) => (
 							<label
