@@ -1,6 +1,7 @@
 import BasicMap from './BasicMap';
 import { useState, useEffect } from 'preact/hooks';
 import mapboxgl from 'mapbox-gl';
+import type { RouteData } from './route.type';
 import {
 	addRouteToMap,
 	addTooltipToMap,
@@ -24,12 +25,30 @@ export type MultiMapProps = {
 	zoom?: number;
 	mapCenter: number[];
 	points?: MultiPoints[];
-	currentPath: string;
-	tooltip: string;
+	routes?: RouteData[];
+	// Legacy support for single route
+	currentPath?: string;
+	tooltip?: string;
 };
 
-export default function MultiMap({ zoom, mapCenter, points, currentPath, tooltip }: MultiMapProps) {
+export default function MultiMap({
+	zoom,
+	mapCenter,
+	points,
+	routes,
+	currentPath,
+	tooltip,
+}: MultiMapProps) {
 	const [map, setMap] = useState<mapboxgl.Map>();
+	const [selectedRoutes, setSelectedRoutes] = useState<Set<string>>(new Set());
+	const [loadedRoutes, setLoadedRoutes] = useState<Map<string, number[][]>>(new Map());
+
+	// Initialize selected routes (all selected by default)
+	useEffect(() => {
+		if (routes && routes.length > 0) {
+			setSelectedRoutes(new Set(routes.map((r) => r.id)));
+		}
+	}, [routes]);
 
 	useEffect(() => {
 		if (!map || !mapCenter || !points) return;
@@ -43,6 +62,56 @@ export default function MultiMap({ zoom, mapCenter, points, currentPath, tooltip
 		);
 	}, [mapCenter, points, map]);
 
+	// Load all routes from GPX files
+	useEffect(() => {
+		if (!routes || routes.length === 0) return;
+
+		const loadRoutes = async () => {
+			const newLoadedRoutes = new Map<string, number[][]>();
+			for (const route of routes) {
+				try {
+					const coordinates = await fetchGpxFile(route.url);
+					newLoadedRoutes.set(route.id, coordinates);
+				} catch (error) {
+					console.error(`Error loading route ${route.id}:`, error);
+				}
+			}
+			setLoadedRoutes(newLoadedRoutes);
+		};
+
+		loadRoutes();
+	}, [routes]);
+
+	// Render selected routes on the map
+	useEffect(() => {
+		if (!map || !routes || loadedRoutes.size === 0) return;
+
+		// Remove all route layers
+		routes.forEach((route) => {
+			const layerId = `route-${route.id}`;
+			if (map.getLayer(layerId)) {
+				map.removeLayer(layerId);
+			}
+			if (map.getSource(layerId)) {
+				map.removeSource(layerId);
+			}
+		});
+
+		// Add selected routes
+		routes.forEach((route) => {
+			if (selectedRoutes.has(route.id)) {
+				const coordinates = loadedRoutes.get(route.id);
+				if (coordinates) {
+					addRouteToMap(map, coordinates, route.id, 4, route.color || '#2BCA2B');
+					if (route.tooltip) {
+						addTooltipToMap(map, route.tooltip, `route-${route.id}`);
+					}
+				}
+			}
+		});
+	}, [map, routes, selectedRoutes, loadedRoutes]);
+
+	// Legacy support for single route
 	useEffect(() => {
 		if (!map || !currentPath || !tooltip) return;
 
@@ -52,5 +121,51 @@ export default function MultiMap({ zoom, mapCenter, points, currentPath, tooltip
 		});
 	}, [map, currentPath, tooltip]);
 
-	return <BasicMap zoom={zoom} setMap={setMap} />;
+	const toggleRoute = (routeId: string) => {
+		setSelectedRoutes((prev) => {
+			const newSet = new Set(prev);
+			if (newSet.has(routeId)) {
+				newSet.delete(routeId);
+			} else {
+				newSet.add(routeId);
+			}
+			return newSet;
+		});
+	};
+
+	return (
+		<div>
+			{routes && routes.length > 0 && (
+				<div style={{ padding: '1rem', backgroundColor: '#f5f5f5', marginBottom: '1rem' }}>
+					<h3 style={{ marginTop: 0 }}>Select Routes to Display:</h3>
+					<div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+						{routes.map((route) => (
+							<label
+								key={route.id}
+								style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+							>
+								<input
+									type="checkbox"
+									checked={selectedRoutes.has(route.id)}
+									onChange={() => toggleRoute(route.id)}
+									style={{ marginRight: '0.5rem' }}
+								/>
+								<span
+									style={{
+										display: 'inline-block',
+										width: '20px',
+										height: '3px',
+										backgroundColor: route.color || '#2BCA2B',
+										marginRight: '0.5rem',
+									}}
+								/>
+								{route.name}
+							</label>
+						))}
+					</div>
+				</div>
+			)}
+			<BasicMap zoom={zoom} setMap={setMap} />
+		</div>
+	);
 }

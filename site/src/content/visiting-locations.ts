@@ -1,9 +1,28 @@
 import type { EventInput } from '@fullcalendar/core';
 import type { MultiMapProps } from '../components/dynamic/MultiMap';
+import type { RouteData } from '../components/dynamic/route.type';
 
 export const VisitingLocations: MultiMapProps = {
 	mapCenter: [-82.03460634364587, 47.28165248503039],
 	zoom: 4,
+	routes: [
+		{
+			id: 'canada-2024-25',
+			name: 'Canada 2024/25',
+			url: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
+			color: '#2BCA2B',
+			tooltip: 'Das ist unsere bisherige Route zum Stand von 20.02.2025',
+		},
+		// Add more routes here as needed
+		// Example:
+		// {
+		//   id: 'vacation-2023',
+		//   name: 'Vacation 2023',
+		//   url: 'https://directus.aaronczichon.de/assets/another-route.gpx',
+		//   color: '#CA2B2B',
+		//   tooltip: 'Our 2023 vacation route',
+		// },
+	],
 	points: [
 		{
 			id: '01-halifax',
@@ -297,8 +316,6 @@ export const VisitingLocations: MultiMapProps = {
 			useRadius: false,
 		},
 	],
-	currentPath: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
-	tooltip: 'Das ist unsere bisherige Route zum Stand von 20.02.2025',
 };
 
 export const AccomonationLocations: EventInput[] = [
