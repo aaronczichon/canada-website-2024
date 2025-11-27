@@ -4,6 +4,7 @@ import mapboxgl from 'mapbox-gl';
 import type { RouteData } from './route.type';
 import { ui, defaultLang } from '../../i18n/utils';
 import {
+	addPointCircleLayer,
 	addRouteToMap,
 	addTooltipToMap,
 	fetchGpxFile,
@@ -172,33 +173,9 @@ export default function MultiMap({
 						if (marker) {
 							marker.addTo(map);
 						}
-						// Add circle layer if needed
-						if (point.useRadius && !map.getLayer(point.id)) {
-							map.addLayer({
-								id: point.id,
-								type: 'circle',
-								source: {
-									type: 'geojson',
-									data: {
-										type: 'Feature',
-										geometry: {
-											type: 'Point',
-											coordinates: point.coordinates,
-										},
-									} as any,
-								},
-								paint: {
-									'circle-radius': {
-										base: 1.75,
-										stops: [
-											[48, 20],
-											[88, 360],
-										],
-									},
-									'circle-color': point.color,
-									'circle-opacity': 0.5,
-								},
-							});
+						// Add circle layer if needed and not already present
+						if (!map.getLayer(point.id)) {
+							addPointCircleLayer(map, point);
 						}
 					}
 				});

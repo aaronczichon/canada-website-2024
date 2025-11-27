@@ -3,6 +3,41 @@ import mapboxgl from 'mapbox-gl';
 import type { MultiPoints } from '../dynamic/MultiMap';
 import type { RouteData } from '../dynamic/route.type';
 
+/**
+ * Add a circle layer for a point on the map
+ * @param map map element reference
+ * @param point point data including coordinates and styling
+ */
+export const addPointCircleLayer = (map: mapboxgl.Map, point: MultiPoints) => {
+	if (!point.useRadius) return;
+	
+	map.addLayer({
+		id: point.id,
+		type: 'circle',
+		source: {
+			type: 'geojson',
+			data: {
+				type: 'Feature',
+				geometry: {
+					type: 'Point',
+					coordinates: point.coordinates,
+				},
+			} as any,
+		},
+		paint: {
+			'circle-radius': {
+				base: 1.75,
+				stops: [
+					[48, 20],
+					[88, 360],
+				],
+			}, // in pixels
+			'circle-color': point.color,
+			'circle-opacity': 0.5,
+		},
+	});
+};
+
 export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
 	const poi = new mapboxgl.Marker({
 		color: point.color,
@@ -15,33 +50,7 @@ export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
 		poi.setPopup(popup);
 	}
 
-	if (point.useRadius) {
-		map.addLayer({
-			id: point.id,
-			type: 'circle',
-			source: {
-				type: 'geojson',
-				data: {
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: point.coordinates,
-					},
-				} as any,
-			},
-			paint: {
-				'circle-radius': {
-					base: 1.75,
-					stops: [
-						[48, 20],
-						[88, 360],
-					],
-				}, // in pixels
-				'circle-color': point.color,
-				'circle-opacity': 0.5,
-			},
-		});
-	}
+	addPointCircleLayer(map, point);
 
 	return poi;
 };
