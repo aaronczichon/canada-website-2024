@@ -57,7 +57,7 @@ export default function MultiMap({
 		if (routes && routes.length > 0) {
 			const initialSelection = new Set(routes.map((r) => r.id));
 			setSelectedRoutes(initialSelection);
-			setPreviousSelectedRoutes(initialSelection);
+			// Don't set previousSelectedRoutes here - leave it empty so initial routes are rendered
 		}
 	}, [routes]);
 
