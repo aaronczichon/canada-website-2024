@@ -10,7 +10,7 @@ import type { RouteData } from '../dynamic/route.type';
  */
 export const addPointCircleLayer = (map: mapboxgl.Map, point: MultiPoints) => {
 	if (!point.useRadius) return;
-	
+
 	map.addLayer({
 		id: point.id,
 		type: 'circle',

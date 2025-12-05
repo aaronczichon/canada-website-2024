@@ -63,7 +63,7 @@ export default function MultiMap({
 
 	useEffect(() => {
 		if (!map || !mapCenter || !points) return;
-		
+
 		// Clear existing markers
 		pointMarkersRef.current.forEach((marker) => marker.remove());
 		pointMarkersRef.current.clear();
@@ -73,7 +73,7 @@ export default function MultiMap({
 				points.forEach((point) => {
 					const marker = renderPoint(map, point);
 					pointMarkersRef.current.set(point.id, marker);
-					
+
 					// Hide marker if it's associated with an unselected route
 					if (point.routeId && !selectedRoutes.has(point.routeId)) {
 						marker.remove();
@@ -217,7 +217,7 @@ export default function MultiMap({
 	return (
 		<div>
 			{routes && routes.length > 0 && (
-				<div style={{ padding: '1rem', backgroundColor: '#f5f5f5', marginBottom: '1rem' }}>
+				<div className="map-route-selection" style={{ marginBottom: '1rem' }}>
 					<h3 style={{ marginTop: 0 }}>{t['map.selectRoutes']}</h3>
 					<div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
 						{routes.map((route) => (
