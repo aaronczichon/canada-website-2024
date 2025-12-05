@@ -159,8 +159,9 @@ export default function MultiMap({
 				const coordinates = loadedRoutes.get(route.id);
 				if (coordinates) {
 					addRouteToMap(map, coordinates, route.id, 4, route.color || '#2BCA2B');
-					if (route.tooltip) {
-						addTooltipToMap(map, route.tooltip, `route-${route.id}`);
+					const tooltip = lang === 'de' ? route.tooltipDe : route.tooltip;
+					if (tooltip) {
+						addTooltipToMap(map, tooltip, `route-${route.id}`);
 					}
 				}
 			}

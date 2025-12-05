@@ -1,6 +1,5 @@
 import type { EventInput } from '@fullcalendar/core';
 import type { MultiMapProps } from '../components/dynamic/MultiMap';
-import type { RouteData } from '../components/dynamic/route.type';
 
 export const VisitingLocations: MultiMapProps = {
 	mapCenter: [-82.03460634364587, 47.28165248503039],
@@ -8,20 +7,22 @@ export const VisitingLocations: MultiMapProps = {
 	routes: [
 		{
 			id: 'canada-2024-25',
-			name: 'Canada 2024/25',
+			name: '2024/25',
 			url: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
 			color: '#2BCA2B',
-			tooltip: 'Das ist unsere bisherige Route zum Stand von 20.02.2025',
+			tooltipDe: 'Unsere Reise durch Kanada im Jahr 2024 und Anfang 2025',
+			tooltip: 'Our journey through Canada in 2024 and early 2025',
 		},
 		// Add more routes here as needed
 		// Example:
-		// {
-		//   id: 'vacation-2023',
-		//   name: 'Vacation 2023',
-		//   url: 'https://directus.aaronczichon.de/assets/another-route.gpx',
-		//   color: '#CA2B2B',
-		//   tooltip: 'Our 2023 vacation route',
-		// },
+		{
+			id: 'vacation-2023',
+			name: '2023',
+			url: 'https://directus.aaronczichon.de/assets/c427fd3e-2107-406b-928d-98601d1f573d.gpx',
+			color: '#CA2B2B',
+			tooltipDe: 'Unsere Reiseroute 2023 durch Nova Scotia und PEI',
+			tooltip: 'Our 2023 travel route through Nova Scotia and PEI',
+		},
 	],
 	points: [
 		{
