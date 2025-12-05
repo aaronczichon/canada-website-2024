@@ -13,8 +13,6 @@ export const VisitingLocations: MultiMapProps = {
 			tooltipDe: 'Unsere Reise durch Kanada im Jahr 2024 und Anfang 2025',
 			tooltip: 'Our journey through Canada in 2024 and early 2025',
 		},
-		// Add more routes here as needed
-		// Example:
 		{
 			id: 'vacation-2023',
 			name: '2023',
@@ -22,6 +20,16 @@ export const VisitingLocations: MultiMapProps = {
 			color: '#CA2B2B',
 			tooltipDe: 'Unsere Reiseroute 2023 durch Nova Scotia und PEI',
 			tooltip: 'Our 2023 travel route through Nova Scotia and PEI',
+		},
+		{
+			id: 'vacation-2022',
+			name: '2022',
+			url: 'https://directus.aaronczichon.de/assets/8b02c5c8-ae25-48fc-a084-500bde32d831.gpx',
+			color: '#2b33ca',
+			tooltipDe:
+				'Unsere Route 2022 durch Albert und British Columbia (hauptsächlich den Rocky Mountains)',
+			tooltip:
+				'Our 2022 travel route through Alberta and British Columbia (mainly the Rocky Mountains)',
 		},
 	],
 	points: [
