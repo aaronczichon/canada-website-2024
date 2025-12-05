@@ -3,18 +3,12 @@ import mapboxgl from 'mapbox-gl';
 import type { MultiPoints } from '../dynamic/MultiMap';
 import type { RouteData } from '../dynamic/route.type';
 
-export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
-	const poi = new mapboxgl.Marker({
-		color: point.color,
-	})
-		.setLngLat(point.coordinates as any) // POI coordinates
-		.addTo(map);
-
-	if (point.tooltip) {
-		const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(point.tooltip);
-		poi.setPopup(popup);
-	}
-
+/**
+ * Add a circle layer for a point on the map
+ * @param map map element reference
+ * @param point point data including coordinates and styling
+ */
+export const addPointCircleLayer = (map: mapboxgl.Map, point: MultiPoints) => {
 	if (!point.useRadius) return;
 
 	map.addLayer({
@@ -42,6 +36,23 @@ export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
 			'circle-opacity': 0.5,
 		},
 	});
+};
+
+export const renderPoint = (map: mapboxgl.Map, point: MultiPoints) => {
+	const poi = new mapboxgl.Marker({
+		color: point.color,
+	})
+		.setLngLat(point.coordinates as any) // POI coordinates
+		.addTo(map);
+
+	if (point.tooltip) {
+		const popup = new mapboxgl.Popup({ closeOnClick: true }).setHTML(point.tooltip);
+		poi.setPopup(popup);
+	}
+
+	addPointCircleLayer(map, point);
+
+	return poi;
 };
 
 /**

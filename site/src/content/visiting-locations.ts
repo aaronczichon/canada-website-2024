@@ -4,6 +4,34 @@ import type { MultiMapProps } from '../components/dynamic/MultiMap';
 export const VisitingLocations: MultiMapProps = {
 	mapCenter: [-82.03460634364587, 47.28165248503039],
 	zoom: 4,
+	routes: [
+		{
+			id: 'canada-2024-25',
+			name: '2024/25',
+			url: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
+			color: '#2BCA2B',
+			tooltipDe: 'Unsere Reise durch Kanada im Jahr 2024 und Anfang 2025',
+			tooltip: 'Our journey through Canada in 2024 and early 2025',
+		},
+		{
+			id: 'vacation-2023',
+			name: '2023',
+			url: 'https://directus.aaronczichon.de/assets/c427fd3e-2107-406b-928d-98601d1f573d.gpx',
+			color: '#CA2B2B',
+			tooltipDe: 'Unsere Reiseroute 2023 durch Nova Scotia und PEI',
+			tooltip: 'Our 2023 travel route through Nova Scotia and PEI',
+		},
+		{
+			id: 'vacation-2022',
+			name: '2022',
+			url: 'https://directus.aaronczichon.de/assets/8b02c5c8-ae25-48fc-a084-500bde32d831.gpx',
+			color: '#2b33ca',
+			tooltipDe:
+				'Unsere Route 2022 durch Albert und British Columbia (hauptsächlich den Rocky Mountains)',
+			tooltip:
+				'Our 2022 travel route through Alberta and British Columbia (mainly the Rocky Mountains)',
+		},
+	],
 	points: [
 		{
 			id: '01-halifax',
@@ -11,6 +39,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-63.582687, 44.65107],
 			tooltip: 'Unser erster Aufenthalt in Halifax',
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '02-eastern',
@@ -25,6 +54,7 @@ export const VisitingLocations: MultiMapProps = {
         </ul>
         `,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '03-cape-breton',
@@ -32,6 +62,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-61.0604, 46.53136],
 			tooltip: 'Übernachtung in Cape Breton auf dem Weg nach Newfoundland',
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '04-brighton',
@@ -39,6 +70,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-55.63716810349037, 49.547550234959],
 			tooltip: 'Unser aktueller Standort in Brighton',
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '05-rocky-harbour',
@@ -47,6 +79,7 @@ export const VisitingLocations: MultiMapProps = {
 			tooltip:
 				'Übernachtung vom 23.05. bis 24.05. in <a href="https://www.airbnb.com/slink/uA7Wk7tw" target="_blank">Rocky Harbour</a>',
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '06-tuckamore-lodge',
@@ -55,6 +88,7 @@ export const VisitingLocations: MultiMapProps = {
 			tooltip:
 				'Übernachtung vom 24.05. bis 25.05. in der <a href="https://www.booking.com/hotel/ca/tuckamore-lodge.en-gb.html" target="_blank">Tuckamore Lodge</a>',
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '07-memorial-university',
@@ -63,6 +97,7 @@ export const VisitingLocations: MultiMapProps = {
 			tooltip:
 				'Nachdem wir wieder aus Deutschland im Juni zurückgekommen sind, haben wir in der <a href="https://www.booking.com/hotel/ca/memorial-university.en-gb.html" target="_blank">Memorial University</a> in St. John\'s übernachtet.',
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '08-trinity',
@@ -72,6 +107,7 @@ export const VisitingLocations: MultiMapProps = {
         Übernachtung vom: 29.06.24 - 30.06.24
         `,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '08-st-johns-1',
@@ -81,6 +117,7 @@ export const VisitingLocations: MultiMapProps = {
         Übernachtung vom: 30.06.24 - 04.07.24
         `,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '09-st-johns-2',
@@ -90,6 +127,7 @@ export const VisitingLocations: MultiMapProps = {
         Übernachtung vom: 30.06.24 - 04.07.24
         `,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '10-arnolds-cove',
@@ -97,6 +135,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-53.99375773111821, 47.766704436433145],
 			tooltip: `Nach St. John's wollten wir noch etwas von der Avalon sehen. Daher sind wir nach <a href="https://www.airbnb.ca/rooms/1126786250486159230" target="_blank">Arnold's Cove</a> gefahren und haben dort in der übernachtet.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '11-marystown',
@@ -104,6 +143,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-55.15953719709933, 47.156183140788464],
 			tooltip: `Da wir einen Tag nach Saint Pierre fahren wollen, übernachten wir in <a href="https://www.airbnb.ca/rooms/52796302" target="_blank">Marystown</a> damit es nicht so weit bis zur Fähre ist.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '12-halifax-2',
@@ -111,6 +151,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-63.57781184808878, 44.63413236723511],
 			tooltip: `Bevor es weiter nach Montréal geht, übernachten wir nochmal in Halifax.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '13-montreal',
@@ -118,6 +159,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-73.55810992624419, 45.50230708990301],
 			tooltip: `Wir sind in Montréal! Dort verbringen wir in <a href="https://www.airbnb.ca/rooms/25973705" target="_blank">Old Montréal</a> die nächsten Wochen. Genauer gesagt bis zum 18. August.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		// ------
 		{
@@ -126,6 +168,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-74.33517118150668, 45.25932409896394],
 			tooltip: `1. Campingplatz im Sommerurlaub 2024.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '15-woodlands-campground',
@@ -133,6 +176,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-74.95018726626039, 44.99465128982079],
 			tooltip: `2. Campingplatz im Sommerurlaub 2024.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '16-ivy-lea-campground',
@@ -140,6 +184,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-75.9841338978305, 44.36937195224158],
 			tooltip: `3. Campingplatz im Sommerurlaub 2024.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '17-sunset-shores-campground',
@@ -147,6 +192,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-77.1897332312229, 43.910524165236765],
 			tooltip: `4. Campingplatz im Sommerurlaub 2024.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '18-indian-line-campground',
@@ -154,6 +200,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-79.63659539971616, 43.73653284546711],
 			tooltip: `5. Campingplatz im Sommerurlaub 2024.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		// ------
 		{
@@ -162,6 +209,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-79.65052280832177, 43.725835731374936],
 			tooltip: `Kurzer Zwischenstopp in Toronto / Missauga bevor es weiter nach Winnipeg geht!`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '20-winnipeg',
@@ -169,6 +217,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-97.13568555374694, 49.89888395397797],
 			tooltip: `In Winnipeg verbringen wir <a href="https://www.airbnb.ca/rooms/961167602241646280" target="_blank">3 Tage</a> bevor es uns dann auf einen Roadtrip in Richtung Calgary zieht.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '21-hargraves',
@@ -176,6 +225,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-101.06622625234651, 49.91173766014226],
 			tooltip: `Auf unserem Weg durch Manitoba übernachten wir in <a href="https://www.airbnb.ca/rooms/12154453" target="_blank">Hargraves</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '22-strongfield',
@@ -183,6 +233,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-106.59857680406616, 51.3311102920845],
 			tooltip: `In Saskatchewan machen wir Zwischenstopp in einer <a href="https://www.airbnb.ca/rooms/1080566936021756392" target="_blank">alten Kirche in Strongfield</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '23-saskatoon',
@@ -190,6 +241,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-106.65994534083336, 52.11116435116523],
 			tooltip: `Eine wunderbare Zeit hatten wir in <a href="https://www.airbnb.ca/rooms/1101422160447847095" target="_blank">Saskatoon</a>. Die Stadt kann man wirklich empfehlen!`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '24-netherhill',
@@ -197,6 +249,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-108.98041546471184, 51.552719321249825],
 			tooltip: `Um den Urlaub ausklingen zu lassen und eine nicht zu lange Strecke bis nach Calgary zu haben, übernachteten wir <a href="https://www.airbnb.ca/rooms/1176280982350288476" target="_blank">in einer kleine Off-the-grid Cabin</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '25-calgary',
@@ -204,6 +257,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-113.99561613935663, 51.04370427769504],
 			tooltip: `Wir sind nun in Calgary angekommen. Hier bleiben wir von September bis Ende November.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '26-mendenhall-landing',
@@ -211,6 +265,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-136.17903566916172, 60.77445854343451],
 			tooltip: `Unsere 1. Unterkunft auf unserem Trip durch Yukon und Alaska war in <a href="https://www.airbnb.ca/rooms/1095255741915768848" target="_blank">Mendenhall Landing</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '27-haines',
@@ -218,6 +273,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-135.5346949076018, 59.3047346423767],
 			tooltip: `Unsere 2. Unterkunft auf unserem Trip durch Yukon und Alaska war in <a href="https://www.airbnb.ca/rooms/13531045" target="_blank">Haines</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '28-skagway',
@@ -225,6 +281,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-135.2970188124834, 59.47794540306895],
 			tooltip: `Unsere 3. Unterkunft auf unserem Trip durch Yukon und Alaska war in <a href="https://www.skagwaybungalows.com/" target="_blank">Skagway</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '29-carcross',
@@ -232,6 +289,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-134.71683123641736, 60.194018033183426],
 			tooltip: `Unsere 4. Unterkunft auf unserem Trip durch Yukon und Alaska war in <a href="https://airbnb.ca/rooms/1203145171314078978" target="_blank">Carcross</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '30-annie-lake',
@@ -239,6 +297,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-134.9914616919, 60.33087487480873],
 			tooltip: `Unsere 5. Unterkunft auf unserem Trip durch Yukon und Alaska war in <a href="https://airbnb.ca/rooms/695088492449202256" target="_blank">am Anie Lake</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '31-whitehorse',
@@ -246,6 +305,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-135.0657888872643, 60.68567531518825],
 			tooltip: `Unsere 6. Unterkunft auf unserem Trip durch Yukon und Alaska war in <a href="https://www.yukonblackspruce.ca/" target="_blank">Whitehorse</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '32-skky-hotel',
@@ -253,6 +313,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-135.08369618588682, 60.71391783627361],
 			tooltip: `Unsere letzte Unterkunft auf unserem Trip durch Yukon und Alaska war am <a href="https://skkyhotel.com/" target="_blank">Flughafen im Hotel</a>.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '33-edmonton',
@@ -260,6 +321,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-116.1819137936113, 51.42876900057385],
 			tooltip: `Für unser Ski-Wochenende in Lake Louise haben wir im <a href="https://www.lakelouiseinn.com/" target="_blank">Lake Louise Inn</a> übernachtet.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '34-lake-louise',
@@ -267,6 +329,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-113.49022827817637, 53.48240523616201],
 			tooltip: `Wir haben Edmonton über ein längeres Wochenende im November besucht. Der Elk Island National Park war hier das Highlight!`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '35-valhalla-hotel',
@@ -274,6 +337,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-89.30516968771086, 48.379776959486],
 			tooltip: `Bevor wir unsere Unterkunft in Thunder Bay beziehen konnten, übernachtet wir eine Nacht im  <a href="https://valhallahotel.ca/" target="_blank">Valhalla Hotel</a> am Flughafen (auch weil wir so spät hier angekommen sind).`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '36-thunder-bay',
@@ -281,6 +345,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-89.25046893854045, 48.431445742535686],
 			tooltip: `Thunder Bay. Hier werden wir von Dezember bis Januar sein. Es ist auch gleichzeitig unser letzter, längerer Aufenthalt an einem Ort.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '37-london',
@@ -288,6 +353,7 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-81.23811812540826, 42.964067136124335],
 			tooltip: `Bevor es leider wieder nach Deutschland geht, halten wir uns noch 2 Wochen in London, Ontario auf.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 		{
 			id: '38-toronto',
@@ -295,10 +361,9 @@ export const VisitingLocations: MultiMapProps = {
 			coordinates: [-79.38553944433723, 43.638870146452625],
 			tooltip: `Unser letzter Ort ist Toronto bevor es dann wieder zurück nach Deutschland geht.`,
 			useRadius: false,
+			routeId: 'canada-2024-25',
 		},
 	],
-	currentPath: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
-	tooltip: 'Das ist unsere bisherige Route zum Stand von 20.02.2025',
 };
 
 export const AccomonationLocations: EventInput[] = [

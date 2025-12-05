@@ -15,6 +15,7 @@ export const ui = {
 		'nav.visitors': 'Visitors',
 		'nav.about': 'About',
 		'nav.imprint': 'Imprint',
+		'map.selectRoutes': 'Select Routes to Display:',
 	},
 	de: {
 		'nav.blog': 'Blog',
@@ -23,6 +24,7 @@ export const ui = {
 		'nav.visitors': 'Besuch',
 		'nav.about': 'Über uns',
 		'nav.imprint': 'Impressum',
+		'map.selectRoutes': 'Routen zur Anzeige auswählen:',
 	},
 } as const;
 

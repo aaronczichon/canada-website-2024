@@ -10,3 +10,31 @@
 		height: 700px;
 	}
 }
+
+
+.map-route-selection {
+	width: calc(100% - 16px);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+	.map-route-selection {
+		width: 80%;
+	}
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+	.map-route-selection {
+		width: 70%;
+	}
+}
+
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+	.map-route-selection {
+		width: 50%;
+	}
+}

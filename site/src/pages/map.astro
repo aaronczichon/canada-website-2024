@@ -11,17 +11,9 @@ const visitingLocations = VisitingLocations;
     <article style="margin-bottom: 0;">
     <h1>Karte</h1>
     <p>
-      Du willst wissen wo wir uns aktuell aufhalten? Hier findest du unsere
-      aktuellen Orte. <br />
-      Zuerst haben wir uns in Halifax, Nova Scotia aufgehalten.<br />
-      Danach ging es 2,5 Monate durch Neufundland. <br />
-      In Montréal, Québec haben wir uns etwas mehr als 3 Wochen aufgehalten. <br
-      />
-      Nach einem Roadtrip von Winnipeg über Regina und Saskatoon sind wir nun in
-      Calgary.<br />
-      Während unserer 3 Monate in Calgary haben wir auch Urlaub in Yukon und Alska gemacht.<br />
-      Unser letzter, längerer Aufenthalt nun ist Thunder Bay, Ontario.<br />
-      Zum Schluss befanden wir uns noch 2 Wochen in London und ein paar Tage in Toronto.<br />
+      Auf dieser Karte findest du alle bisherigen Routen und Reisen von uns nach Kanada.<br />
+      Das große Highlight ist natürlich unsere Reise durch Kanada im Jahr 2024 und Anfang 2025, die in grün dargestellt ist.<br />
+      Zusätzlich siehst du auch unsere Reiseroute 2023 durch Nova Scotia und PEI in rot und unsere Reise 2022 durch die kanadischen Rocky Mountains in blau.
     </p>
   </article>
   </main>
@@ -31,7 +23,7 @@ const visitingLocations = VisitingLocations;
     zoom={visitingLocations.zoom}
     mapCenter={visitingLocations.mapCenter}
     points={visitingLocations.points}
-    currentPath={visitingLocations.currentPath}
-    tooltip={visitingLocations.tooltip}
+    routes={visitingLocations.routes}
+    lang="de"
   />
 </Layout>

@@ -11,17 +11,9 @@ const visitingLocations = VisitingLocations;
     <article style="margin-bottom: 0;">
     <h1>Map</h1>
     <p>
-      You want to know where we are currently? Here you can find our current
-      locations.
-      <br />
-      First we stayed in Halifax, Nova Scotia.<br />
-      After that we traveled through Newfoundland for 2.5 months.<br />
-      We stayed in Montréal, Québec for a little more than 3 weeks. <br />
-      After a road trip from Winnipeg via Regina and Saskatoon we are now in Calgary.<br
-      />
-      During our 3 months in Calgary we also took a vacation in Yukon and Alska.<br />
-      Our last, longer stay is now in Thunder Bay, Ontario.<br />
-      At the end we are in London for 2 weeks and a few days in Toronto.<br />
+      On this map, you can find all of our previous routes and trips to Canada.<br />
+      The big highlight is, of course, our journey through Canada in 2024 and early 2025, which is shown in green.<br />
+      Additionally, you can also see our 2023 travel route through Nova Scotia and PEI in red and our 2022 trip through the Canadian Rocky Mountains in blue.
     </p>
   </article>
   </main>
@@ -31,7 +23,7 @@ const visitingLocations = VisitingLocations;
     zoom={visitingLocations.zoom}
     mapCenter={visitingLocations.mapCenter}
     points={visitingLocations.points}
-    currentPath={visitingLocations.currentPath}
-    tooltip={visitingLocations.tooltip}
+    routes={visitingLocations.routes}
+    lang="en"
   />
 </Layout>
