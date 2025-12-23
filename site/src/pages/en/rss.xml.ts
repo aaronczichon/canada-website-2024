@@ -6,7 +6,7 @@ import { loadRenderers } from 'astro:container';
 import { getCollection } from 'astro:content';
 import { buildAdditionalExtensionString } from '../../functions/rss.func';
 
-export async function GET(context) {
+export async function GET(context: any) {
 	const renderers = await loadRenderers([getPreactRenderer(), getMDXRenderer()]);
 	const container = await AstroContainer.create({ renderers });
 	container.addClientRenderer({

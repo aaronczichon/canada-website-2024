@@ -1,0 +1,9 @@
+---
+const { videoSrc, type } = Astro.props;
+
+const usedType = type ?? "video/mp4";
+---
+
+<video style="max-width: 100%" preload="metadata" controls>
+  <source src={videoSrc} type={usedType} />
+</video>

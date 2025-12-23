@@ -5,7 +5,7 @@
 	"license": "GPL-3.0-only",
 	"author": "Aaron Czichon <mail@aaronczichon.de>",
 	"scripts": {
-		"dev": "astro dev --host 127.0.0.1",
+		"dev": "astro dev",
 		"start": "npm run rm:styles && npm run copy:styles && npm run dev",
 		"build": "rm -rf dist && npm run copy:styles && npm run copy:tokens && astro check && astro build && npm run copy:deployment-files",
 		"preview": "astro preview",
@@ -18,29 +18,29 @@
 		"rm:styles": "rm -rf ./src/styles"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.4",
-		"@astrojs/mdx": "^4.3.3",
-		"@astrojs/preact": "^4.1.0",
-		"@astrojs/react": "^4.3.0",
-		"@astrojs/rss": "^4.0.12",
+		"@astrojs/check": "^0.9.6",
+		"@astrojs/mdx": "^4.3.13",
+		"@astrojs/preact": "^4.1.3",
+		"@astrojs/react": "^4.4.2",
+		"@astrojs/rss": "^4.0.14",
 		"@fullcalendar/core": "^6.1.15",
 		"@fullcalendar/daygrid": "^6.1.15",
 		"@fullcalendar/react": "^6.1.15",
 		"@we-gold/gpxjs": "^1.0.11",
-		"astro": "^5.12.8",
+		"astro": "^5.16.6",
 		"deepl-node": "^1.13.0",
-		"mapbox-gl": "^3.2.0",
+		"mapbox-gl": "^3.17.0",
 		"markdown-it": "^14.0.0",
 		"preact": "^10.19.7",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-photo-album": "^2.4.1",
 		"sanitize-html": "^2.12.1",
-		"typescript": "^5.3.3",
+		"typescript": "^5.9.3",
 		"yet-another-react-lightbox": "^3.21.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "^2.3.10",
 		"@types/mapbox-gl": "^3.1.0"
 	}
 }
