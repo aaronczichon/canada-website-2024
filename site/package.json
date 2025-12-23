@@ -5,7 +5,7 @@
 	"license": "GPL-3.0-only",
 	"author": "Aaron Czichon <mail@aaronczichon.de>",
 	"scripts": {
-		"dev": "astro dev --host 127.0.0.1",
+		"dev": "astro dev",
 		"start": "npm run rm:styles && npm run copy:styles && npm run dev",
 		"build": "rm -rf dist && npm run copy:styles && npm run copy:tokens && astro check && astro build && npm run copy:deployment-files",
 		"preview": "astro preview",
