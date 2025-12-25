@@ -1,9 +1,14 @@
 ---
-const { videoSrc, type } = Astro.props;
+import type { Track } from '../types/video.types';
 
-const usedType = type ?? "video/mp4";
+const { videoSrc, type, tracks } = Astro.props;
+
+const usedType = type ?? 'video/mp4';
 ---
 
 <video style="max-width: 100%" preload="metadata" controls>
   <source src={videoSrc} type={usedType} />
+  {tracks && tracks.map((track: Track) => (
+    <track src={track.url} label={track.label} srclang={track.srclang} kind={track.kind} />
+  ))}
 </video>
