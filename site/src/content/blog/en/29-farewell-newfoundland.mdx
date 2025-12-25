@@ -10,6 +10,7 @@ tags: ["Newfoundland"]
 ---
 
 import DirectusGallery from "../../../components/DirectusGallery.astro";
+import VideoAsset from "../../../components/VideoAsset.astro";
 
 ## Questions and answers about Newfoundland
 
@@ -66,12 +67,13 @@ The locals were able to leave their places (to study, for work) through the infr
 Lea has put together a video of pictures about the impressions and different experiences in Newfoundland.  
 Enjoy watching!
 
-<div style="position: relative; padding-top: 56.25%;">
-  <iframe
-    src="https://customer-rnx58v5rm01lsk0m.cloudflarestream.com/f5e5af16546d95bd46e501038529ff1d/iframe?defaultTextTrack=en&poster=https%3A%2F%2Fcustomer-rnx58v5rm01lsk0m.cloudflarestream.com%2Ff5e5af16546d95bd46e501038529ff1d%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-    loading="lazy"
-    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-    allowfullscreen="true"
-  ></iframe>
-</div>
+<VideoAsset videoSrc="https://video.r2.aaronczichon.com/Neufundland.mp4" tracks={
+  [
+    {
+      src: "https://video.r2.aaronczichon.com/Neufundland%20-%20EN.vtt",
+      kind: "subtitles",
+      srclang: "en",
+      label: "English",
+    },
+  ]
+} />

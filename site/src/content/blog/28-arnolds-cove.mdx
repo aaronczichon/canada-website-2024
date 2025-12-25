@@ -10,6 +10,7 @@ tags: ["Newfoundland", "Arnold's Cove", "Trails", "Beach"]
 ---
 
 import DirectusGallery from "../../components/DirectusGallery.astro";
+import VideoAsset from "../../components/VideoAsset.astro";
 import PathMap from "../../components/dynamic/PathMap";
 
 Letzten Freitag sind wir nachmittags in unserer nächsten Unterkunft, in Arnold's Cove, angekommen. Dort blieben wir drei Nächte, um dann nach Marystown am Montag weiterzufahren.  
@@ -50,12 +51,13 @@ Nach einer kleinen Kaffee-Pause wanderten wir dann noch eine kleine Runde in der
 
 Auch dieses Mal hat Aaron wieder ein kleines Video zusammengestellt:
 
-<div style="position: relative; padding-top: 56.25%;">
-  <iframe
-    src="https://customer-rnx58v5rm01lsk0m.cloudflarestream.com/a5b4c26df26d05af430663a2311c8371/iframe?poster=https%3A%2F%2Fcustomer-rnx58v5rm01lsk0m.cloudflarestream.com%2Fa5b4c26df26d05af430663a2311c8371%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-    loading="lazy"
-    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-    allowfullscreen="true"
-  ></iframe>
-</div>
+<VideoAsset videoSrc="https://video.r2.aaronczichon.com/Arnold%E2%80%98s%20Cove.mp4" tracks={
+  [
+    {
+      src: "https://video.r2.aaronczichon.com/Arnold%E2%80%98s%20Cove%20-%20EN.vtt",
+      kind: "subtitles",
+      srclang: "en",
+      label: "English",
+    },
+  ]
+} />
