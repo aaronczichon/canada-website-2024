@@ -11,6 +11,7 @@ tags: ["Newfoundland", "St. Pierre & Micquelon"]
 
 import DirectusGallery from "../../../components/DirectusGallery.astro";
 import DirectusImage from "../../../components/DirectusImage.astro";
+import VideoAsset from "../../../components/VideoAsset.astro";
 
 Now we arrived in Montreal.  
 Before we tell this story (especially the great train journey), we like to tell you from the last week, more specific, from last Wednesday (17.07.). At this day we travelled to France, by ferry, completely with entering and leaving the EU and returning to Canada.
@@ -42,12 +43,13 @@ They wished us a nice evening after 15-20 minutes of inspection and we were fort
 
 Aaron also created a video of the trip:
 
-<div style="position: relative; padding-top: 56.25%;">
-  <iframe
-    src="https://customer-rnx58v5rm01lsk0m.cloudflarestream.com/b179bd22c49c4b508e9f97ca25fff041/iframe?defaultTextTrack=en&poster=https%3A%2F%2Fcustomer-rnx58v5rm01lsk0m.cloudflarestream.com%2Fb179bd22c49c4b508e9f97ca25fff041%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-    loading="lazy"
-    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-    allowfullscreen="true"
-  ></iframe>
-</div>
+<VideoAsset videoSrc="https://video.r2.aaronczichon.com/St.%20Pierre%20Besuch.mp4" tracks={
+  [
+    {
+      src: "https://video.r2.aaronczichon.com/St.%20Pierre%20Besuch%20-%20EN.vtt",
+      kind: "subtitles",
+      srclang: "en",
+      label: "English",
+    },
+  ]
+} />

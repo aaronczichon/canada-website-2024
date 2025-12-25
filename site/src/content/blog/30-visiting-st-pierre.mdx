@@ -11,6 +11,7 @@ tags: ["Neufundland", "St. Pierre & Micquelon"]
 
 import DirectusGallery from "../../components/DirectusGallery.astro";
 import DirectusImage from "../../components/DirectusImage.astro";
+import VideoAsset from "../../components/VideoAsset.astro";
 
 Wir sind nun in Montreal.  
 Doch bevor wir auf diese Story (und vor allem auf diese tolle Zugfahrt) eingehen, möchten wir euch noch von letzter Woche berichten. Genauer gesagt von letzter Woche Mittwoch (17.07.).  
@@ -52,12 +53,13 @@ Nach 15-20 Minuten, der gesamte Grenzbereich war natürlich schon leer und wir w
 
 Aaron hat wieder ein Video dazu erstellt:
 
-<div style="position: relative; padding-top: 56.25%;">
-  <iframe
-    src="https://customer-rnx58v5rm01lsk0m.cloudflarestream.com/b179bd22c49c4b508e9f97ca25fff041/iframe?poster=https%3A%2F%2Fcustomer-rnx58v5rm01lsk0m.cloudflarestream.com%2Fb179bd22c49c4b508e9f97ca25fff041%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-    loading="lazy"
-    style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
-    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-    allowfullscreen="true"
-  ></iframe>
-</div>
+<VideoAsset videoSrc="https://video.r2.aaronczichon.com/St.%20Pierre%20Besuch.mp4" tracks={
+  [
+    {
+      src: "https://video.r2.aaronczichon.com/St.%20Pierre%20Besuch%20-%20EN.vtt",
+      kind: "subtitles",
+      srclang: "en",
+      label: "English",
+    },
+  ]
+} />
