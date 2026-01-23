@@ -1,4 +1,4 @@
-ser-agent: *
+User-agent: *
 Disallow:
 
 User-agent: AdsBot-Google
