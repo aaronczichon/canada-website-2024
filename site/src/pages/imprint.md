@@ -7,7 +7,7 @@ Information in accordance with Section 5 TMG
 
 Aaron Czichon  
 Austraße 27/1  
-89567 Sontheim 
+89567 Sontheim an der Brenz   
 Germany
 
 ## Contact Information
