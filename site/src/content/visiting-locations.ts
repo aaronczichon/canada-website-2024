@@ -16,7 +16,7 @@ export const VisitingLocations: MultiMapProps = {
 		{
 			id: 'vacation-2023',
 			name: '2023',
-			url: 'https://directus.aaronczichon.de/assets/e70e500b-4eea-4397-ba94-ba1cb53bdd78.gpx',
+			url: 'https://directus.aaronczichon.de/assets/c427fd3e-2107-406b-928d-98601d1f573d.gpx',
 			color: '#CA2B2B',
 			tooltipDe: 'Unsere Reiseroute 2023 durch Nova Scotia und PEI',
 			tooltip: 'Our 2023 travel route through Nova Scotia and PEI',
@@ -24,7 +24,7 @@ export const VisitingLocations: MultiMapProps = {
 		{
 			id: 'vacation-2022',
 			name: '2022',
-			url: 'https://directus.aaronczichon.de/assets/c035bd7c-9946-428d-917e-78db827904f1.gpx',
+			url: 'https://directus.aaronczichon.de/assets/8b02c5c8-ae25-48fc-a084-500bde32d831.gpx',
 			color: '#2b33ca',
 			tooltipDe:
 				'Unsere Route 2022 durch Albert und British Columbia (hauptsächlich den Rocky Mountains)',
