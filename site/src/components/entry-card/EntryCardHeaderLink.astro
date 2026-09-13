@@ -14,7 +14,7 @@ const baseLink = (shortLang ? '/' + shortLang : '') + '/blog/';
 
 <a
   class="entry-link"
-  href={baseLink + removeLanguageFromSlug(post.slug, shortLang)}
+  href={baseLink + removeLanguageFromSlug(post.id, shortLang)}
 >
   <h3>
     {post.data.title}

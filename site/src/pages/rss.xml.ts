@@ -3,7 +3,7 @@ import { getContainerRenderer as getPreactRenderer } from '@astrojs/preact';
 import rss from '@astrojs/rss';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { loadRenderers } from 'astro:container';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { buildAdditionalExtensionString } from '../functions/rss.func';
 
 export async function GET(context: any) {
@@ -15,12 +15,12 @@ export async function GET(context: any) {
 	});
 
 	let allPosts = await getCollection('blog');
-	allPosts = allPosts.filter((entry) => entry.slug.split('/')[0] !== 'en');
+	allPosts = allPosts.filter((entry) => entry.id.split('/')[0] !== 'en');
 	const feedItems: any[] = [];
 	for (const post of allPosts) {
-		const { Content } = await post.render();
+		const { Content } = await render(post);
 		const content = await container.renderToString(Content);
-		const link = new URL(`/blog/${post.slug}`, context.url.origin).toString();
+		const link = new URL(`/blog/${post.id}`, context.url.origin).toString();
 		feedItems.push({ ...post.data, link, content: content + buildAdditionalExtensionString('de') });
 	}
 	return rss({

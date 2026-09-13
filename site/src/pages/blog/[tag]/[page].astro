@@ -50,7 +50,7 @@ const params = Astro.params as any;
                 style="max-height: 350px; width: 100%; object-fit: cover;"
               />
             ) : null}
-            <a class="entry-link" href={"/blog/" + post.slug}>
+            <a class="entry-link" href={"/blog/" + post.id}>
               <h3>
                 {post.data.title}
                 <span class="entry--date">

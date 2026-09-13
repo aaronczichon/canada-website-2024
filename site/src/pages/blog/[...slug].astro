@@ -1,22 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import PubDate from '../../components/PubDate.astro';
 
 export async function getStaticPaths() {
 	let blogEntries = await getCollection('blog');
-	blogEntries = blogEntries.filter((entry) => entry.slug.split('/')[0] !== 'en');
+  blogEntries = blogEntries.filter((entry) => entry.id.split('/')[0] !== 'en');
 	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
+    params: { slug: entry.id },
 		props: { entry },
 	}));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
-const wordCount = entry.body.split(/\s+/).filter((word) => word !== '').length;
+const wordCount = (entry.body ?? '').split(/\s+/).filter((word) => word !== '').length;
 const averageWPM = 200; // Adjust according to your audience's reading speed
 const readingTime = Math.ceil(wordCount / averageWPM);
 ---

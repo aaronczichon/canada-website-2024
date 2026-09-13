@@ -8,12 +8,18 @@ const authKey = import.meta.env.DIRECTUS_API_KEY;
  * @returns ID of the folder or undefined if not found
  */
 export const fetchFolderIdByName = async (folderName: string): Promise<string | undefined> => {
-	const response = await fetch(
-		`${GLOBAL_CONFIG.imageEndpoint}/folders?filter[name][_eq]=${folderName}`,
-	);
-	const data = await response.json();
-	if (!data || !data.data || data.data.length === 0) return;
-	return data.data[0].id;
+	const url = new URL(`${GLOBAL_CONFIG.imageEndpoint}/folders`);
+	url.searchParams.set('filter[name][_eq]', folderName.trim());
+	for (let attempt = 0; attempt < 5; attempt++) {
+		const response = await fetch(url);
+		if (response.ok) {
+			const data = await response.json();
+			if (data?.data?.length > 0) return data.data[0].id;
+		}
+
+		const retryAfter = Number(response.headers.get('retry-after')) * 1000;
+		await new Promise((resolve) => setTimeout(resolve, retryAfter || (attempt + 1) * 1000));
+	}
 };
 
 /**

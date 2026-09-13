@@ -57,7 +57,7 @@ const params = Astro.params as any;
             ) : null}
             <a
               class="entry-link"
-              href={"/en/blog/" + extractEntrySlug(post.slug)}
+              href={"/en/blog/" + extractEntrySlug(post.id)}
             >
               <h3>
                 {post.data.title}
