@@ -15,7 +15,7 @@ export const generateStaticPaths = async (
 ) => {
 	let allPosts = await getCollection('blog');
 	allPosts = allPosts.filter((entry) =>
-		lang === 'de' ? entry.slug.split('/')[0] !== 'en' : entry.slug.split('/')[0] === 'en',
+		lang === 'de' ? entry.id.split('/')[0] !== 'en' : entry.id.split('/')[0] === 'en',
 	);
 	allPosts = allPosts.sort((a, b) => {
 		return a.data.pubDate > b.data.pubDate ? -1 : 1;
