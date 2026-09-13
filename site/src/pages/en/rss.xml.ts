@@ -1,14 +1,15 @@
-import { getContainerRenderer as getMDXRenderer } from '@astrojs/mdx';
-import { getContainerRenderer as getPreactRenderer } from '@astrojs/preact';
+import mdxRenderer from '@astrojs/mdx/server.js';
+import preactRenderer from '@astrojs/preact/server.js';
 import rss from '@astrojs/rss';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
-import { loadRenderers } from 'astro:container';
 import { getCollection, render } from 'astro:content';
 import { buildAdditionalExtensionString } from '../../functions/rss.func';
 
 export async function GET(context: any) {
-	const renderers = await loadRenderers([getPreactRenderer(), getMDXRenderer()]);
-	const container = await AstroContainer.create({ renderers });
+	// Static imports let Astro bundle the renderers and resolve their virtual modules.
+	const container = await AstroContainer.create();
+	container.addServerRenderer({ renderer: preactRenderer });
+	container.addServerRenderer({ renderer: mdxRenderer });
 	container.addClientRenderer({
 		name: '@astrojs/preact',
 		entrypoint: '@astrojs/preact/client.js',
