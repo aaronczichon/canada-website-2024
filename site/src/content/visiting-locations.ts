@@ -6,6 +6,14 @@ export const VisitingLocations: MultiMapProps = {
 	zoom: 4,
 	routes: [
 		{
+			id: 'vacation-2026',
+			name: 'Yukon & NWT 2026',
+			url: 'https://directus.aaronczichon.de/assets/8e5692ca-143d-4ea8-af72-4dde65f189ef.gpx',
+			color: '#e36622',
+			tooltipDe: 'Unser Urlaub 2026 im Yukon und den Nordwest-Territorien an das arktische Meer',
+			tooltip: 'Our vacation 2026 at the Yukon and the Northwest Territories to the Arctic Ocean',
+		},
+		{
 			id: 'canada-2024-25',
 			name: '2024/25',
 			url: 'https://directus.aaronczichon.de/assets/09c0fa7d-00aa-4117-9326-1a6eafd445b1.gpx',
