@@ -1,7 +1,7 @@
 ---
 const { date, lang } = Astro.props;
 
-const publishedTranslation = lang === 'de' ? 'Veröffentlicht am' : 'Published on';
+const publishedTranslation = lang === 'de' ? 'Veröffentlicht am ' : 'Published on ';
 ---
 
 <p>
@@ -12,6 +12,6 @@ const publishedTranslation = lang === 'de' ? 'Veröffentlicht am' : 'Published o
       month: "long",
       day: "numeric",
     })
-  }
+  } 
   <slot />
 </p>
