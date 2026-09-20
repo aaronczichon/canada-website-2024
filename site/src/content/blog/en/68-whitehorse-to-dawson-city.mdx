@@ -10,6 +10,7 @@ tags: ["Yukon", "NWT", "2026"]
 ---
 import DirectusImage from "../../../components/DirectusImage.astro";
 import DirectusGallery from "../../../components/DirectusGallery.astro";
+import PathMap from "../../../components/dynamic/PathMap";
 
 <details>
   <summary>Travel dates and information</summary>
@@ -21,11 +22,21 @@ After arriving in Whitehorse, we had ourselves picked up from the airport. Frase
 After completing the vehicle handover, we had two things to do or decide. First, we needed to take care of the essentials. In other words, buy groceries and everyday necessities for the next few days.  
 Since we weren’t really sure how good (or bad) the infrastructure in the north would be, we bought food for almost the entire 16 days. In hindsight, however, we realized that this wouldn’t have been necessary. Even the small towns on the way to the Arctic Ocean, such as Fort McPherson, Inuvik, and Tuktoyaktuk, had larger grocery stores. Which makes sense, of course, since the people living there need to do their shopping too.
 
+<DirectusImage assetId="71fa5645-5a5d-465f-aacc-20ebe2937f30.jpeg" />
+
+<DirectusImage assetId="236d87ac-4f10-4c41-90da-7e052b0b5163.jpeg" />
+
 After shopping, we hit the road. Since it was already quite late by then, we headed for the Fox Lake Campground. Beautifully located by the lake of the same name, we found a nice campsite there and were able to enjoy the pleasant weather right away.  
 The temperatures definitely weren’t comparable to Calgary, but at a comfortable 15–20 degrees Celsius, we could easily sit outside and have a barbecue.  
 That evening, we were even allowed to borrow another camper’s canoe and take it out for a short trip on the lake. Once again, it showed us how friendly and relaxed Canadians are.
 
+<DirectusImage assetId="ba6855f5-2466-4b11-a9ff-b8bd54562e3c.jpeg" />
+
+<DirectusImage assetId="3ccbb6e6-208f-4338-9c97-dd37c51a40d8.jpeg" />
+
 The next morning, despite the very chilly temperatures, Lea and Christian managed to convince themselves to even “go swimming” in the lake. Swimming might be a bit of an exaggeration. It was more of a quick dip into the lake and straight back out again, as the water itself was also very cold at around 5–7 degrees Celsius.
+
+<DirectusImage assetId="bdb921a0-3d8a-4e54-a17d-6f7076b49b3c.jpeg" />
 
 The rest of the day, however, was affected by problems with our vehicle.  
 Already on the first day, on our way to Fox Lake, we had noticed that our car was suffering from strong vibrations. Especially once we drove faster than 50 km/h, it became almost unbearable.  
@@ -41,6 +52,8 @@ We also took every opportunity to stop and take photos. The scenery was already 
 In the early evening, we finally arrived in Dawson City. After a quick stop to pick up a few things, we took the ferry across to the other side of the Yukon River and stayed overnight at the Yukon River Campground.  
 Located directly by the Yukon River, the campground was a perfect starting point for a walk along the riverbank, where we could even admire the stranded wreck of an old paddle steamer.
 
+<DirectusGallery folderName="68 Whitehorse Dawson City" />
+
 Relaxed and happy that we no longer had any problems with the vehicle, we let the evening come to a quiet end. The next day, we wanted to explore Dawson City and finally start our journey on the Dempster Highway.  
 But more about that in the next blog post!
 
@@ -49,3 +62,14 @@ But more about that in the next blog post!
 When: August 8 to August 10
 Nights: 2
 Distance Driven: 557 km
+
+<PathMap
+  client:load
+  gpxInfo={[
+    {
+      url: "https://directus.aaronczichon.de/assets/85c2bfa0-9b25-473a-9930-bbac57a14f32.gpx",
+      tooltip: "Our 1st stint from Whitehorse to Dawson City",
+    }
+  ]}
+  zoom="12"
+/>
